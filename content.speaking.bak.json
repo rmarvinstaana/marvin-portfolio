@@ -1,0 +1,24 @@
+{
+  "_note": "Backup of the former experience.speaking data, replaced by experience.industryPresence in Phase 2. Not rendered anywhere. Kept for reference only.",
+  "speakingSubtitle": "Occasionally They Let Me Hold a Microphone",
+  "speaking": [
+    {
+      "id": "speak-1",
+      "event": "Content Writing In The Online World",
+      "date": "February 27, 2021",
+      "location": "Google Dev Group PH",
+      "format": "virtual",
+      "topic": "Content Writing In The Online World",
+      "description": "Delivered a writing workshop for Google Developer Group Philippines on the craft and strategy of content writing in digital environments. Covered content frameworks, audience targeting, and building a writing practice for the web."
+    },
+    {
+      "id": "speak-2",
+      "event": "Breaking The Writer's Block",
+      "date": "January 15, 2021",
+      "location": "Rizal Library",
+      "format": "virtual",
+      "topic": "Breaking The Writer's Block",
+      "description": "Led a two-part seminar for Rizal Library Ambassadors on overcoming creative blocks and sustaining a writing practice. Explored practical techniques for generating ideas, managing creative resistance, and building consistency as a writer."
+    }
+  ]
+}
