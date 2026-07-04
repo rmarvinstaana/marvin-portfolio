@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import PageTransition from '../components/PageTransition'
 import SkillTag from '../components/SkillTag'
 import content from '../../content.json'
@@ -24,6 +25,10 @@ export default function Skills() {
 
   return (
     <PageTransition>
+      <Helmet>
+        <title>Skills | Marvin Sta. Ana</title>
+        <meta name="description" content="Marvin Sta. Ana's skills: AI-native content production, event marketing, crypto and Web3, finance content, strategy, and growth." />
+      </Helmet>
       <div className="container section">
         <motion.p className="section-eyebrow" {...fadeUp(0)}>{skills.eyebrow || 'Toolkit'}</motion.p>
         <motion.h2 className="section-title" {...fadeUp(0.05)}>Skills & Tools</motion.h2>

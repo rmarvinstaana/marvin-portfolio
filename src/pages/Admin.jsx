@@ -1,9 +1,16 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import PageTransition from '../components/PageTransition'
 
-const PASS = import.meta.env.VITE_ADMIN_PASSWORD || 'admin'
-const TABS = ['About', 'Experience', 'Education', 'Skills', 'Portfolio', 'Contact']
+const TABS = ['Hero', 'About', 'Experience', 'Education', 'Skills', 'Portfolio', 'Contact']
+
+const AdminHelmet = () => (
+  <Helmet>
+    <title>Admin | Marvin Sta. Ana</title>
+    <meta name="robots" content="noindex, nofollow" />
+  </Helmet>
+)
 
 /* ─── Tiny modal for add/edit forms ─────────────────────────────── */
 function Modal({ title, onClose, children }) {
@@ -23,19 +30,150 @@ function Modal({ title, onClose, children }) {
   )
 }
 
-/* ─── Save to Netlify Function ───────────────────────────────────── */
-async function saveContent(data) {
+/* ─── Save to Netlify Function (password verified server-side) ───── */
+async function saveContent(content, password) {
   const res = await fetch('/.netlify/functions/save-content', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
+    body: JSON.stringify({ password, content }),
   })
-  if (!res.ok) throw new Error(await res.text())
+  if (!res.ok) {
+    let msg = await res.text()
+    try { msg = JSON.parse(msg).error || msg } catch { /* keep raw text */ }
+    const err = new Error(msg)
+    err.status = res.status
+    throw err
+  }
   return res.json()
+}
+
+/* ─── Hero Tab ──────────────────────────────────────────────────── */
+function HeroTab({ data, onChange, onSave, saveStatus }) {
+  const h = data.hero
+  const set = (patch) => onChange('hero', { ...h, ...patch })
+  const setCta = (key, field, value) => set({ [key]: { ...(h[key] || {}), [field]: value } })
+
+  const stats = h.stats || []
+  const featured = h.featured || []
+
+  return (
+    <div>
+      <div className="admin-section-title">Hero Text</div>
+
+      <div className="form-group" style={{ marginBottom: 14 }}>
+        <label className="form-label">Subtitle</label>
+        <input className="form-input" value={h.subtitle || ''} onChange={e => set({ subtitle: e.target.value })} />
+      </div>
+      <div className="form-group" style={{ marginBottom: 14 }}>
+        <label className="form-label">Sarcastic Subline</label>
+        <input className="form-input" value={h.sarcasticSubline || ''} onChange={e => set({ sarcasticSubline: e.target.value })} />
+      </div>
+      <div className="form-group" style={{ marginBottom: 14 }}>
+        <label className="form-label">Typewriter Roles (one per line)</label>
+        <textarea
+          className="admin-textarea"
+          value={(h.typewriterRoles || []).join('\n')}
+          onChange={e => set({ typewriterRoles: e.target.value.split('\n').map(s => s.trim()).filter(Boolean) })}
+        />
+      </div>
+
+      <div className="admin-section-title" style={{ marginTop: 24 }}>Call To Action Buttons</div>
+      {[['ctaPrimary', 'Primary'], ['ctaSecondary', 'Secondary'], ['ctaCv', 'CV Download']].map(([key, label]) => (
+        <div key={key} style={{ display: 'flex', gap: 8, marginBottom: 10 }}>
+          <div className="form-group" style={{ flex: 1 }}>
+            <label className="form-label">{label} Label</label>
+            <input className="form-input" value={(h[key] || {}).label || ''} onChange={e => setCta(key, 'label', e.target.value)} />
+          </div>
+          <div className="form-group" style={{ flex: 1 }}>
+            <label className="form-label">{label} Href</label>
+            <input className="form-input" value={(h[key] || {}).href || ''} onChange={e => setCta(key, 'href', e.target.value)} />
+          </div>
+        </div>
+      ))}
+
+      <div className="admin-section-title" style={{ marginTop: 24 }}>Stat Ticker</div>
+      {stats.map((s, i) => (
+        <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8, alignItems: 'flex-end', flexWrap: 'wrap' }}>
+          <div className="form-group" style={{ width: 90 }}>
+            <label className="form-label">Value</label>
+            <input className="form-input" value={s.value} onChange={e => {
+              const arr = [...stats]; arr[i] = { ...arr[i], value: e.target.value }; set({ stats: arr })
+            }} />
+          </div>
+          <div className="form-group" style={{ width: 90 }}>
+            <label className="form-label">Suffix</label>
+            <input className="form-input" value={s.suffix} onChange={e => {
+              const arr = [...stats]; arr[i] = { ...arr[i], suffix: e.target.value }; set({ stats: arr })
+            }} />
+          </div>
+          <div className="form-group" style={{ flex: 1, minWidth: 160 }}>
+            <label className="form-label">Label</label>
+            <input className="form-input" value={s.label} onChange={e => {
+              const arr = [...stats]; arr[i] = { ...arr[i], label: e.target.value }; set({ stats: arr })
+            }} />
+          </div>
+          <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: 6, paddingBottom: 12 }}>
+            <input type="checkbox" checked={!!s.highlight} onChange={e => {
+              const arr = [...stats]; arr[i] = { ...arr[i], highlight: e.target.checked }; set({ stats: arr })
+            }} /> Highlight
+          </label>
+          <button className="admin-btn-delete" style={{ marginBottom: 8 }} onClick={() => set({ stats: stats.filter((_, j) => j !== i) })}>✕</button>
+        </div>
+      ))}
+      <button className="admin-btn-add" onClick={() => set({ stats: [...stats, { value: '', suffix: '', label: '', highlight: false }] })}>+ Add Stat</button>
+
+      <div className="admin-section-title" style={{ marginTop: 32 }}>Featured (Selected Work)</div>
+      {featured.map((item, i) => (
+        <div key={i} style={{ border: '1px solid var(--line)', borderRadius: 8, padding: 14, marginBottom: 12 }}>
+          <div style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
+            <div className="form-group" style={{ width: 160 }}>
+              <label className="form-label">Tag</label>
+              <input className="form-input" value={item.tag} onChange={e => {
+                const arr = [...featured]; arr[i] = { ...arr[i], tag: e.target.value }; set({ featured: arr })
+              }} />
+            </div>
+            <div className="form-group" style={{ flex: 1 }}>
+              <label className="form-label">Title</label>
+              <input className="form-input" value={item.title} onChange={e => {
+                const arr = [...featured]; arr[i] = { ...arr[i], title: e.target.value }; set({ featured: arr })
+              }} />
+            </div>
+          </div>
+          <div className="form-group" style={{ marginBottom: 8 }}>
+            <label className="form-label">Description</label>
+            <textarea className="admin-textarea" value={item.description} onChange={e => {
+              const arr = [...featured]; arr[i] = { ...arr[i], description: e.target.value }; set({ featured: arr })
+            }} />
+          </div>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'flex-end' }}>
+            <div className="form-group" style={{ flex: 1 }}>
+              <label className="form-label">CTA Label</label>
+              <input className="form-input" value={item.ctaLabel} onChange={e => {
+                const arr = [...featured]; arr[i] = { ...arr[i], ctaLabel: e.target.value }; set({ featured: arr })
+              }} />
+            </div>
+            <div className="form-group" style={{ flex: 1 }}>
+              <label className="form-label">Href</label>
+              <input className="form-input" value={item.href} onChange={e => {
+                const arr = [...featured]; arr[i] = { ...arr[i], href: e.target.value }; set({ featured: arr })
+              }} />
+            </div>
+            <button className="admin-btn-delete" style={{ marginBottom: 8 }} onClick={() => set({ featured: featured.filter((_, j) => j !== i) })}>✕</button>
+          </div>
+        </div>
+      ))}
+      <button className="admin-btn-add" onClick={() => set({ featured: [...featured, { tag: '', title: '', description: '', ctaLabel: '', href: '' }] })}>+ Add Featured</button>
+
+      <SaveBar onSave={onSave} status={saveStatus} />
+    </div>
+  )
 }
 
 /* ─── About Tab ─────────────────────────────────────────────────── */
 function AboutTab({ data, onChange, onSave, saveStatus }) {
+  const about = data.about
+  const howIWork = about.howIWork || { heading: '', paragraphs: [] }
+
   return (
     <div>
       <div className="admin-section-title">About Section</div>
@@ -44,32 +182,32 @@ function AboutTab({ data, onChange, onSave, saveStatus }) {
         <label className="form-label">Section Subtitle (sarcastic line)</label>
         <input
           className="form-input"
-          value={data.about.sectionSubtitle}
-          onChange={e => onChange('about', { ...data.about, sectionSubtitle: e.target.value })}
+          value={about.sectionSubtitle}
+          onChange={e => onChange('about', { ...about, sectionSubtitle: e.target.value })}
         />
       </div>
 
       <div className="form-group" style={{ marginBottom: 16 }}>
-        <label className="form-label">Bio Paragraphs (one per line)</label>
+        <label className="form-label">Bio Paragraphs (blank line between paragraphs)</label>
         <textarea
           className="admin-textarea"
           style={{ minHeight: 200 }}
-          value={data.about.bio.join('\n\n')}
-          onChange={e => onChange('about', { ...data.about, bio: e.target.value.split('\n\n').filter(Boolean) })}
+          value={about.bio.join('\n\n')}
+          onChange={e => onChange('about', { ...about, bio: e.target.value.split('\n\n').map(s => s.trim()).filter(Boolean) })}
         />
       </div>
 
       <div className="admin-section-title" style={{ marginTop: 24 }}>Fun Facts</div>
-      {data.about.funFacts.map((fact, i) => (
+      {about.funFacts.map((fact, i) => (
         <div key={i} style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
           <input
             className="form-input"
             style={{ width: 60 }}
             value={fact.emoji}
             onChange={e => {
-              const arr = [...data.about.funFacts]
+              const arr = [...about.funFacts]
               arr[i] = { ...arr[i], emoji: e.target.value }
-              onChange('about', { ...data.about, funFacts: arr })
+              onChange('about', { ...about, funFacts: arr })
             }}
             placeholder="Emoji"
           />
@@ -77,25 +215,41 @@ function AboutTab({ data, onChange, onSave, saveStatus }) {
             className="form-input"
             value={fact.label}
             onChange={e => {
-              const arr = [...data.about.funFacts]
+              const arr = [...about.funFacts]
               arr[i] = { ...arr[i], label: e.target.value }
-              onChange('about', { ...data.about, funFacts: arr })
+              onChange('about', { ...about, funFacts: arr })
             }}
             placeholder="Label"
           />
           <button
             className="admin-btn-delete"
-            onClick={() => {
-              const arr = data.about.funFacts.filter((_, j) => j !== i)
-              onChange('about', { ...data.about, funFacts: arr })
-            }}
+            onClick={() => onChange('about', { ...about, funFacts: about.funFacts.filter((_, j) => j !== i) })}
           >✕</button>
         </div>
       ))}
       <button
         className="admin-btn-add"
-        onClick={() => onChange('about', { ...data.about, funFacts: [...data.about.funFacts, { emoji: '⭐', label: 'New Fact' }] })}
+        onClick={() => onChange('about', { ...about, funFacts: [...about.funFacts, { emoji: '⭐', label: 'New Fact' }] })}
       >+ Add Fact</button>
+
+      <div className="admin-section-title" style={{ marginTop: 32 }}>How I Work</div>
+      <div className="form-group" style={{ marginBottom: 14 }}>
+        <label className="form-label">Heading</label>
+        <input
+          className="form-input"
+          value={howIWork.heading}
+          onChange={e => onChange('about', { ...about, howIWork: { ...howIWork, heading: e.target.value } })}
+        />
+      </div>
+      <div className="form-group" style={{ marginBottom: 14 }}>
+        <label className="form-label">Paragraphs (blank line between paragraphs)</label>
+        <textarea
+          className="admin-textarea"
+          style={{ minHeight: 160 }}
+          value={(howIWork.paragraphs || []).join('\n\n')}
+          onChange={e => onChange('about', { ...about, howIWork: { ...howIWork, paragraphs: e.target.value.split('\n\n').map(s => s.trim()).filter(Boolean) } })}
+        />
+      </div>
 
       <SaveBar onSave={onSave} status={saveStatus} />
     </div>
@@ -104,77 +258,118 @@ function AboutTab({ data, onChange, onSave, saveStatus }) {
 
 /* ─── Experience Tab ─────────────────────────────────────────────── */
 function ExperienceTab({ data, onChange, onSave, saveStatus }) {
-  const [modal, setModal] = useState(null) // { type: 'job'|'speak', item, idx }
+  const [modal, setModal] = useState(null) // { type: 'job'|'presence', item, idx }
 
-  const jobs = data.experience.jobs
-  const speaking = data.experience.speaking
+  const exp = data.experience
+  const jobs = exp.jobs
+  const presence = exp.industryPresence || []
 
-  const saveJob = (item, idx) => {
+  const saveJob = (form, idx) => {
+    const badges = (form.badgesText || '').split('\n').map(l => l.trim()).filter(Boolean).map(l => {
+      const [label, variant] = l.split('|').map(s => s.trim())
+      return { label, variant: variant || 'amber' }
+    })
+    const job = {
+      id: form.id || `job-${Date.now()}`,
+      title: form.title,
+      company: form.company,
+      period: form.period,
+      location: form.location,
+      collapsed: !!form.collapsed,
+      badges,
+      bullets: (form.bullets || '').split('\n').map(s => s.trim()).filter(Boolean),
+    }
     const arr = [...jobs]
-    if (idx === -1) arr.push({ ...item, id: `job-${Date.now()}` })
-    else arr[idx] = item
-    onChange('experience', { ...data.experience, jobs: arr })
+    if (idx === -1) arr.push(job)
+    else arr[idx] = job
+    onChange('experience', { ...exp, jobs: arr })
     setModal(null)
   }
 
-  const delJob = (idx) => {
-    onChange('experience', { ...data.experience, jobs: jobs.filter((_, i) => i !== idx) })
-  }
-
-  const saveSpeak = (item, idx) => {
-    const arr = [...speaking]
-    if (idx === -1) arr.push({ ...item, id: `speak-${Date.now()}` })
+  const savePresence = (form, idx) => {
+    const item = {
+      period: form.period,
+      title: form.title,
+      lead: !!form.lead,
+      description: form.description,
+    }
+    const arr = [...presence]
+    if (idx === -1) arr.push(item)
     else arr[idx] = item
-    onChange('experience', { ...data.experience, speaking: arr })
+    onChange('experience', { ...exp, industryPresence: arr })
     setModal(null)
   }
 
-  const delSpeak = (idx) => {
-    onChange('experience', { ...data.experience, speaking: speaking.filter((_, i) => i !== idx) })
-  }
+  const openJob = (job, idx) => setModal({
+    type: 'job',
+    idx,
+    item: {
+      ...job,
+      bullets: (job.bullets || []).join('\n'),
+      badgesText: (job.badges || []).map(b => `${b.label}|${b.variant || 'amber'}`).join('\n'),
+      collapsed: !!job.collapsed,
+    },
+  })
 
   return (
     <div>
+      <div className="form-group" style={{ marginBottom: 16 }}>
+        <label className="form-label">Section Subtitle</label>
+        <input className="form-input" value={exp.sectionSubtitle} onChange={e => onChange('experience', { ...exp, sectionSubtitle: e.target.value })} />
+      </div>
+
       <div className="admin-section-title">Work Experience</div>
       {jobs.map((job, i) => (
         <div key={job.id} className="admin-list-item">
           <div className="admin-list-item-info">
-            <div className="admin-list-item-title">{job.title}</div>
+            <div className="admin-list-item-title">{job.title} {job.collapsed && <span style={{ color: 'var(--muted)', fontSize: '0.75rem' }}>(collapsed)</span>}</div>
             <div className="admin-list-item-sub">{job.company} · {job.period}</div>
           </div>
           <div className="admin-item-actions">
-            <button className="admin-btn-edit" onClick={() => setModal({ type: 'job', item: { ...job, bullets: job.bullets.join('\n') }, idx: i })}>Edit</button>
-            <button className="admin-btn-delete" onClick={() => delJob(i)}>Delete</button>
+            <button className="admin-btn-edit" onClick={() => openJob(job, i)}>Edit</button>
+            <button className="admin-btn-delete" onClick={() => onChange('experience', { ...exp, jobs: jobs.filter((_, j) => j !== i) })}>Delete</button>
           </div>
         </div>
       ))}
-      <button className="admin-btn-add" onClick={() => setModal({ type: 'job', item: { title: '', company: '', period: '', location: '', bullets: '' }, idx: -1 })}>+ Add Role</button>
+      <button className="admin-btn-add" onClick={() => setModal({ type: 'job', idx: -1, item: { title: '', company: '', period: '', location: '', bullets: '', badgesText: '', collapsed: false } })}>+ Add Role</button>
 
-      <div className="admin-section-title" style={{ marginTop: 32 }}>Speaking Engagements</div>
-      {speaking.map((s, i) => (
-        <div key={s.id} className="admin-list-item">
+      <div className="admin-section-title" style={{ marginTop: 32 }}>Industry Presence</div>
+      <div className="form-group" style={{ marginBottom: 10 }}>
+        <label className="form-label">Eyebrow</label>
+        <input className="form-input" value={exp.industryPresenceEyebrow || ''} onChange={e => onChange('experience', { ...exp, industryPresenceEyebrow: e.target.value })} />
+      </div>
+      <div className="form-group" style={{ marginBottom: 10 }}>
+        <label className="form-label">Heading</label>
+        <input className="form-input" value={exp.industryPresenceHeading || ''} onChange={e => onChange('experience', { ...exp, industryPresenceHeading: e.target.value })} />
+      </div>
+      <div className="form-group" style={{ marginBottom: 16 }}>
+        <label className="form-label">Subtitle</label>
+        <input className="form-input" value={exp.industryPresenceSubtitle || ''} onChange={e => onChange('experience', { ...exp, industryPresenceSubtitle: e.target.value })} />
+      </div>
+      {presence.map((p, i) => (
+        <div key={i} className="admin-list-item">
           <div className="admin-list-item-info">
-            <div className="admin-list-item-title">{s.event}</div>
-            <div className="admin-list-item-sub">{s.date} · {s.location}</div>
+            <div className="admin-list-item-title">{p.title} {p.lead && <span style={{ color: 'var(--amber)', fontSize: '0.75rem' }}>(lead)</span>}</div>
+            <div className="admin-list-item-sub">{p.period}</div>
           </div>
           <div className="admin-item-actions">
-            <button className="admin-btn-edit" onClick={() => setModal({ type: 'speak', item: { ...s }, idx: i })}>Edit</button>
-            <button className="admin-btn-delete" onClick={() => delSpeak(i)}>Delete</button>
+            <button className="admin-btn-edit" onClick={() => setModal({ type: 'presence', idx: i, item: { ...p } })}>Edit</button>
+            <button className="admin-btn-delete" onClick={() => onChange('experience', { ...exp, industryPresence: presence.filter((_, j) => j !== i) })}>Delete</button>
           </div>
         </div>
       ))}
-      <button className="admin-btn-add" onClick={() => setModal({ type: 'speak', item: { event: '', date: '', location: '', format: 'in-person', topic: '', description: '' }, idx: -1 })}>+ Add Engagement</button>
+      <button className="admin-btn-add" onClick={() => setModal({ type: 'presence', idx: -1, item: { period: '', title: '', description: '', lead: false } })}>+ Add Presence</button>
 
       <SaveBar onSave={onSave} status={saveStatus} />
 
       {modal?.type === 'job' && (
         <Modal title={modal.idx === -1 ? 'Add Role' : 'Edit Role'} onClose={() => setModal(null)}>
-          <JobForm item={modal.item} onSave={(item) => saveJob({ ...item, bullets: item.bullets.split('\n').filter(Boolean) }, modal.idx)} onClose={() => setModal(null)} />
+          <JobForm item={modal.item} onSave={(form) => saveJob(form, modal.idx)} onClose={() => setModal(null)} />
         </Modal>
       )}
-      {modal?.type === 'speak' && (
-        <Modal title={modal.idx === -1 ? 'Add Engagement' : 'Edit Engagement'} onClose={() => setModal(null)}>
-          <SpeakForm item={modal.item} onSave={(item) => saveSpeak(item, modal.idx)} onClose={() => setModal(null)} />
+      {modal?.type === 'presence' && (
+        <Modal title={modal.idx === -1 ? 'Add Presence' : 'Edit Presence'} onClose={() => setModal(null)}>
+          <PresenceForm item={modal.item} onSave={(form) => savePresence(form, modal.idx)} onClose={() => setModal(null)} />
         </Modal>
       )}
     </div>
@@ -189,12 +384,22 @@ function JobForm({ item, onSave, onClose }) {
       {[['title', 'Title'], ['company', 'Company'], ['period', 'Period'], ['location', 'Location']].map(([k, l]) => (
         <div className="form-group" key={k} style={{ marginBottom: 12 }}>
           <label className="form-label">{l}</label>
-          <input className="form-input" value={form[k]} onChange={f(k)} />
+          <input className="form-input" value={form[k] || ''} onChange={f(k)} />
         </div>
       ))}
       <div className="form-group" style={{ marginBottom: 12 }}>
+        <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <input type="checkbox" checked={!!form.collapsed} onChange={e => setForm(p => ({ ...p, collapsed: e.target.checked }))} />
+          Collapsed (renders as an accordion under Earlier Roles)
+        </label>
+      </div>
+      <div className="form-group" style={{ marginBottom: 12 }}>
+        <label className="form-label">Badges (one per line, format: label|variant where variant is amber or blue)</label>
+        <textarea className="admin-textarea" value={form.badgesText || ''} onChange={f('badgesText')} placeholder="200+ posts · 5 platforms|amber" />
+      </div>
+      <div className="form-group" style={{ marginBottom: 12 }}>
         <label className="form-label">Bullet Points (one per line)</label>
-        <textarea className="admin-textarea" value={form.bullets} onChange={f('bullets')} />
+        <textarea className="admin-textarea" style={{ minHeight: 160 }} value={form.bullets || ''} onChange={f('bullets')} />
       </div>
       <div className="admin-modal-actions">
         <button className="btn btn-outline" onClick={onClose}>Cancel</button>
@@ -204,27 +409,26 @@ function JobForm({ item, onSave, onClose }) {
   )
 }
 
-function SpeakForm({ item, onSave, onClose }) {
+function PresenceForm({ item, onSave, onClose }) {
   const [form, setForm] = useState(item)
   const f = (k) => (e) => setForm(p => ({ ...p, [k]: e.target.value }))
   return (
     <>
-      {[['event', 'Event Name'], ['date', 'Date'], ['location', 'Location'], ['topic', 'Topic / Talk Title']].map(([k, l]) => (
+      {[['period', 'Period'], ['title', 'Title']].map(([k, l]) => (
         <div className="form-group" key={k} style={{ marginBottom: 12 }}>
           <label className="form-label">{l}</label>
-          <input className="form-input" value={form[k]} onChange={f(k)} />
+          <input className="form-input" value={form[k] || ''} onChange={f(k)} />
         </div>
       ))}
       <div className="form-group" style={{ marginBottom: 12 }}>
-        <label className="form-label">Format</label>
-        <select className="form-select" value={form.format} onChange={f('format')}>
-          <option value="in-person">In-Person</option>
-          <option value="virtual">Virtual</option>
-        </select>
+        <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <input type="checkbox" checked={!!form.lead} onChange={e => setForm(p => ({ ...p, lead: e.target.checked }))} />
+          Lead (full-width, amber wash)
+        </label>
       </div>
       <div className="form-group" style={{ marginBottom: 12 }}>
         <label className="form-label">Description</label>
-        <textarea className="admin-textarea" value={form.description} onChange={f('description')} />
+        <textarea className="admin-textarea" value={form.description || ''} onChange={f('description')} />
       </div>
       <div className="admin-modal-actions">
         <button className="btn btn-outline" onClick={onClose}>Cancel</button>
@@ -292,12 +496,12 @@ function EducationTab({ data, onChange, onSave, saveStatus }) {
 
       {modal?.type === 'deg' && (
         <Modal title={modal.idx === -1 ? 'Add Degree' : 'Edit Degree'} onClose={() => setModal(null)}>
-          <SimpleForm fields={[['degree','Degree'],['institution','Institution'],['period','Period']]} item={modal.item} onSave={(it) => saveDeg({ ...it, id: modal.item.id || `edu-${Date.now()}` }, modal.idx)} onClose={() => setModal(null)} />
+          <SimpleForm fields={[['degree', 'Degree'], ['institution', 'Institution'], ['period', 'Period']]} item={modal.item} onSave={(it) => saveDeg({ ...it, id: modal.item.id || `edu-${Date.now()}` }, modal.idx)} onClose={() => setModal(null)} />
         </Modal>
       )}
       {modal?.type === 'cert' && (
         <Modal title={modal.idx === -1 ? 'Add Certification' : 'Edit Certification'} onClose={() => setModal(null)}>
-          <SimpleForm fields={[['name','Name'],['issuer','Issuer']]} item={modal.item} onSave={(it) => saveCert({ ...it, id: modal.item.id || `cert-${Date.now()}` }, modal.idx)} onClose={() => setModal(null)} />
+          <SimpleForm fields={[['name', 'Name'], ['issuer', 'Issuer']]} item={modal.item} onSave={(it) => saveCert({ ...it, id: modal.item.id || `cert-${Date.now()}` }, modal.idx)} onClose={() => setModal(null)} />
         </Modal>
       )}
     </div>
@@ -306,58 +510,68 @@ function EducationTab({ data, onChange, onSave, saveStatus }) {
 
 /* ─── Skills Tab ─────────────────────────────────────────────────── */
 function SkillsTab({ data, onChange, onSave, saveStatus }) {
-  const renderGroup = (groupKey, groupList, groupIdPrefix) => (
+  const renderGroup = (groupKey, groupList, groupIdPrefix, primary) => (
     <>
-      {groupList.map((group, gi) => (
-        <div key={group.id} style={{ marginBottom: 28 }}>
-          <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 10 }}>
-            <input
-              className="form-input"
-              value={group.groupName}
-              onChange={e => {
-                const arr = [...groupList]
-                arr[gi] = { ...arr[gi], groupName: e.target.value }
-                onChange('skills', { ...data.skills, [groupKey]: arr })
-              }}
-              style={{ fontWeight: 600 }}
-            />
-            <button
-              className="admin-btn-delete"
-              onClick={() => onChange('skills', { ...data.skills, [groupKey]: groupList.filter((_, j) => j !== gi) })}
-            >✕</button>
+      {groupList.map((group, gi) => {
+        const update = (patch) => {
+          const arr = [...groupList]
+          arr[gi] = { ...arr[gi], ...patch }
+          onChange('skills', { ...data.skills, [groupKey]: arr })
+        }
+        return (
+          <div key={group.id} style={{ marginBottom: 28, border: '1px solid var(--line)', borderRadius: 8, padding: 14 }}>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 10 }}>
+              <input
+                className="form-input"
+                value={group.groupName}
+                onChange={e => update({ groupName: e.target.value })}
+                style={{ fontWeight: 600 }}
+              />
+              <button
+                className="admin-btn-delete"
+                onClick={() => onChange('skills', { ...data.skills, [groupKey]: groupList.filter((_, j) => j !== gi) })}
+              >✕</button>
+            </div>
+
+            {primary && (
+              <>
+                <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
+                  <input type="checkbox" checked={!!group.hot} onChange={e => update({ hot: e.target.checked })} /> Hot (amber highlight)
+                </label>
+                <div className="form-group" style={{ marginBottom: 8 }}>
+                  <label className="form-label">Proof line</label>
+                  <input className="form-input" value={group.proof || ''} onChange={e => update({ proof: e.target.value })} />
+                </div>
+                <div className="form-group" style={{ marginBottom: 10 }}>
+                  <label className="form-label">Proof link (blank for none)</label>
+                  <input className="form-input" value={group.proofHref || ''} onChange={e => update({ proofHref: e.target.value || null })} />
+                </div>
+              </>
+            )}
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+              {group.tags.map((tag, ti) => (
+                <div key={ti} style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'rgba(255,255,255,0.04)', border: '1px solid var(--line)', borderRadius: 6, padding: '4px 8px' }}>
+                  <input
+                    style={{ background: 'none', border: 'none', color: 'var(--text)', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', width: `${tag.length + 2}ch`, outline: 'none' }}
+                    value={tag}
+                    onChange={e => {
+                      const tags = [...group.tags]; tags[ti] = e.target.value; update({ tags })
+                    }}
+                  />
+                  <button style={{ background: 'none', border: 'none', color: 'var(--muted)', cursor: 'pointer', fontSize: '0.75rem' }} onClick={() => update({ tags: group.tags.filter((_, j) => j !== ti) })}>✕</button>
+                </div>
+              ))}
+              <button style={{ background: 'none', border: '1px dashed var(--amber)', color: 'var(--amber)', borderRadius: 6, padding: '4px 12px', fontSize: '0.8rem', cursor: 'pointer' }}
+                onClick={() => update({ tags: [...group.tags, 'New Tag'] })}>+ Tag</button>
+            </div>
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-            {group.tags.map((tag, ti) => (
-              <div key={ti} style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border)', borderRadius: 6, padding: '4px 8px' }}>
-                <input
-                  style={{ background: 'none', border: 'none', color: 'var(--text)', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', width: `${tag.length + 2}ch`, outline: 'none' }}
-                  value={tag}
-                  onChange={e => {
-                    const arr = [...groupList]
-                    const tags = [...arr[gi].tags]
-                    tags[ti] = e.target.value
-                    arr[gi] = { ...arr[gi], tags }
-                    onChange('skills', { ...data.skills, [groupKey]: arr })
-                  }}
-                />
-                <button style={{ background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '0.75rem' }} onClick={() => {
-                  const arr = [...groupList]
-                  arr[gi] = { ...arr[gi], tags: arr[gi].tags.filter((_, j) => j !== ti) }
-                  onChange('skills', { ...data.skills, [groupKey]: arr })
-                }}>✕</button>
-              </div>
-            ))}
-            <button style={{ background: 'none', border: '1px dashed var(--purple)', color: 'var(--purple)', borderRadius: 6, padding: '4px 12px', fontSize: '0.8rem', cursor: 'pointer' }}
-              onClick={() => {
-                const arr = [...groupList]
-                arr[gi] = { ...arr[gi], tags: [...arr[gi].tags, 'New Tag'] }
-                onChange('skills', { ...data.skills, [groupKey]: arr })
-              }}>+ Tag</button>
-          </div>
-        </div>
-      ))}
+        )
+      })}
       <button className="admin-btn-add" onClick={() => {
-        const newGroup = { id: `${groupIdPrefix}-${Date.now()}`, groupName: 'New Group', tags: [] }
+        const newGroup = primary
+          ? { id: `${groupIdPrefix}-${Date.now()}`, hot: false, groupName: 'New Group', proof: '', proofHref: null, tags: [] }
+          : { id: `${groupIdPrefix}-${Date.now()}`, groupName: 'New Group', tags: [] }
         onChange('skills', { ...data.skills, [groupKey]: [...groupList, newGroup] })
       }}>+ Add Group</button>
     </>
@@ -365,10 +579,19 @@ function SkillsTab({ data, onChange, onSave, saveStatus }) {
 
   return (
     <div>
+      <div className="form-group" style={{ marginBottom: 16 }}>
+        <label className="form-label">Eyebrow</label>
+        <input className="form-input" value={data.skills.eyebrow || ''} onChange={e => onChange('skills', { ...data.skills, eyebrow: e.target.value })} />
+      </div>
+      <div className="form-group" style={{ marginBottom: 16 }}>
+        <label className="form-label">Section Subtitle</label>
+        <input className="form-input" value={data.skills.sectionSubtitle || ''} onChange={e => onChange('skills', { ...data.skills, sectionSubtitle: e.target.value })} />
+      </div>
+
       <div className="admin-section-title">Skill Groups</div>
-      {renderGroup('groups', data.skills.groups, 'sg')}
+      {renderGroup('groups', data.skills.groups, 'sg', true)}
       <div className="admin-section-title" style={{ marginTop: 32 }}>Tool Groups</div>
-      {renderGroup('toolGroups', data.skills.toolGroups, 'tg')}
+      {renderGroup('toolGroups', data.skills.toolGroups, 'tg', false)}
       <SaveBar onSave={onSave} status={saveStatus} />
     </div>
   )
@@ -393,8 +616,8 @@ function PortfolioTab({ data, onChange, onSave, saveStatus }) {
       {items.map((item, i) => (
         <div key={item.id} className="admin-list-item">
           <div className="admin-list-item-info">
-            <div className="admin-list-item-title">{item.title}</div>
-            <div className="admin-list-item-sub">{item.category}</div>
+            <div className="admin-list-item-title">{item.glyph} {item.title} {item.featured && <span style={{ color: 'var(--amber)', fontSize: '0.75rem' }}>(featured)</span>}</div>
+            <div className="admin-list-item-sub">{item.category} · {item.theme || 'mix'}</div>
           </div>
           <div className="admin-item-actions">
             <button className="admin-btn-edit" onClick={() => setModal({ item: { ...item }, idx: i })}>Edit</button>
@@ -402,7 +625,7 @@ function PortfolioTab({ data, onChange, onSave, saveStatus }) {
           </div>
         </div>
       ))}
-      <button className="admin-btn-add" onClick={() => setModal({ item: { title: '', category: 'Campaigns', description: '', link: '#' }, idx: -1 })}>+ Add Item</button>
+      <button className="admin-btn-add" onClick={() => setModal({ item: { title: '', category: data.portfolio.categories.find(c => c !== 'All') || '', description: '', link: '#', glyph: '📄', theme: 'mix', featured: false, badges: [] }, idx: -1 })}>+ Add Item</button>
       <SaveBar onSave={onSave} status={saveStatus} />
 
       {modal && (
@@ -429,13 +652,41 @@ function PortfolioForm({ item, categories, onSave, onClose }) {
           {categories.map(c => <option key={c} value={c}>{c}</option>)}
         </select>
       </div>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <div className="form-group" style={{ width: 90, marginBottom: 12 }}>
+          <label className="form-label">Glyph</label>
+          <input className="form-input" value={form.glyph || ''} onChange={f('glyph')} placeholder="📄" />
+        </div>
+        <div className="form-group" style={{ flex: 1, marginBottom: 12 }}>
+          <label className="form-label">Theme</label>
+          <select className="form-select" value={form.theme || 'mix'} onChange={f('theme')}>
+            <option value="amber">amber</option>
+            <option value="blue">blue</option>
+            <option value="mix">mix</option>
+          </select>
+        </div>
+      </div>
+      <div className="form-group" style={{ marginBottom: 12 }}>
+        <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <input type="checkbox" checked={!!form.featured} onChange={e => setForm(p => ({ ...p, featured: e.target.checked }))} />
+          Featured (wide flagship card with corner flag)
+        </label>
+      </div>
       <div className="form-group" style={{ marginBottom: 12 }}>
         <label className="form-label">Description</label>
         <textarea className="admin-textarea" value={form.description} onChange={f('description')} />
       </div>
       <div className="form-group" style={{ marginBottom: 12 }}>
+        <label className="form-label">Badges (one per line)</label>
+        <textarea
+          className="admin-textarea"
+          value={(form.badges || []).join('\n')}
+          onChange={e => setForm(p => ({ ...p, badges: e.target.value.split('\n').map(s => s.trim()).filter(Boolean) }))}
+        />
+      </div>
+      <div className="form-group" style={{ marginBottom: 12 }}>
         <label className="form-label">Link URL</label>
-        <input className="form-input" value={form.link} onChange={f('link')} />
+        <input className="form-input" value={form.link || ''} onChange={f('link')} />
       </div>
       <div className="admin-modal-actions">
         <button className="btn btn-outline" onClick={onClose}>Cancel</button>
@@ -448,20 +699,44 @@ function PortfolioForm({ item, categories, onSave, onClose }) {
 /* ─── Contact Tab ────────────────────────────────────────────────── */
 function ContactTab({ data, onChange, onSave, saveStatus }) {
   const c = data.contact
+  const cv = c.cv || { label: '', href: '' }
   const f = (k) => (e) => onChange('contact', { ...c, [k]: e.target.value })
   return (
     <div>
       <div className="admin-section-title">Contact Info</div>
-      {[['email','Email'],['linkedin','LinkedIn URL'],['location','Location'],['sectionSubtitle','Section Subtitle'],['sarcasticNote','Sarcastic Note']].map(([k, l]) => (
+      {[['email', 'Email'], ['linkedin', 'LinkedIn URL'], ['telegram', 'Telegram Handle'], ['location', 'Location'], ['sectionSubtitle', 'Section Subtitle'], ['sarcasticNote', 'Sarcastic Note']].map(([k, l]) => (
         <div className="form-group" key={k} style={{ marginBottom: 14 }}>
           <label className="form-label">{l}</label>
           {k === 'sarcasticNote' ? (
-            <textarea className="admin-textarea" value={c[k]} onChange={f(k)} />
+            <textarea className="admin-textarea" value={c[k] || ''} onChange={f(k)} />
           ) : (
-            <input className="form-input" value={c[k]} onChange={f(k)} />
+            <input className="form-input" value={c[k] || ''} onChange={f(k)} />
           )}
         </div>
       ))}
+
+      <div className="admin-section-title" style={{ marginTop: 24 }}>CV / Resume Link</div>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <div className="form-group" style={{ flex: 1, marginBottom: 14 }}>
+          <label className="form-label">Label</label>
+          <input className="form-input" value={cv.label || ''} onChange={e => onChange('contact', { ...c, cv: { ...cv, label: e.target.value } })} />
+        </div>
+        <div className="form-group" style={{ flex: 1, marginBottom: 14 }}>
+          <label className="form-label">Href</label>
+          <input className="form-input" value={cv.href || ''} onChange={e => onChange('contact', { ...c, cv: { ...cv, href: e.target.value } })} />
+        </div>
+      </div>
+
+      <div className="admin-section-title" style={{ marginTop: 24 }}>Subject Options</div>
+      <div className="form-group" style={{ marginBottom: 14 }}>
+        <label className="form-label">One per line (order matters)</label>
+        <textarea
+          className="admin-textarea"
+          value={(c.subjectOptions || []).join('\n')}
+          onChange={e => onChange('contact', { ...c, subjectOptions: e.target.value.split('\n').map(s => s.trim()).filter(Boolean) })}
+        />
+      </div>
+
       <SaveBar onSave={onSave} status={saveStatus} />
     </div>
   )
@@ -476,7 +751,7 @@ function SimpleForm({ fields, item, onSave, onClose }) {
       {fields.map(([k, l]) => (
         <div className="form-group" key={k} style={{ marginBottom: 12 }}>
           <label className="form-label">{l}</label>
-          <input className="form-input" value={form[k]} onChange={f(k)} />
+          <input className="form-input" value={form[k] || ''} onChange={f(k)} />
         </div>
       ))}
       <div className="admin-modal-actions">
@@ -502,10 +777,10 @@ function SaveBar({ onSave, status }) {
 
 /* ─── Main Admin Page ────────────────────────────────────────────── */
 export default function Admin() {
-  const [authed, setAuthed] = useState(() => sessionStorage.getItem('admin_auth') === 'yes')
+  const [authed, setAuthed] = useState(() => !!sessionStorage.getItem('admin_pass'))
   const [password, setPassword] = useState('')
   const [loginError, setLoginError] = useState('')
-  const [tab, setTab] = useState('About')
+  const [tab, setTab] = useState('Hero')
   const [data, setData] = useState(null)
   const [saveStatus, setSaveStatus] = useState(null)
 
@@ -517,18 +792,21 @@ export default function Admin() {
 
   const login = (e) => {
     e.preventDefault()
-    if (password === PASS) {
-      sessionStorage.setItem('admin_auth', 'yes')
-      setAuthed(true)
-    } else {
-      setLoginError('Wrong password. Try again, or just guess harder.')
+    if (!password.trim()) {
+      setLoginError('Enter the password. It is checked when you save.')
+      return
     }
+    // No client-side comparison: the password is verified by the Netlify
+    // function on save. We just stash it for this session to send with requests.
+    sessionStorage.setItem('admin_pass', password)
+    setAuthed(true)
   }
 
   const logout = () => {
-    sessionStorage.removeItem('admin_auth')
+    sessionStorage.removeItem('admin_pass')
     setAuthed(false)
     setData(null)
+    setPassword('')
   }
 
   const onChange = (section, val) => {
@@ -538,17 +816,24 @@ export default function Admin() {
   const onSave = async () => {
     setSaveStatus({ msg: 'Saving...' })
     try {
-      await saveContent(data)
+      await saveContent(data, sessionStorage.getItem('admin_pass') || '')
       setSaveStatus({ msg: '✓ Saved successfully' })
+      setTimeout(() => setSaveStatus(null), 4000)
     } catch (err) {
       setSaveStatus({ msg: `✗ Save failed: ${err.message}`, error: true })
+      if (err.status === 401) {
+        // Wrong password: drop the session so the user re-enters it.
+        setTimeout(() => logout(), 1500)
+      } else {
+        setTimeout(() => setSaveStatus(null), 5000)
+      }
     }
-    setTimeout(() => setSaveStatus(null), 4000)
   }
 
   if (!authed) {
     return (
       <PageTransition>
+        <AdminHelmet />
         <div className="admin-login">
           <motion.div
             className="admin-login-card"
@@ -584,6 +869,7 @@ export default function Admin() {
   if (!data) {
     return (
       <PageTransition>
+        <AdminHelmet />
         <div className="admin-wrap">
           <p className="text-secondary font-mono" style={{ textAlign: 'center', paddingTop: 80 }}>
             Loading content...
@@ -597,6 +883,7 @@ export default function Admin() {
 
   return (
     <PageTransition>
+      <AdminHelmet />
       <div className="admin-wrap">
         <div className="container">
           <div className="admin-header">
@@ -619,6 +906,7 @@ export default function Admin() {
           </div>
 
           <div className="admin-panel">
+            {tab === 'Hero'       && <HeroTab {...tabProps} />}
             {tab === 'About'      && <AboutTab {...tabProps} />}
             {tab === 'Experience' && <ExperienceTab {...tabProps} />}
             {tab === 'Education'  && <EducationTab {...tabProps} />}

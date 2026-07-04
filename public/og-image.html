@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OG Image</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0A0F1E;
+      --amber: #F0A32B;
+      --blue: #4D7CFE;
+      --text: #E9EDF5;
+      --muted: #8B95AD;
+      --line: rgba(139, 149, 173, 0.16);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; }
+    body {
+      background-color: var(--ink);
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Radial glows: blue top-right, amber bottom-left */
+    .glows {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(50% 55% at 100% 0%, rgba(77, 124, 254, 0.16), transparent 70%),
+        radial-gradient(50% 55% at 0% 100%, rgba(240, 163, 43, 0.14), transparent 72%);
+    }
+    /* 56px grid overlay */
+    .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 56px 56px;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 92%);
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 96px;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 28px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 44px;
+      height: 2px;
+      background: var(--amber);
+    }
+    .name {
+      font-size: 116px;
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+    }
+    .rule {
+      width: 120px;
+      height: 4px;
+      background: var(--amber);
+      border-radius: 2px;
+      margin: 36px 0;
+      box-shadow: 0 0 24px rgba(240, 163, 43, 0.5);
+    }
+    .role {
+      font-size: 40px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .role .accent { color: var(--blue); }
+    .foot {
+      position: absolute;
+      bottom: 48px;
+      left: 96px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+  <div class="glows"></div>
+  <div class="grid"></div>
+  <div class="content">
+    <div class="eyebrow">Portfolio</div>
+    <div class="name">Marvin Sta. Ana</div>
+    <div class="rule"></div>
+    <div class="role">Head of Content · <span class="accent">mb.io (MultiBank Group)</span></div>
+  </div>
+  <div class="foot">FX/CFD · Crypto · Web3 · Dubai</div>
+</body>
+</html>

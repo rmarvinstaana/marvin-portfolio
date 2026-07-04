@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import PageTransition from '../components/PageTransition'
 import content from '../../content.json'
 
@@ -28,6 +29,10 @@ export default function Experience() {
 
   return (
     <PageTransition>
+      <Helmet>
+        <title>Experience | Marvin Sta. Ana</title>
+        <meta name="description" content="The experience of Marvin Sta. Ana: Head of Content at mb.io (MultiBank Group) and eight years across fintech, FX/CFD, and Web3 content." />
+      </Helmet>
       <div className="container section">
         <motion.p className="section-eyebrow" {...fadeUp(0)}>Career</motion.p>
         <motion.h2 className="section-title" {...fadeUp(0.05)}>Experience</motion.h2>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import PageTransition from '../components/PageTransition'
 import PortfolioModal from '../components/PortfolioModal'
 import content from '../../content.json'
@@ -26,6 +27,10 @@ export default function Portfolio() {
 
   return (
     <PageTransition>
+      <Helmet>
+        <title>Portfolio | Marvin Sta. Ana</title>
+        <meta name="description" content="Marvin Sta. Ana's portfolio: campaigns, SEO case studies, content tooling, newsletters, and ad copy across crypto and finance." />
+      </Helmet>
       <div className="container section">
         <motion.p className="section-eyebrow" {...fadeUp(0)}>{portfolio.eyebrow || 'The Receipts'}</motion.p>
         <motion.h2 className="section-title" {...fadeUp(0.05)}>Portfolio</motion.h2>

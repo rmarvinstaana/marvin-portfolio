@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import PageTransition from '../components/PageTransition'
 import useTypewriter from '../hooks/useTypewriter'
 import content from '../../content.json'
@@ -48,6 +49,10 @@ export default function Home() {
 
   return (
     <PageTransition>
+      <Helmet>
+        <title>Marvin Sta. Ana | Head of Content</title>
+        <meta name="description" content="Head of Content at mb.io (MultiBank Group). 8+ years in FX/CFD, crypto, and Web3 content. 3 brands, 200+ posts, 20+ newsletter issues." />
+      </Helmet>
       <section className="hero">
         <div className="hero-content">
           <motion.p

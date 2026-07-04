@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import PageTransition from '../components/PageTransition'
 import content from '../../content.json'
 
@@ -39,6 +40,10 @@ export default function Contact() {
 
   return (
     <PageTransition>
+      <Helmet>
+        <title>Contact | Marvin Sta. Ana</title>
+        <meta name="description" content="Get in touch with Marvin Sta. Ana, Head of Content at mb.io (MultiBank Group), based in Dubai." />
+      </Helmet>
       <div className="container section">
         <motion.p className="section-eyebrow" {...fadeUp(0)}>Let's Talk</motion.p>
         <motion.h2 className="section-title" {...fadeUp(0.05)}>Contact</motion.h2>

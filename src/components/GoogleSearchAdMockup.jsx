@@ -87,7 +87,7 @@ export default function GoogleSearchAdMockup() {
       {/* Full copy reference */}
       <div className="ad-copy-reference">
         <div className="ad-ref-section">
-          <div className="ad-ref-label">All Headlines — {group.label}</div>
+          <div className="ad-ref-label">All Headlines · {group.label}</div>
           {group.headlines.map((h, i) => (
             <div key={i} className={`ad-ref-item ${i === combIndex ? 'active' : ''}`} onClick={() => setCombIndex(i)}>
               <span className="ad-ref-num">{i + 1}</span>
@@ -96,7 +96,7 @@ export default function GoogleSearchAdMockup() {
           ))}
         </div>
         <div className="ad-ref-section">
-          <div className="ad-ref-label">All Descriptions — {group.label}</div>
+          <div className="ad-ref-label">All Descriptions · {group.label}</div>
           {group.descriptions.map((d, i) => (
             <div key={i} className={`ad-ref-item ${i === combIndex ? 'active' : ''}`} onClick={() => setCombIndex(i)}>
               <span className="ad-ref-num">{i + 1}</span>
