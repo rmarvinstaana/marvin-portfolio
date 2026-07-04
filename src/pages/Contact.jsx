@@ -30,7 +30,7 @@ export default function Contact() {
       setSubmitted(true)
       form.reset()
     } catch {
-      // On local dev, Netlify Forms won't work — show success anyway
+      // On local dev, Netlify Forms won't work, so show success anyway
       setSubmitted(true)
     } finally {
       setSending(false)
@@ -49,7 +49,7 @@ export default function Contact() {
           <motion.div {...fadeUp(0.15)}>
             {submitted ? (
               <div className="form-success">
-                ✓ Message sent. I'll get back to you when I surface — literally or figuratively.
+                ✓ Message sent. I'll get back to you when I surface, literally or figuratively.
               </div>
             ) : (
               <form
@@ -150,13 +150,45 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="contact-info-item" style={{ marginBottom: 0 }}>
+              {contact.telegram && (
+                <div className="contact-info-item">
+                  <div className="contact-info-icon">✈️</div>
+                  <div>
+                    <div className="contact-info-label">Telegram</div>
+                    <div className="contact-info-value">
+                      <a
+                        href={`https://t.me/${contact.telegram.replace(/^@/, '')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {contact.telegram}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="contact-info-item">
                 <div className="contact-info-icon">📍</div>
                 <div>
                   <div className="contact-info-label">Location</div>
                   <div className="contact-info-value">{contact.location}</div>
                 </div>
               </div>
+
+              {contact.cv && (
+                <div className="contact-info-item" style={{ marginBottom: 0 }}>
+                  <div className="contact-info-icon">📄</div>
+                  <div>
+                    <div className="contact-info-label">CV / Resume</div>
+                    <div className="contact-info-value">
+                      <a href={contact.cv.href} target="_blank" rel="noopener noreferrer">
+                        {contact.cv.label}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <p className="contact-sarcasm">{contact.sarcasticNote}</p>
             </div>

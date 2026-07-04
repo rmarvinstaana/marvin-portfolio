@@ -9,6 +9,20 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.5, delay },
 })
 
+// Renders the howIWork heading with the "AI-native, by default" portion in amber.
+function HowIWorkHeading({ heading }) {
+  const accent = 'AI-native, by default'
+  if (heading.includes(accent)) {
+    const [before] = heading.split(accent)
+    return (
+      <h3 className="howiwork-heading">
+        {before}<span className="amber">{accent}</span>
+      </h3>
+    )
+  }
+  return <h3 className="howiwork-heading">{heading}</h3>
+}
+
 export default function About() {
   const { about } = content
 
@@ -34,6 +48,36 @@ export default function About() {
           </motion.div>
         </div>
 
+        {/* Fun facts */}
+        {about.funFacts && about.funFacts.length > 0 && (
+          <div className="fun-facts-strip">
+            <div className="fun-facts-grid">
+              {about.funFacts.map((fact, i) => (
+                <motion.div
+                  key={i}
+                  className="fun-fact-item"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.05 }}
+                >
+                  <div className="fun-fact-emoji">{fact.emoji}</div>
+                  <div className="fun-fact-label">{fact.label}</div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* How I work */}
+        {about.howIWork && (
+          <motion.div className="howiwork-panel" {...fadeUp(0.1)}>
+            <HowIWorkHeading heading={about.howIWork.heading} />
+            {about.howIWork.paragraphs.map((para, i) => (
+              <p key={i} className="howiwork-para">{para}</p>
+            ))}
+          </motion.div>
+        )}
       </div>
     </PageTransition>
   )

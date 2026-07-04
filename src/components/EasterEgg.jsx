@@ -22,7 +22,7 @@ export default function EasterEgg() {
             Blockchain doesn't work that way.
           </p>
           <p style={{ marginTop: '24px', fontSize: '0.75rem', color: 'rgba(160,174,192,0.4)', fontFamily: 'var(--font-mono)' }}>
-            ↑ ↑ ↓ ↓ ← → ← → B A — nice one.
+            ↑ ↑ ↓ ↓ ← → ← → B A. Nice one.
           </p>
         </motion.div>
       </div>

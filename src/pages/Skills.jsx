@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import PageTransition from '../components/PageTransition'
 import SkillTag from '../components/SkillTag'
@@ -10,75 +11,72 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.5, delay },
 })
 
+function ProofLine({ proof, href }) {
+  if (!proof) return null
+  if (href) {
+    return <Link to={href} className="skill-proof skill-proof--link">{proof}</Link>
+  }
+  return <span className="skill-proof">{proof}</span>
+}
+
 export default function Skills() {
   const { skills } = content
 
   return (
     <PageTransition>
       <div className="container section">
-        <motion.p className="section-eyebrow" {...fadeUp(0)}>Capabilities</motion.p>
+        <motion.p className="section-eyebrow" {...fadeUp(0)}>{skills.eyebrow || 'Toolkit'}</motion.p>
         <motion.h2 className="section-title" {...fadeUp(0.05)}>Skills & Tools</motion.h2>
         <motion.p className="section-subtitle" {...fadeUp(0.1)}>"{skills.sectionSubtitle}"</motion.p>
 
-        {/* Skill Groups */}
-        <div className="skills-section">
-          <p className="skills-section-title">Skills</p>
+        {/* Skill group cards */}
+        <div className="skill-card-grid">
           {skills.groups.map((group, gi) => (
             <motion.div
               key={group.id}
-              className="skills-group"
-              initial={{ opacity: 0, y: 16 }}
+              className={`skill-card ${group.hot ? 'skill-card--hot' : ''}`}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: gi * 0.08 }}
+              transition={{ duration: 0.4, delay: gi * 0.06 }}
             >
-              <div className="skills-group-name">{group.groupName}</div>
-              <div className="tags-wrap">
+              <div className="skill-card-head">
+                <span className="skill-card-title">{group.groupName}</span>
+                {group.hot && <span className="skill-hot-flag">HOT</span>}
+              </div>
+              <ProofLine proof={group.proof} href={group.proofHref} />
+              <div className="tags-wrap skill-chips">
                 {group.tags.map((tag, ti) => (
-                  <motion.span
-                    key={ti}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.25, delay: ti * 0.03 }}
-                  >
-                    <SkillTag label={tag} />
-                  </motion.span>
+                  <SkillTag key={ti} label={tag} />
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Tool Groups */}
-        <div className="skills-section">
-          <p className="skills-section-title">Tools & Platforms</p>
-          {skills.toolGroups.map((group, gi) => (
-            <motion.div
-              key={group.id}
-              className="skills-group"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: gi * 0.08 }}
-            >
-              <div className="skills-group-name">{group.groupName}</div>
-              <div className="tags-wrap">
-                {group.tags.map((tag, ti) => (
-                  <motion.span
-                    key={ti}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.25, delay: ti * 0.03 }}
-                  >
-                    <SkillTag label={tag} />
-                  </motion.span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        {/* Tools & platforms */}
+        {skills.toolGroups && skills.toolGroups.length > 0 && (
+          <div className="skills-section" style={{ marginTop: '64px' }}>
+            <p className="skills-section-title">Tools & Platforms</p>
+            {skills.toolGroups.map((group, gi) => (
+              <motion.div
+                key={group.id}
+                className="skills-group"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: gi * 0.06 }}
+              >
+                <div className="skills-group-name">{group.groupName}</div>
+                <div className="tags-wrap">
+                  {group.tags.map((tag, ti) => (
+                    <SkillTag key={ti} label={tag} />
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </PageTransition>
   )

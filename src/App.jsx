@@ -2,8 +2,9 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
-import StarField from './components/StarField'
-import ParticleOrbs from './components/ParticleOrbs'
+// StarField and ParticleOrbs are intentionally not rendered: the Phase 1 redesign
+// replaced them with a fixed grid + amber/blue radial glow background in index.css.
+// The component files are kept in the repo in case the space theme is ever revived.
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import EasterEgg from './components/EasterEgg'
@@ -63,8 +64,6 @@ export default function App() {
 
   return (
     <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-      <StarField />
-      <ParticleOrbs />
       <Nav />
       <AnimatedRoutes />
       <Footer />

@@ -27,7 +27,7 @@ export default function Portfolio() {
   return (
     <PageTransition>
       <div className="container section">
-        <motion.p className="section-eyebrow" {...fadeUp(0)}>Selected Work</motion.p>
+        <motion.p className="section-eyebrow" {...fadeUp(0)}>{portfolio.eyebrow || 'The Receipts'}</motion.p>
         <motion.h2 className="section-title" {...fadeUp(0.05)}>Portfolio</motion.h2>
         <motion.p className="section-subtitle" {...fadeUp(0.1)}>"{portfolio.sectionSubtitle}"</motion.p>
 
@@ -55,7 +55,7 @@ export default function Portfolio() {
               return (
                 <motion.div
                   key={item.id}
-                  className={`portfolio-card ${hasModal ? 'portfolio-card--clickable' : ''}`}
+                  className={`portfolio-card ${item.featured ? 'portfolio-card--featured' : ''} ${hasModal ? 'portfolio-card--clickable' : ''}`}
                   layout
                   initial={{ opacity: 0, y: 20, scale: 0.97 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -66,76 +66,85 @@ export default function Portfolio() {
                   tabIndex={hasModal ? 0 : undefined}
                   onKeyDown={hasModal ? (e) => e.key === 'Enter' && handleCardClick(item) : undefined}
                 >
-                  {/* Tag + Category */}
-                  <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
-                    <span className="portfolio-category-badge">{item.category}</span>
-                    {item.tag && <span className="portfolio-tag-badge">{item.tag}</span>}
+                  {/* Themed visual header */}
+                  <div className={`pcard-visual pcard-visual--${item.theme || 'mix'}`}>
+                    <span className="pcard-glyph">{item.glyph || '📄'}</span>
+                    {item.featured && <span className="pcard-flag">Built In-Role</span>}
                   </div>
 
-                  {/* Title */}
-                  <h3 className="portfolio-card-title">{item.title}</h3>
+                  <div className="pcard-body">
+                    {/* Category tag */}
+                    <span className="pcard-category">{item.category}</span>
 
-                  {/* Description */}
-                  <p className="portfolio-card-desc">{item.description}</p>
+                    {/* Title */}
+                    <h3 className="portfolio-card-title">{item.title}</h3>
 
-                  {/* Sub-label (muted, below description) */}
-                  {item.subLabel && (
-                    <p className="portfolio-card-sublabel">{item.subLabel}</p>
-                  )}
+                    {/* Description */}
+                    <p className="portfolio-card-desc">{item.description}</p>
 
-                  {/* Single result badge */}
-                  {item.resultBadge && (
-                    <div className="portfolio-result-badge">📊 {item.resultBadge}</div>
-                  )}
+                    {/* Badge pills */}
+                    {item.badges && item.badges.length > 0 && (
+                      <div className="pcard-badges">
+                        {item.badges.map((b, i) => (
+                          <span key={i} className="pcard-badge">{b}</span>
+                        ))}
+                      </div>
+                    )}
 
-                  {/* Multiple result badges */}
-                  {item.resultBadges && item.resultBadges.length > 0 && (
-                    <div className="portfolio-result-badges">
-                      {item.resultBadges.map((badge, i) => (
-                        <div key={i} className="portfolio-result-badge-item">
-                          <div className="portfolio-result-badge-value">{badge.value}</div>
-                          <div className="portfolio-result-badge-label">{badge.label}</div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                    {/* Single result badge */}
+                    {item.resultBadge && (
+                      <div className="portfolio-result-badge">📊 {item.resultBadge}</div>
+                    )}
 
-                  {/* Modal CTA */}
-                  {hasModal && (
-                    <span className="portfolio-card-link" style={{ cursor: 'pointer' }}>
-                      View Project →
-                    </span>
-                  )}
+                    {/* Multiple result badges */}
+                    {item.resultBadges && item.resultBadges.length > 0 && (
+                      <div className="portfolio-result-badges">
+                        {item.resultBadges.map((badge, i) => (
+                          <div key={i} className="portfolio-result-badge-item">
+                            <div className="portfolio-result-badge-value">{badge.value}</div>
+                            <div className="portfolio-result-badge-label">{badge.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
 
-                  {/* Single external link with custom label */}
-                  {hasExternalLink && (
-                    <a
-                      href={item.link}
-                      className="portfolio-card-link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      {item.ctaLabel || 'View Project →'}
-                    </a>
-                  )}
+                    {/* Modal CTA */}
+                    {hasModal && (
+                      <span className="pcard-cta" style={{ cursor: 'pointer' }}>
+                        View Project →
+                      </span>
+                    )}
 
-                  {/* Multi-link buttons */}
-                  {hasMultiLinks && (
-                    <div className="portfolio-multi-links" onClick={(e) => e.stopPropagation()}>
-                      {item.links.map((l, idx) => (
-                        <a
-                          key={idx}
-                          href={l.href}
-                          className="portfolio-multi-link-btn"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {l.label} ↗
-                        </a>
-                      ))}
-                    </div>
-                  )}
+                    {/* Single external link with custom label */}
+                    {hasExternalLink && (
+                      <a
+                        href={item.link}
+                        className="pcard-cta"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {item.ctaLabel || 'View Project →'}
+                      </a>
+                    )}
+
+                    {/* Multi-link buttons */}
+                    {hasMultiLinks && (
+                      <div className="portfolio-multi-links" onClick={(e) => e.stopPropagation()}>
+                        {item.links.map((l, idx) => (
+                          <a
+                            key={idx}
+                            href={l.href}
+                            className="portfolio-multi-link-btn"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {l.label} ↗
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </motion.div>
               )
             })}

@@ -8,7 +8,7 @@ export default function Footer() {
         <span className="site-footer-divider">·</span>
         <span className="site-footer-location">Dubai, UAE</span>
       </div>
-      <div className="site-footer-copy-line">© {new Date().getFullYear()} — Built with React & too much coffee</div>
+      <div className="site-footer-copy-line">© {new Date().getFullYear()} · Built with React & too much coffee</div>
     </footer>
   )
 }
