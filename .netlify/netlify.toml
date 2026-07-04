@@ -1,0 +1,44 @@
+functionsDirectory = "C:\\Users\\rmarv\\OneDrive\\Documentos\\Personal website\\netlify\\functions"
+functionsDirectoryOrigin = "config-v1"
+redirectsOrigin = "config"
+plugins = []
+headers = []
+
+[build]
+publish = "C:\\Users\\rmarv\\OneDrive\\Documentos\\Personal website\\dist"
+publishOrigin = "config"
+commandOrigin = "config"
+base = "C:\\Users\\rmarv\\OneDrive\\Documentos\\Personal website"
+command = "npm run build"
+functions = "C:\\Users\\rmarv\\OneDrive\\Documentos\\Personal website\\netlify\\functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
+
+[functions]
+
+[functions."*"]
+node_bundler = "esbuild"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200.0
+force = false
+
+[redirects.query]
+
+[redirects.conditions]
+
+[redirects.headers]

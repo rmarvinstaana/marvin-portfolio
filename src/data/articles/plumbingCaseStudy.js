@@ -1,0 +1,83 @@
+export const plumbingCaseStudyContent = [
+  { type: 'h1', text: 'SEO Case Study: Plumbing Company' },
+  {
+    type: 'body',
+    text: 'Client: Regional plumbing services company. Agency: To The Top. Campaign duration: 6 months.',
+  },
+  {
+    type: 'stat-callout',
+    stats: [
+      { value: '+400%', label: 'Organic Traffic Growth' },
+      { value: '+115%', label: 'Qualified Leads' },
+      { value: '+324%', label: 'Top 10 Keyword Rankings' },
+    ],
+  },
+  { type: 'h2', text: 'The Client' },
+  {
+    type: 'body',
+    text: 'A regional plumbing company serving residential and commercial clients. Operating in a competitive local services market where rankings for high-intent queries directly translate to booked jobs, the client needed organic search to become a primary lead generation channel.',
+  },
+  { type: 'h2', text: 'The Problem' },
+  {
+    type: 'body',
+    text: 'Despite years in business, the company had minimal online visibility. Their website ranked for a small handful of branded queries and had almost no presence for service-intent keywords. Competitor plumbers dominated local pack and organic results, and Google Ads costs were rising — making organic growth a business priority.',
+  },
+  { type: 'h2', text: 'The Strategy' },
+  {
+    type: 'bullet',
+    items: [
+      'Conducted a full site audit to address technical issues: crawl errors, duplicate content, slow Core Web Vitals, and missing schema markup',
+      'Restructured the site architecture around service pages optimized for specific high-intent queries (e.g., "emergency plumber [city]", "blocked drain repair")',
+      'Built a local content hub with city and suburb-specific landing pages to capture geographic search demand',
+      'Implemented Google Business Profile optimization to support local pack visibility alongside organic rankings',
+      'Executed a local link building strategy targeting home services directories, community sites, and local news placements',
+    ],
+  },
+  { type: 'h2', text: 'Google Search Console Results' },
+  {
+    type: 'table',
+    label: 'GSC Performance — 6-Month Comparison',
+    headers: ['Metric', 'Month 0', 'Month 6', 'Change'],
+    rows: [
+      ['Total Impressions (monthly)', '4,200', '22,800', '+443%'],
+      ['Total Clicks (monthly)', '310', '1,560', '+403%'],
+      ['Average CTR', '7.4%', '6.8%', '-0.6pp'],
+      ['Average Position', '34.2', '18.7', '+15.5 positions'],
+      ['Pages with Impressions', '12', '68', '+467%'],
+      ['Queries with Impressions', '180', '1,240', '+589%'],
+    ],
+  },
+  { type: 'h2', text: 'Keyword Growth' },
+  {
+    type: 'table',
+    label: 'Keyword Ranking Snapshot — Key Terms',
+    headers: ['Keyword', 'Start Position', 'End Position', 'Monthly Volume'],
+    rows: [
+      ['emergency plumber [city]', 'Not ranked', '#4', '880'],
+      ['plumber near me', 'Not ranked', '#7', '2,900'],
+      ['blocked drain repair', '68', '#5', '590'],
+      ['hot water system replacement', '54', '#3', '480'],
+      ['gas leak plumber', 'Not ranked', '#6', '320'],
+      ['residential plumbing services', '41', '#8', '260'],
+      ['commercial plumber [city]', 'Not ranked', '#5', '210'],
+      ['burst pipe repair', 'Not ranked', '#4', '390'],
+      ['toilet repair service', '72', '#6', '340'],
+      ['drain cleaning service', '59', '#5', '420'],
+    ],
+  },
+  { type: 'h2', text: 'Campaign Results Summary' },
+  {
+    type: 'table',
+    label: 'KPI Summary — 6 Months',
+    headers: ['KPI', 'Result'],
+    rows: [
+      ['Organic Traffic Growth', '+400%'],
+      ['Qualified Lead Volume (contact form + calls)', '+115%'],
+      ['Top 10 Keyword Rankings', '+324%'],
+      ['Local Pack Appearances', '+280%'],
+      ['Domain Rating Improvement', '+14 points'],
+      ['New Referring Domains', '+67'],
+      ['Cost per Lead (organic vs. prior Ads-only)', '-62%'],
+    ],
+  },
+]

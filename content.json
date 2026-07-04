@@ -1,0 +1,426 @@
+{
+  "hero": {
+    "typewriterRoles": [
+      "Head of Content",
+      "Crypto Storyteller",
+      "Web3 Strategist",
+      "Licensed Cave Diver",
+      "Powered by Hyperfocus"
+    ],
+    "subtitle": "Building narratives at the intersection of finance, crypto, and whatever's on fire this week.",
+    "sarcasticSubline": "No, I don't know when Bitcoin is going to $1M. Please stop asking.",
+    "ctaPrimary": { "label": "See My Work", "href": "/portfolio" },
+    "ctaSecondary": { "label": "Get In Touch", "href": "/contact" }
+  },
+  "about": {
+    "sectionSubtitle": "The Human Behind the Threads",
+    "bio": [
+      "Marvin is a Content Strategist and Digital Marketing specialist with 8+ years of experience across finance, FX/CFD, crypto, and Web3. He currently leads content at mb.io — the crypto exchange arm of MultiBank Group — where he oversees everything from token launch campaigns and newsletter strategy to AI-generated video production and RWA marketplace positioning.",
+      "He holds an MBA in Digital Marketing from King's Business School, UAE, and a BFA in Creative Writing from Ateneo de Manila University — which is a polite way of saying he's been professionally overthinking words since 2014.",
+      "He has ADHD. This is not a disclaimer. This is the source code. The hyperfocus is a feature, not a bug.",
+      "When he's not writing copy that moves markets, he's underwater (licensed scuba and cave diver), underground (spelunker), or somewhere in his 30th+ country with no particular agenda. He plays volleyball, watches too much anime, games occasionally, and maintains a Substack that updates whenever the stars align — which, given his job, is less often than he'd like.",
+      "He lives in Dubai. His plants are alive. That's the win."
+    ],
+    "funFacts": [
+      { "emoji": "🌍", "label": "30+ Countries Visited" },
+      { "emoji": "🤿", "label": "Licensed Cave Diver" },
+      { "emoji": "🧠", "label": "ADHD: Hyperfocus Edition" },
+      { "emoji": "📧", "label": "94% Email Conversion Rate" },
+      { "emoji": "✍️", "label": "8+ Years in Fintech Content" },
+      { "emoji": "🏐", "label": "Volleyball Enthusiast" },
+      { "emoji": "🎮", "label": "Occasional Gamer" },
+      { "emoji": "📰", "label": "mb.insider Newsletter Creator" }
+    ]
+  },
+  "experience": {
+    "sectionSubtitle": "Work History (or: How I Ended Up in Dubai)",
+    "jobs": [
+      {
+        "id": "job-1",
+        "title": "Head of Content",
+        "company": "mb.io (formerly MultiBank.io)",
+        "period": "December 2025 – Present",
+        "location": "Dubai, UAE",
+        "bullets": [
+          "Own and execute full-funnel content strategy across web, social, email, push notifications, CRM, paid ads, and in-app messaging for a regulated crypto spot exchange operating under VARA and AUSTRAC frameworks",
+          "Led end-to-end content for the $MBG Token lifecycle from Pre-Sale through TGE and Post-TGE, including a MiCA-compliant whitepaper, DAO governance communications, and community activation across X, Telegram, and LinkedIn",
+          "Launched and manage mb.insider, a weekly Substack newsletter delivering crypto market intelligence, product updates, and editorial features to a growing subscriber base",
+          "Build and execute monthly content calendars across X, LinkedIn, Meta, and Telegram using a structured content pillar framework and AI-native production tools (Higgsfield, Kling) to produce high-engagement posts and video assets",
+          "Write and optimize performance copy for Google Search, Meta, and Performance Max campaigns, plus ASO copy for Google Play and the App Store, directly supporting user acquisition",
+          "Author UI/UX microcopy for the mb.io app and lead creative development for Earn campaigns, coordinating cross-functional execution across product, compliance, and marketing teams",
+          "Manage KOL partnerships to extend campaign reach, sharpen messaging alignment, and drive engagement around product launches and market events",
+          "Develop content positioning for mb.io's RWA marketplace, framing the platform as institutional-grade infrastructure backed by a multi-billion-dollar ultra-luxury real estate portfolio"
+        ]
+      },
+      {
+        "id": "job-2",
+        "title": "Content Manager",
+        "company": "MultiBank Group",
+        "period": "August 2024 – December 2025",
+        "location": "Dubai, UAE",
+        "bullets": [
+          "Directed full-funnel content strategy across web, email, push notifications, PR, paid ads, and social media, supporting brand awareness, client acquisition, and retention across global markets",
+          "Achieved a 94% conversion rate on onboarding email journeys through behavioral segmentation, lifecycle triggers, and iterative A/B optimization",
+          "Scaled CTR from 0.75% to 9% by transforming FX, metals, indices, and crypto market insights into timely, conversion-focused campaigns tied to live market events",
+          "Managed and mentored a distributed content team, establishing workflows that ensured compliant, on-brand creative was delivered consistently across multiple regions and regulatory jurisdictions",
+          "Authored UI/UX and in-app microcopy for MultiBank's IB Portal, Client Portal, and Mobile App, improving usability and engagement across the product ecosystem",
+          "Produced and optimized SEO-driven educational content for beginner and advanced traders, conducting keyword research and content audits to improve organic search visibility"
+        ]
+      },
+      {
+        "id": "job-3",
+        "title": "Content Marketing Strategist",
+        "company": "ThinkMarkets",
+        "period": "August 2022 – August 2024",
+        "location": "Dubai, UAE",
+        "bullets": [
+          "Developed and managed content across web, social media, email, PR, HTML5 ad banners, storyboards, and search ads, maintaining strict brand and compliance alignment across all channels",
+          "Authored multiple trader education eBooks and market guides tied to high-volatility events including the Bitcoin halving and US presidential elections, supporting lead generation and brand authority",
+          "Built and executed monthly social media strategies and content calendars, driving measurable growth in organic reach and paid campaign engagement",
+          "Contributed strategic input to a full website revamp covering SEO architecture, UI/UX structure, and content design, improving site discoverability and user experience",
+          "Recognized as Employee of the Month for exceptional output and cross-functional initiative"
+        ]
+      },
+      {
+        "id": "job-4",
+        "title": "Content Director",
+        "company": "SOAR",
+        "period": "October 2020 – August 2022",
+        "location": "Remote, USA",
+        "bullets": [
+          "Led a cross-functional team of content writers, community managers, and SEO specialists, overseeing content production across Finance, NFTs, Blockchain, CBD, and wellness verticals",
+          "Delivered digital marketing strategies that accumulated over 80 million views across client platforms, driving measurable brand visibility and audience growth",
+          "Developed and managed content for blockchain and NFT clients during a high-growth cycle in the Web3 space, building early expertise in decentralized community content and crypto-native narratives"
+        ]
+      },
+      {
+        "id": "job-5",
+        "title": "Content Manager",
+        "company": "To The Top",
+        "period": "November 2018 – August 2022",
+        "location": "Remote, UK",
+        "bullets": [
+          "Hired, trained, and managed a team of in-house and outsourced content writers, building a scalable content operation for a growing digital agency",
+          "Authored and implemented content SOPs aligned with SEO best practices, improving team efficiency and output quality across client accounts",
+          "Produced SEO case studies that demonstrated measurable campaign results, supporting client retention and new business development"
+        ]
+      },
+      {
+        "id": "job-6",
+        "title": "Content Writer",
+        "company": "Direct Clicks Marketing",
+        "period": "May 2018 – November 2018",
+        "location": "Dubai, UAE",
+        "bullets": [
+          "Produced SEO-optimized copy and digital marketing content across client accounts in the UAE market"
+        ]
+      },
+      {
+        "id": "job-7",
+        "title": "Intern",
+        "company": "Samurai Gamers",
+        "period": "May 2017 – August 2017",
+        "location": "Japan",
+        "bullets": [
+          "Content and community intern. Contributed to gaming editorial content and social media operations."
+        ]
+      },
+      {
+        "id": "job-8",
+        "title": "Editor-in-Chief",
+        "company": "Fine Print, Ateneo de Manila University",
+        "period": "August 2015 – January 2017",
+        "location": "Philippines",
+        "bullets": [
+          "Led the university's official literary publication. Managed editorial direction, contributor recruitment, and the full production cycle from submission to publication."
+        ]
+      },
+      {
+        "id": "job-9",
+        "title": "Special Projects Head",
+        "company": "Rizal Library, Ateneo de Manila University",
+        "period": "January 2015 – June 2017",
+        "location": "Philippines",
+        "bullets": [
+          "Coordinated special projects and institutional initiatives for one of the Philippines' leading university library systems."
+        ]
+      }
+    ],
+    "speakingSubtitle": "Occasionally They Let Me Hold a Microphone",
+    "speaking": [
+      {
+        "id": "speak-1",
+        "event": "Content Writing In The Online World",
+        "date": "February 27, 2021",
+        "location": "Google Dev Group PH",
+        "format": "virtual",
+        "topic": "Content Writing In The Online World",
+        "description": "Delivered a writing workshop for Google Developer Group Philippines on the craft and strategy of content writing in digital environments. Covered content frameworks, audience targeting, and building a writing practice for the web."
+      },
+      {
+        "id": "speak-2",
+        "event": "Breaking The Writer's Block",
+        "date": "January 15, 2021",
+        "location": "Rizal Library",
+        "format": "virtual",
+        "topic": "Breaking The Writer's Block",
+        "description": "Led a two-part seminar for Rizal Library Ambassadors on overcoming creative blocks and sustaining a writing practice. Explored practical techniques for generating ideas, managing creative resistance, and building consistency as a writer."
+      }
+    ]
+  },
+  "education": {
+    "sectionSubtitle": "Degrees, Diplomas, and Documented Proof I Did the Reading",
+    "degrees": [
+      {
+        "id": "edu-1",
+        "degree": "Master of Business Administration in Digital Marketing",
+        "institution": "King's Business School, UAE",
+        "period": "2022 – 2023"
+      },
+      {
+        "id": "edu-2",
+        "degree": "OTHM Level 7 Strategic Management",
+        "institution": "King's Business School, UAE",
+        "period": "2022 – 2023"
+      },
+      {
+        "id": "edu-3",
+        "degree": "Bachelor of Fine Arts in Creative Writing",
+        "institution": "Ateneo de Manila University, Philippines",
+        "period": "2014 – 2018"
+      },
+      {
+        "id": "edu-4",
+        "degree": "Bachelor of Science in Economics (Minor)",
+        "institution": "Ateneo de Manila University, Philippines",
+        "period": "2014 – 2018"
+      },
+      {
+        "id": "edu-5",
+        "degree": "Bachelor of Arts in Literature — English (Minor)",
+        "institution": "Ateneo de Manila University, Philippines",
+        "period": "2014 – 2018"
+      }
+    ],
+    "certifications": [
+      { "id": "cert-1", "name": "AI Applications in Marketing and Finance", "issuer": "University of Pennsylvania" },
+      { "id": "cert-2", "name": "Social Media and Social Content Strategy", "issuer": "Digital Marketing Institute" },
+      { "id": "cert-3", "name": "Content Marketing Masterclass: Create Content That Sells", "issuer": "Udemy" },
+      { "id": "cert-4", "name": "The Strategy of Content Marketing", "issuer": "Coursera" },
+      { "id": "cert-5", "name": "Introduction to Marketing", "issuer": "Coursera" },
+      { "id": "cert-6", "name": "Market Research and Consumer Behaviour", "issuer": "Coursera" },
+      { "id": "cert-7", "name": "LinkedIn Advertising Fundamentals Certification", "issuer": "LinkedIn" }
+    ]
+  },
+  "skills": {
+    "sectionSubtitle": "Things I Can Actually Do (No Star Ratings. We're Adults.)",
+    "groups": [
+      {
+        "id": "sg-1",
+        "groupName": "Content Strategy & Marketing",
+        "tags": [
+          "Content Strategy", "Content Marketing", "Brand Voice Development", "Editorial Planning",
+          "Content Calendar Management", "SEO Strategy", "Keyword Research", "Content Audit",
+          "Blog Management", "Newsletter Strategy", "Email Marketing", "CRM", "Push Notifications",
+          "Performance Marketing", "Growth Campaigns", "Paid Advertising Copy", "ASO Copywriting",
+          "UI/UX Microcopy", "Community Management", "KOL Coordination"
+        ]
+      },
+      {
+        "id": "sg-2",
+        "groupName": "Crypto & Web3",
+        "tags": [
+          "$MBG Token Content", "Token Launch Campaigns (Pre-Sale to TGE)", "DAO Governance Communications",
+          "Whitepaper Writing (MiCA-compliant)", "RWA Marketplace Content", "DeFi Narratives",
+          "Web3 Brand Strategy", "Crypto Market Analysis", "Exchange Marketing"
+        ]
+      },
+      {
+        "id": "sg-3",
+        "groupName": "Finance & Trading",
+        "tags": [
+          "FX/CFD Content", "Trading Education", "Market Insight Campaigns",
+          "IB/Affiliate Program Content", "Onboarding Email Journeys",
+          "Prop Trading Content (ThinkCapital)", "Demo Trading Campaign Management"
+        ]
+      },
+      {
+        "id": "sg-4",
+        "groupName": "Creative & Production",
+        "tags": [
+          "Copywriting", "Creative Direction", "Scriptwriting", "Storyboarding",
+          "AI Video Production", "Social Media Content", "Press Releases",
+          "eBook & Guide Writing", "Substack Writing"
+        ]
+      }
+    ],
+    "toolGroups": [
+      {
+        "id": "tg-1",
+        "groupName": "AI & Automation",
+        "tags": ["Claude (Anthropic)", "Higgsfield", "Kling 3.0", "NotebookLM", "Google AI Studio", "ChatGPT"]
+      },
+      {
+        "id": "tg-2",
+        "groupName": "Content & Publishing",
+        "tags": ["Substack", "Notion", "Google Workspace", "Canva", "Figma (working knowledge)"]
+      },
+      {
+        "id": "tg-3",
+        "groupName": "Dev & Data",
+        "tags": ["Firebase", "Google Analytics", "Looker Studio", "React (working knowledge)", "HTML/CSS (working knowledge)"]
+      },
+      {
+        "id": "tg-4",
+        "groupName": "Platforms & Distribution",
+        "tags": ["X (Twitter)", "LinkedIn", "META", "Telegram", "Google Ads", "Meta Ads Manager", "App Store Connect", "Google Play Console"]
+      }
+    ]
+  },
+  "portfolio": {
+    "sectionSubtitle": "Proof of Work (The Non-Blockchain Kind)",
+    "categories": ["All", "Content Management", "Social Media", "SEO Case Studies", "eBook", "Blog Posts", "Newsletter", "Ad Copy", "UI/UX Copy"],
+    "items": [
+      {
+        "id": "cm-1",
+        "title": "mb.io Content Management Dashboard",
+        "category": "Content Management",
+        "tag": "Content Management / mb.io",
+        "description": "A full content management system built from scratch using Google AI Studio and Firebase. Features a content calendar, AI writing agent, campaign planner, blog manager, and strategy analytics tab. Used daily by the mb.io writing team. Built entirely by me — not a template, not a no-code tool.",
+        "subLabel": "Demo upon request",
+        "link": "https://mbiocontentdashboard.netlify.app/",
+        "ctaLabel": "View Dashboard →"
+      },
+      {
+        "id": "social-1",
+        "title": "mb.io Social Media",
+        "category": "Social Media",
+        "tag": "Social Media / mb.io",
+        "description": "Multi-platform content strategy and execution across X, LinkedIn, and Instagram for mb.io. Built on a structured content pillar framework with AI-native production tools including Higgsfield and Kling.",
+        "links": [
+          { "label": "X", "href": "https://x.com/multibank_io" },
+          { "label": "LinkedIn", "href": "https://www.linkedin.com/company/mb-io" },
+          { "label": "Instagram", "href": "https://www.instagram.com/multibank_io/" }
+        ]
+      },
+      {
+        "id": "seo-1",
+        "title": "SEO Case Study: Self-Storage Marketplace",
+        "category": "SEO Case Studies",
+        "tag": "SEO Case Study / To The Top",
+        "description": "How a brand-new website with zero domain authority reached #1 rankings in 300+ UK towns and cities and generated $334K in monthly organic traffic value within 18 months.",
+        "resultBadges": [
+          { "label": "Organic Traffic", "value": "0 to 30K" },
+          { "label": "#1 City Rankings", "value": "300+" },
+          { "label": "Monthly Traffic Value", "value": "$334,000+" }
+        ],
+        "modalId": "storage-case-study",
+        "link": null
+      },
+      {
+        "id": "seo-2",
+        "title": "SEO Case Study: Plumbing Company",
+        "category": "SEO Case Studies",
+        "tag": "SEO Case Study / To The Top",
+        "description": "How we grew monthly organic traffic by 400%, increased monthly leads by 115%, and grew top 10 keyword rankings by 324% for one of the UK's fastest-growing plumbing companies.",
+        "resultBadges": [
+          { "label": "Monthly Organic Traffic", "value": "+400%" },
+          { "label": "Monthly Leads Increase", "value": "+115%" },
+          { "label": "Top 10 Keywords", "value": "+324%" }
+        ],
+        "modalId": "plumbing-case-study",
+        "link": null
+      },
+      {
+        "id": "ebook-1",
+        "title": "Ultimate Guide to Trading the 2024 Bitcoin Halving Event",
+        "category": "eBook",
+        "tag": "eBook / ThinkMarkets",
+        "description": "A comprehensive trading guide covering Bitcoin halving history, altcoin impact analysis, risk management strategies, and spot vs CFD trading. Written for both beginner and experienced crypto traders.",
+        "resultBadge": "100K+ app downloads | Used for client acquisition and retention",
+        "modalId": "bitcoin-halving",
+        "link": null
+      },
+      {
+        "id": "blog-1",
+        "title": "What is De-dollarisation, and Which Markets Will It Affect?",
+        "category": "Blog Posts",
+        "tag": "Article / ThinkMarkets",
+        "description": "A 7-minute market explainer on the global movement to reduce reliance on the US dollar and its impact on forex, crypto, stocks, and gold.",
+        "modalId": "dedollarisation",
+        "link": null
+      },
+      {
+        "id": "blog-2",
+        "title": "Oil Trading Strategies: How to Trade Crude Oil CFDs",
+        "category": "Blog Posts",
+        "tag": "Article / MultiBank Group",
+        "description": "A trading guide covering crude oil price drivers, beginner-friendly strategies, risk management, and why CFDs are the most practical way for retail traders to access oil markets.",
+        "modalId": "oil-trading",
+        "link": null
+      },
+      {
+        "id": "blog-3",
+        "title": "Common Forex Trading Mistakes and How to Avoid Them",
+        "category": "Blog Posts",
+        "tag": "Article / MultiBank Group",
+        "description": "A practical guide covering the 7 most common mistakes retail forex traders make, from trading without a plan to choosing the wrong broker, with clear steps to avoid each one.",
+        "modalId": "forex-mistakes",
+        "link": null
+      },
+      {
+        "id": "blog-4",
+        "title": "Moving Averages in Trading: Beginner's Guide",
+        "category": "Blog Posts",
+        "tag": "Article / MultiBank Group",
+        "description": "A beginner-friendly deep dive into Simple and Exponential Moving Averages, how to apply them across forex, stocks, and commodities, and three practical strategies to get started.",
+        "modalId": "moving-averages",
+        "link": null
+      },
+      {
+        "id": "news-1",
+        "title": "mb.insider",
+        "category": "Newsletter",
+        "tag": "Newsletter / mb.io",
+        "description": "A weekly crypto intelligence newsletter covering market updates, product news, and editorial features for the mb.io community. Written, edited, and published weekly — fact-checked before every issue.",
+        "link": "https://multibank.substack.com/",
+        "ctaLabel": "Read on Substack →"
+      },
+      {
+        "id": "ad-1",
+        "title": "Google App Campaigns",
+        "category": "Ad Copy",
+        "tag": "Google App Ads / mb.io",
+        "description": "App install ad copy written for Google's Universal App Campaign format across two ad groups: Platform General and Simple/Clear.",
+        "modalId": "google-app-campaigns",
+        "link": null
+      },
+      {
+        "id": "ad-2",
+        "title": "Google Search Campaigns",
+        "category": "Ad Copy",
+        "tag": "Google Search Ads / mb.io",
+        "description": "Search ad copy written for high-intent crypto keywords across two ad groups: Platform General and Bitcoin.",
+        "modalId": "google-search-campaigns",
+        "link": null
+      },
+      {
+        "id": "uiux-1",
+        "title": "mb.io — Crypto Exchange App",
+        "category": "UI/UX Copy",
+        "tag": "UI/UX Copy / mb.io",
+        "description": "The mb.io app is a live example of UI/UX microcopy and ASO copy in production. Every word inside the app and on the store listing was written and optimized for conversion, clarity, and discoverability.",
+        "link": "https://play.google.com/store/apps/details?id=com.multibank.app",
+        "ctaLabel": "View on Google Play →"
+      }
+    ]
+  },
+  "contact": {
+    "sectionSubtitle": "Yes, I Actually Check My Email",
+    "sarcasticNote": "Response time varies. I'm either deep in a content sprint, 40 meters underwater, or in a timezone that doesn't make sense. I'll get back to you.",
+    "email": "r.marvinstaana@gmail.com",
+    "linkedin": "linkedin.com/in/marvin-sta-ana/",
+    "location": "Dubai, UAE",
+    "subjectOptions": ["General Inquiry", "Collaboration", "Speaking Engagement", "Press", "Other"]
+  }
+}
