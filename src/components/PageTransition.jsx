@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion'
 
+// Simple 0.4s fade with an 8px rise on route change. The dark-theme
+// slide-and-scale transitions of the old design have been removed.
 const variants = {
-  initial: { opacity: 0, y: 18 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] } },
-  exit:    { opacity: 0, y: -12, transition: { duration: 0.22, ease: 'easeIn' } },
+  initial: { opacity: 0, y: 8 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
+  exit:    { opacity: 0, transition: { duration: 0.2, ease: 'easeIn' } },
 }
 
 export default function PageTransition({ children }) {

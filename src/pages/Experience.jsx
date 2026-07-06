@@ -1,21 +1,13 @@
-import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import PageTransition from '../components/PageTransition'
 import content from '../../content.json'
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5, delay },
-})
-
 function Badges({ badges }) {
   if (!badges || badges.length === 0) return null
   return (
-    <div className="job-badges">
+    <div className="badges">
       {badges.map((b, i) => (
-        <span key={i} className={`job-badge job-badge--${b.variant || 'amber'}`}>{b.label}</span>
+        <span key={i} className={`badge ${b.variant === 'key' ? 'key' : ''}`}>{b.label}</span>
       ))}
     </div>
   )
@@ -34,65 +26,38 @@ export default function Experience() {
         <meta name="description" content="The experience of Marvin Sta. Ana: Head of Content at mb.io (MultiBank Group) and eight years across fintech, FX/CFD, and Web3 content." />
       </Helmet>
       <div className="container section">
-        <motion.p className="section-eyebrow" {...fadeUp(0)}>Career</motion.p>
-        <motion.h2 className="section-title" {...fadeUp(0.05)}>Experience</motion.h2>
-        <motion.p className="section-subtitle" {...fadeUp(0.1)}>"{experience.sectionSubtitle}"</motion.p>
+        <p className="section-eyebrow">Track Record</p>
+        <h2 className="section-title">Experience</h2>
+        <p className="section-subtitle">{experience.sectionSubtitle}</p>
 
         {/* Timeline */}
-        <motion.div
-          className="timeline"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-        >
-          {timelineJobs.map((job, i) => (
-            <motion.div
-              key={job.id}
-              className="timeline-item"
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.07 }}
-            >
-              <div className="timeline-header">
-                <div className="timeline-title">{job.title}</div>
-                <div className="timeline-company">{job.company}</div>
-                <div className="timeline-meta">
-                  <span className="timeline-period">{job.period}</span>
-                  <span className="timeline-location">{job.location}</span>
-                </div>
-                <Badges badges={job.badges} />
-              </div>
-              {job.bullets.length > 0 && (
-                <ul className="timeline-bullets">
-                  {job.bullets.map((b, j) => (
-                    <li key={j}>{b}</li>
-                  ))}
-                </ul>
-              )}
-            </motion.div>
-          ))}
-        </motion.div>
+        {timelineJobs.map((job) => (
+          <div key={job.id} className="job">
+            <div className="job-head">
+              <h3>{job.title} · <span className="co">{job.company}</span></h3>
+              <span className="period">{job.period}</span>
+            </div>
+            <Badges badges={job.badges} />
+            {job.bullets.length > 0 && (
+              <ul>
+                {job.bullets.map((b, j) => <li key={j}>{b}</li>)}
+              </ul>
+            )}
+          </div>
+        ))}
 
-        {/* Earlier roles: collapsible accordions */}
+        {/* Earlier roles: native details accordions */}
         {earlierJobs.length > 0 && (
           <div className="earlier-roles">
-            <motion.p className="section-eyebrow" {...fadeUp(0)}>Earlier Roles · 2020 and before</motion.p>
+            <p className="section-eyebrow">Earlier Roles · 2020 and before</p>
             {earlierJobs.map((job) => (
-              <details key={job.id} className="earlier-role">
-                <summary className="earlier-role-summary">
-                  <span className="earlier-role-head">
-                    <span className="earlier-role-title">{job.title}</span>
-                    <span className="earlier-role-company">{job.company}</span>
-                  </span>
-                  <span className="earlier-role-period">{job.period}</span>
-                  <span className="earlier-role-indicator" aria-hidden="true" />
+              <details key={job.id} className="fold">
+                <summary>
+                  <span className="fold-title">{job.title} · <span className="co">{job.company}</span></span>
+                  <span className="period">{job.period}</span>
                 </summary>
-                <ul className="timeline-bullets earlier-role-bullets">
-                  {job.bullets.map((b, j) => (
-                    <li key={j}>{b}</li>
-                  ))}
+                <ul>
+                  {job.bullets.map((b, j) => <li key={j}>{b}</li>)}
                 </ul>
               </details>
             ))}
@@ -101,36 +66,21 @@ export default function Experience() {
 
         {/* Industry Presence */}
         {presence.length > 0 && (
-          <>
-            <hr className="divider" />
+          <div className="events">
+            <p className="section-eyebrow">{experience.industryPresenceEyebrow}</p>
+            <h2 className="section-title" style={{ fontSize: '28px' }}>{experience.industryPresenceHeading}</h2>
+            <p className="section-subtitle">{experience.industryPresenceSubtitle}</p>
 
-            <motion.p className="section-eyebrow" {...fadeUp(0)}>{experience.industryPresenceEyebrow}</motion.p>
-            <motion.h3
-              className="section-title"
-              style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)' }}
-              {...fadeUp(0.05)}
-            >
-              {experience.industryPresenceHeading}
-            </motion.h3>
-            <motion.p className="section-subtitle" {...fadeUp(0.1)}>"{experience.industryPresenceSubtitle}"</motion.p>
-
-            <div className="presence-grid">
+            <div className="event-grid">
               {presence.map((p, i) => (
-                <motion.div
-                  key={i}
-                  className={`presence-card ${p.lead ? 'presence-card--lead' : ''}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: i * 0.07 }}
-                >
-                  <div className="presence-period">{p.period}</div>
-                  <div className="presence-title">{p.title}</div>
-                  <p className="presence-desc">{p.description}</p>
-                </motion.div>
+                <div key={i} className={`event ${p.lead ? 'lead' : ''}`}>
+                  <span className="yr">{p.period}</span>
+                  <h4>{p.title}</h4>
+                  <p>{p.description}</p>
+                </div>
               ))}
             </div>
-          </>
+          </div>
         )}
       </div>
     </PageTransition>

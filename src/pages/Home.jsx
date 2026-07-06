@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import PageTransition from '../components/PageTransition'
 import useTypewriter from '../hooks/useTypewriter'
@@ -10,35 +9,29 @@ const prefersReducedMotion =
   window.matchMedia &&
   window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
-function FeaturedCard({ item, delay }) {
+function FeaturedCard({ item }) {
   const isExternal = /^https?:\/\//.test(item.href)
   const inner = (
     <>
-      <span className="featured-tag">{item.tag}</span>
-      <h3 className="featured-title">{item.title}</h3>
-      <p className="featured-desc">{item.description}</p>
-      <span className="featured-cta">{item.ctaLabel}</span>
+      <span className="tag">{item.tag}</span>
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+      <span className="go">{item.ctaLabel}</span>
     </>
   )
-
   return (
-    <motion.div
-      className="featured-card"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.45, delay }}
-    >
+    <div className="card">
       {isExternal ? (
-        <a href={item.href} target="_blank" rel="noopener noreferrer" className="featured-card-link">
+        <a href={item.href} target="_blank" rel="noopener noreferrer"
+           style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
           {inner}
         </a>
       ) : (
-        <Link to={item.href} className="featured-card-link">
+        <Link to={item.href} style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
           {inner}
         </Link>
       )}
-    </motion.div>
+    </div>
   )
 }
 
@@ -53,123 +46,51 @@ export default function Home() {
         <title>Marvin Sta. Ana | Head of Content</title>
         <meta name="description" content="Head of Content at mb.io (MultiBank Group). 8+ years in FX/CFD, crypto, and Web3 content. 3 brands, 200+ posts, 20+ newsletter issues." />
       </Helmet>
+
       <section className="hero">
-        <div className="hero-content">
-          <motion.p
-            className="hero-eyebrow"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-          >
-            mb.io · MultiBank Group · Dubai, UAE
-          </motion.p>
+        <p className="hero-eyebrow">{hero.eyebrow}</p>
+        <h1 className="hero-name">{hero.name}</h1>
 
-          <motion.h1
-            className="hero-name"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            Marvin Sta. Ana
-          </motion.h1>
-
-          <motion.div
-            className="hero-typewriter-wrap"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.35 }}
-          >
-            <span>{role}</span>
-            {!prefersReducedMotion && <span className="typewriter-cursor" />}
-          </motion.div>
-
-          <motion.p
-            className="hero-subtitle"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45 }}
-          >
-            {hero.subtitle}
-          </motion.p>
-
-          <motion.div
-            className="hero-ctas"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.55 }}
-          >
-            <Link to={hero.ctaPrimary.href} className="btn btn-primary">
-              {hero.ctaPrimary.label}
-            </Link>
-            <Link to={hero.ctaSecondary.href} className="btn btn-outline">
-              {hero.ctaSecondary.label}
-            </Link>
-            {hero.ctaCv && (
-              <a href={hero.ctaCv.href} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-                {hero.ctaCv.label} ↓
-              </a>
-            )}
-          </motion.div>
-
-          <motion.p
-            className="hero-sarcasm"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.75 }}
-          >
-            {hero.sarcasticSubline}
-          </motion.p>
+        <div className="typer-wrap">
+          <span>{role}</span>
+          {!prefersReducedMotion && <span className="cursor" />}
         </div>
-      </section>
 
-      {/* Stat ticker */}
-      {hero.stats && hero.stats.length > 0 && (
-        <motion.div
-          className="stat-ticker"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="stat-ticker-inner">
+        <p className="hero-sub">{hero.subtitle}</p>
+
+        <div className="ctas">
+          <Link to={hero.ctaPrimary.href} className="btn btn-primary">{hero.ctaPrimary.label}</Link>
+          <Link to={hero.ctaSecondary.href} className="btn btn-outline">{hero.ctaSecondary.label}</Link>
+          {hero.ctaCv && (
+            <a href={hero.ctaCv.href} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+              ↓ {hero.ctaCv.label}
+            </a>
+          )}
+        </div>
+
+        <p className="hero-sarcasm">{hero.sarcasticSubline}</p>
+
+        {hero.stats && hero.stats.length > 0 && (
+          <div className="ticker">
             {hero.stats.map((s, i) => (
-              <div key={i} className={`stat-cell ${s.highlight ? 'stat-cell--hl' : ''}`}>
-                <div className="stat-value">
-                  <span className="stat-num">{s.value}</span>
-                  {s.suffix && <span className="stat-suffix">{s.suffix}</span>}
-                </div>
-                <div className="stat-label">{s.label}</div>
+              <div key={i} className={`tick ${s.highlight ? 'hi' : ''}`}>
+                <div className="val">{s.value}{s.suffix ? ` ${s.suffix}` : ''}</div>
+                <div className="lbl">{s.label}</div>
               </div>
             ))}
           </div>
-        </motion.div>
-      )}
+        )}
+      </section>
 
-      {/* Selected Work */}
       {hero.featured && hero.featured.length > 0 && (
-        <section className="container section selected-work">
-          <motion.p className="section-eyebrow"
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.5 }}
-          >
-            Selected Work
-          </motion.p>
-          <motion.h2 className="section-title"
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.05 }}
-          >
-            Proof, not promises
-          </motion.h2>
-          <motion.p className="section-subtitle"
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Three things that show how I run content: on the ground, in the calendar, and in the tooling.
-          </motion.p>
+        <section className="featured">
+          <p className="section-eyebrow">{hero.featuredEyebrow || 'Selected Work'}</p>
+          <h2 className="section-title">{hero.featuredTitle || 'Proof, not promises'}</h2>
+          <p className="section-subtitle">{hero.featuredSubtitle}</p>
 
-          <div className="featured-grid">
+          <div className="cards">
             {hero.featured.map((item, i) => (
-              <FeaturedCard key={i} item={item} delay={0.15 + i * 0.08} />
+              <FeaturedCard key={i} item={item} />
             ))}
           </div>
         </section>

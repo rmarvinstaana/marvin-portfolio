@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 
 const LINKS = [
+  { to: '/',           label: 'Home', end: true },
   { to: '/about',      label: 'About' },
   { to: '/experience', label: 'Experience' },
   { to: '/education',  label: 'Education' },
@@ -12,27 +13,20 @@ const LINKS = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handler)
-    return () => window.removeEventListener('scroll', handler)
-  }, [])
-
   const close = () => setOpen(false)
 
   return (
     <>
-      <nav className="nav" style={scrolled ? { background: 'rgba(10,10,26,0.95)' } : {}}>
+      <nav className="nav">
         <div className="nav-inner">
-          <Link to="/" className="nav-logo" onClick={close} title="Home">MSA</Link>
+          <Link to="/" className="nav-logo" onClick={close} title="Home">MSA<span>.</span></Link>
 
           <ul className="nav-links">
             {LINKS.map(l => (
               <li key={l.to}>
                 <NavLink
                   to={l.to}
+                  end={l.end}
                   className={({ isActive }) => isActive ? 'active' : ''}
                 >
                   {l.label}
@@ -56,6 +50,7 @@ export default function Nav() {
           <NavLink
             key={l.to}
             to={l.to}
+            end={l.end}
             className={({ isActive }) => isActive ? 'active' : ''}
             onClick={close}
           >

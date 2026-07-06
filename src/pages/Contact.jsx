@@ -1,15 +1,7 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import PageTransition from '../components/PageTransition'
 import content from '../../content.json'
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5, delay },
-})
 
 export default function Contact() {
   const { contact } = content
@@ -38,6 +30,10 @@ export default function Contact() {
     }
   }
 
+  const telegramHref = contact.telegram
+    ? `https://t.me/${contact.telegram.replace(/^@/, '')}`
+    : null
+
   return (
     <PageTransition>
       <Helmet>
@@ -45,20 +41,54 @@ export default function Contact() {
         <meta name="description" content="Get in touch with Marvin Sta. Ana, Head of Content at mb.io (MultiBank Group), based in Dubai." />
       </Helmet>
       <div className="container section">
-        <motion.p className="section-eyebrow" {...fadeUp(0)}>Let's Talk</motion.p>
-        <motion.h2 className="section-title" {...fadeUp(0.05)}>Contact</motion.h2>
-        <motion.p className="section-subtitle" {...fadeUp(0.1)}>"{contact.sectionSubtitle}"</motion.p>
+        <p className="section-eyebrow">Say Hello</p>
+        <h2 className="section-title">Contact</h2>
+        <p className="section-subtitle">{contact.sectionSubtitle}</p>
 
         <div className="contact-grid">
+          {/* Ledger */}
+          <div>
+            <div className="c-item">
+              <span className="k">Email</span>
+              <span className="v"><a href={`mailto:${contact.email}`}>{contact.email}</a></span>
+            </div>
+            <div className="c-item">
+              <span className="k">LinkedIn</span>
+              <span className="v">
+                <a href={`https://${contact.linkedin}`} target="_blank" rel="noopener noreferrer">{contact.linkedin}</a>
+              </span>
+            </div>
+            {contact.telegram && (
+              <div className="c-item">
+                <span className="k">Telegram</span>
+                <span className="v">
+                  <a href={telegramHref} target="_blank" rel="noopener noreferrer">{contact.telegram}</a>
+                </span>
+              </div>
+            )}
+            <div className="c-item">
+              <span className="k">Location</span>
+              <span className="v">{contact.location}</span>
+            </div>
+            {contact.cv && (
+              <div className="c-item">
+                <span className="k">CV</span>
+                <span className="v">
+                  <a href={contact.cv.href} target="_blank" rel="noopener noreferrer">{contact.cv.label}</a>
+                </span>
+              </div>
+            )}
+            <p className="sarcnote">{contact.sarcasticNote}</p>
+          </div>
+
           {/* Form */}
-          <motion.div {...fadeUp(0.15)}>
+          <div className="form">
             {submitted ? (
               <div className="form-success">
                 ✓ Message sent. I'll get back to you when I surface, literally or figuratively.
               </div>
             ) : (
               <form
-                className="contact-form"
                 name="contact"
                 method="POST"
                 netlify="true"
@@ -71,26 +101,12 @@ export default function Contact() {
 
                 <div className="form-group">
                   <label className="form-label" htmlFor="name">Name</label>
-                  <input
-                    className="form-input"
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                  />
+                  <input className="form-input" type="text" id="name" name="name" placeholder="Your name" required />
                 </div>
 
                 <div className="form-group">
                   <label className="form-label" htmlFor="email">Email</label>
-                  <input
-                    className="form-input"
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="your@email.com"
-                    required
-                  />
+                  <input className="form-input" type="email" id="email" name="email" placeholder="you@company.com" required />
                 </div>
 
                 <div className="form-group">
@@ -105,99 +121,15 @@ export default function Contact() {
 
                 <div className="form-group">
                   <label className="form-label" htmlFor="message">Message</label>
-                  <textarea
-                    className="form-textarea"
-                    id="message"
-                    name="message"
-                    placeholder="What's on your mind? (Other than Bitcoin's price target.)"
-                    required
-                  />
+                  <textarea className="form-textarea" id="message" name="message" rows="4" placeholder="What's on your mind?" required />
                 </div>
 
-                <button
-                  type="submit"
-                  className="btn btn-primary"
-                  disabled={sending}
-                  style={{ alignSelf: 'flex-start' }}
-                >
+                <button type="submit" className="btn btn-primary" disabled={sending} style={{ width: '100%', justifyContent: 'center' }}>
                   {sending ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             )}
-          </motion.div>
-
-          {/* Info card */}
-          <motion.div {...fadeUp(0.25)}>
-            <div className="contact-info-card">
-              <div className="contact-info-item">
-                <div className="contact-info-icon">📧</div>
-                <div>
-                  <div className="contact-info-label">Email</div>
-                  <div className="contact-info-value">
-                    <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="contact-info-item">
-                <div className="contact-info-icon">💼</div>
-                <div>
-                  <div className="contact-info-label">LinkedIn</div>
-                  <div className="contact-info-value">
-                    <a
-                      href={`https://${contact.linkedin}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {contact.linkedin}
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {contact.telegram && (
-                <div className="contact-info-item">
-                  <div className="contact-info-icon">✈️</div>
-                  <div>
-                    <div className="contact-info-label">Telegram</div>
-                    <div className="contact-info-value">
-                      <a
-                        href={`https://t.me/${contact.telegram.replace(/^@/, '')}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {contact.telegram}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div className="contact-info-item">
-                <div className="contact-info-icon">📍</div>
-                <div>
-                  <div className="contact-info-label">Location</div>
-                  <div className="contact-info-value">{contact.location}</div>
-                </div>
-              </div>
-
-              {contact.cv && (
-                <div className="contact-info-item" style={{ marginBottom: 0 }}>
-                  <div className="contact-info-icon">📄</div>
-                  <div>
-                    <div className="contact-info-label">CV / Resume</div>
-                    <div className="contact-info-value">
-                      <a href={contact.cv.href} target="_blank" rel="noopener noreferrer">
-                        {contact.cv.label}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <p className="contact-sarcasm">{contact.sarcasticNote}</p>
-            </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </PageTransition>
