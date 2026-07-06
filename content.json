@@ -1,5 +1,7 @@
 {
   "hero": {
+    "eyebrow": "mb.io · MultiBank Group · Dubai, UAE",
+    "name": "Marvin Sta. Ana",
     "typewriterRoles": [
       "Head of Content",
       "Marketing Manager",
@@ -21,6 +23,9 @@
       { "value": "20+", "suffix": "issues", "label": "Newsletter + deep dives · Substack", "highlight": false },
       { "value": "8+", "suffix": "yrs", "label": "Fintech & Web3 content", "highlight": false }
     ],
+    "featuredEyebrow": "Selected Work",
+    "featuredTitle": "Proof, not promises",
+    "featuredSubtitle": "Three things that show how I run content: on the ground, in the calendar, and in the tooling.",
     "featured": [
       { "tag": "Content Ops", "title": "mb.io Content Management Dashboard", "description": "An AI-powered content ops platform I designed and built in-role. Three brands, one workspace, zero spreadsheets.", "ctaLabel": "See it live →", "href": "/portfolio" },
       { "tag": "Events", "title": "Istanbul Blockchain Week 2026", "description": "Lead organizer of mb.io's Platinum Sponsor presence: vendors, KOLs, and an invite-only VIP dinner for HNWI partners.", "ctaLabel": "See the details →", "href": "/experience" },
@@ -28,10 +33,11 @@
     ]
   },
   "about": {
-    "sectionSubtitle": "The Human Behind the Threads",
+    "eyebrow": "Who is this guy",
+    "sectionSubtitle": "The human behind the threads.",
     "bio": [
-      "Marvin is a Head of Content with 8+ years across finance, FX/CFD, crypto, and Web3. At mb.io, the crypto exchange arm of MultiBank Group, he owns the full content lifecycle across three brand accounts: the exchange, the $MBG Token, and the CEO's personal brand. Social calendars, long-form editorial, earn campaigns, paid ad copy, client comms, and the market intelligence that feeds all of it.",
-      "He's also the guy on the ground: lead organizer of mb.io's Platinum Sponsor booth at Istanbul Blockchain Week 2026, and the face of the brand at Binance Blockchain Week, RWA Week Dubai, Bitcoin Pizza Day at TheBlock, and Philippine Blockchain Week.",
+      "Marvin is a <b>Head of Content</b> with 8+ years across finance, FX/CFD, crypto, and Web3. At <b>mb.io, the crypto exchange arm of MultiBank Group</b>, he owns the full content lifecycle across three brand accounts: the exchange, the $MBG Token, and the CEO's personal brand. Social calendars, long-form editorial, earn campaigns, paid ad copy, client comms, and the market intelligence that feeds all of it.",
+      "He's also the guy on the ground: lead organizer of mb.io's Platinum Sponsor booth at <b>Istanbul Blockchain Week 2026</b>, and the face of the brand at Binance Blockchain Week, RWA Week Dubai, Bitcoin Pizza Day at TheBlock, and Philippine Blockchain Week.",
       "He holds an MBA in Digital Marketing from King's Business School and a BFA in Creative Writing from Ateneo de Manila University, which is a polite way of saying he's been professionally overthinking words since 2014.",
       "He has ADHD. This is not a disclaimer. This is the source code. The hyperfocus is a feature, not a bug.",
       "When he's not writing copy that moves markets, he's underwater (licensed scuba and cave diver), underground (spelunker), or somewhere in his 30th+ country with no particular agenda. He lives in Dubai. His plants are alive. That's the win."
@@ -47,7 +53,9 @@
       { "emoji": "🏐", "label": "Volleyball enthusiast" }
     ],
     "howIWork": {
-      "heading": "How I work: AI-native, by default",
+      "eyebrow": "How I Work",
+      "heading": "AI-native, by default",
+      "headingAccent": "by default",
       "paragraphs": [
         "I don't just use AI tools, I build them. To run three brand accounts and eleven content pillars without a full content team, I designed and shipped the mb.io Content Dashboard: a scheduling and approval system, an AI writing agent trained on each brand's voice, a blog manager running a 100+ topic roadmap, and a pillar detection engine that flags coverage gaps before they happen.",
         "The same logic runs through everything: AI video production (Higgsfield, Kling), agentic content workflows in Claude Code, and market monitoring pipelines that turn crypto, macro, and RWA feeds into a weekly Monday Outlook. The result is a one-person content operation with the output of a team."
@@ -61,13 +69,13 @@
         "id": "job-1",
         "title": "Head of Content",
         "company": "mb.io (MultiBank Group)",
-        "period": "DEC 2025 - PRESENT",
+        "period": "DEC 2025 – PRESENT",
         "location": "Dubai, UAE",
         "badges": [
           { "label": "3 brand accounts", "variant": "amber" },
           { "label": "200+ posts · 5 platforms", "variant": "amber" },
           { "label": "20+ Substack issues", "variant": "amber" },
-          { "label": "$200K+ OTC deal flow", "variant": "blue" }
+          { "label": "$200K+ OTC deal flow", "variant": "key" }
         ],
         "bullets": [
           "Own the full content lifecycle across three brand accounts (mb.io, $MBG Token, and the CEO's personal brand): social calendars, long-form editorial, earn campaigns, paid ad copy, client communications, and the market intelligence layer feeding a weekly Monday Outlook.",
@@ -84,7 +92,7 @@
         "id": "job-2",
         "title": "Content Manager",
         "company": "MultiBank Group",
-        "period": "AUG 2024 - DEC 2025",
+        "period": "AUG 2024 – DEC 2025",
         "location": "Dubai, UAE",
         "badges": [
           { "label": "+94% email conversion", "variant": "amber" },
@@ -102,7 +110,7 @@
         "id": "job-3",
         "title": "Content Marketing Strategist",
         "company": "ThinkMarkets",
-        "period": "AUG 2022 - AUG 2024",
+        "period": "AUG 2022 – AUG 2024",
         "location": "Dubai, UAE",
         "bullets": [
           "Developed cross-channel content aligned to brand narrative: web, social, email, PR, HTML5 banners, and search ads.",
@@ -115,7 +123,7 @@
         "id": "job-4",
         "title": "Content Director",
         "company": "SOAR",
-        "period": "October 2020 – August 2022",
+        "period": "OCT 2020 – AUG 2022",
         "location": "Remote, USA",
         "collapsed": true,
         "bullets": [
@@ -128,7 +136,7 @@
         "id": "job-5",
         "title": "Content Manager",
         "company": "To The Top",
-        "period": "November 2018 – August 2022",
+        "period": "NOV 2018 – AUG 2022",
         "location": "Remote, UK",
         "collapsed": true,
         "bullets": [
@@ -141,7 +149,7 @@
         "id": "job-6",
         "title": "Content Writer",
         "company": "Direct Clicks Marketing",
-        "period": "May 2018 – November 2018",
+        "period": "MAY 2018 – NOV 2018",
         "location": "Dubai, UAE",
         "collapsed": true,
         "bullets": [
@@ -152,7 +160,7 @@
         "id": "job-7",
         "title": "Intern",
         "company": "Samurai Gamers",
-        "period": "May 2017 – August 2017",
+        "period": "MAY 2017 – AUG 2017",
         "location": "Japan",
         "collapsed": true,
         "bullets": [
@@ -163,7 +171,7 @@
         "id": "job-8",
         "title": "Editor-in-Chief",
         "company": "Fine Print, Ateneo de Manila University",
-        "period": "August 2015 – January 2017",
+        "period": "AUG 2015 – JAN 2017",
         "location": "Philippines",
         "collapsed": true,
         "bullets": [
@@ -174,7 +182,7 @@
         "id": "job-9",
         "title": "Special Projects Head",
         "company": "Rizal Library, Ateneo de Manila University",
-        "period": "January 2015 – June 2017",
+        "period": "JAN 2015 – JUN 2017",
         "location": "Philippines",
         "collapsed": true,
         "bullets": [
@@ -194,41 +202,49 @@
     ]
   },
   "education": {
-    "sectionSubtitle": "Degrees, Diplomas, and Documented Proof I Did the Reading",
+    "eyebrow": "Foundations",
+    "sectionSubtitle": "One MBA, three undergraduate programs, and a certification habit that never really stopped.",
     "degrees": [
       {
         "id": "edu-1",
         "degree": "Master of Business Administration in Digital Marketing",
         "institution": "King's Business School, UAE",
-        "period": "2022 – 2023"
+        "period": "2022 – 2023",
+        "tag": "Postgraduate",
+        "lead": true
       },
       {
         "id": "edu-2",
         "degree": "OTHM Level 7 Strategic Management",
         "institution": "King's Business School, UAE",
-        "period": "2022 – 2023"
+        "period": "2022 – 2023",
+        "tag": "Postgraduate",
+        "lead": true
       },
       {
         "id": "edu-3",
         "degree": "Bachelor of Fine Arts in Creative Writing",
         "institution": "Ateneo de Manila University, Philippines",
-        "period": "2014 – 2018"
+        "period": "2014 – 2018",
+        "tag": "Undergraduate"
       },
       {
         "id": "edu-4",
         "degree": "Bachelor of Science in Economics (Minor)",
         "institution": "Ateneo de Manila University, Philippines",
-        "period": "2014 – 2018"
+        "period": "2014 – 2018",
+        "tag": "Minor"
       },
       {
         "id": "edu-5",
         "degree": "Bachelor of Arts in Literature, English (Minor)",
         "institution": "Ateneo de Manila University, Philippines",
-        "period": "2014 – 2018"
+        "period": "2014 – 2018",
+        "tag": "Minor"
       }
     ],
     "certifications": [
-      { "id": "cert-1", "name": "AI Applications in Marketing and Finance", "issuer": "University of Pennsylvania" },
+      { "id": "cert-1", "name": "AI Applications in Marketing and Finance", "issuer": "University of Pennsylvania", "hot": true },
       { "id": "cert-2", "name": "Social Media and Social Content Strategy", "issuer": "Digital Marketing Institute" },
       { "id": "cert-3", "name": "Content Marketing Masterclass: Create Content That Sells", "issuer": "Udemy" },
       { "id": "cert-4", "name": "The Strategy of Content Marketing", "issuer": "Coursera" },
@@ -244,7 +260,7 @@
       {
         "id": "sg-1",
         "hot": true,
-        "groupName": "⚡ AI-Native Production",
+        "groupName": "AI-Native Production",
         "proof": "PROOF: mb.io Content Dashboard, built in-role →",
         "proofHref": "/portfolio",
         "tags": [
@@ -259,7 +275,7 @@
       {
         "id": "sg-2",
         "hot": true,
-        "groupName": "🎪 Event Marketing & BD",
+        "groupName": "Event Marketing & BD",
         "proof": "PROOF: Istanbul Blockchain Week →",
         "proofHref": "/experience",
         "tags": [
@@ -274,9 +290,9 @@
       {
         "id": "sg-3",
         "hot": false,
-        "groupName": "🪙 Crypto & Web3",
+        "groupName": "Crypto & Web3",
         "proof": "PROOF: $MBG Token launch, Pre-Sale to TGE →",
-        "proofHref": null,
+        "proofHref": "#",
         "tags": [
           "Token launch campaigns",
           "MiCA-compliant whitepapers",
@@ -289,9 +305,9 @@
       {
         "id": "sg-4",
         "hot": false,
-        "groupName": "📈 Finance & Trading Content",
+        "groupName": "Finance & Trading Content",
         "proof": "PROOF: CTR 0.75% → 9% on market campaigns →",
-        "proofHref": null,
+        "proofHref": "#",
         "tags": [
           "FX/CFD content",
           "Market intelligence briefs",
@@ -304,9 +320,9 @@
       {
         "id": "sg-5",
         "hot": false,
-        "groupName": "✍️ Content Strategy & Ops",
+        "groupName": "Content Strategy & Ops",
         "proof": "PROOF: 3 brands · 11 pillars · 200+ posts →",
-        "proofHref": null,
+        "proofHref": "#",
         "tags": [
           "Multi-brand voice systems",
           "Editorial planning",
@@ -319,9 +335,9 @@
       {
         "id": "sg-6",
         "hot": false,
-        "groupName": "🎯 Performance & Growth",
+        "groupName": "Performance & Growth",
         "proof": "PROOF: +94% onboarding email conversion →",
-        "proofHref": null,
+        "proofHref": "#",
         "tags": [
           "Google Search & PMax copy",
           "Meta ads",
@@ -362,6 +378,8 @@
     "items": [
       {
         "id": "cm-1",
+        "index": "01",
+        "flag": "Built In-Role",
         "title": "mb.io Content Management Dashboard",
         "category": "Content Management",
         "tag": "Content Management / mb.io",
@@ -375,6 +393,7 @@
       },
       {
         "id": "social-1",
+        "index": "02",
         "title": "mb.io Social Media",
         "category": "Social Media",
         "tag": "Social Media / mb.io",
@@ -388,7 +407,21 @@
         ]
       },
       {
+        "id": "news-1",
+        "index": "03",
+        "title": "mb.insider",
+        "category": "Newsletter",
+        "tag": "Newsletter / mb.io",
+        "description": "The mb.io Substack publication: a weekly crypto intelligence newsletter plus comprehensive long-form articles covering market updates, product news, and editorial features. Written, edited, fact-checked, and published every week.",
+        "badges": ["20+ issues", "Weekly cadence"],
+        "glyph": "📬",
+        "theme": "amber",
+        "link": "https://multibank.substack.com/",
+        "ctaLabel": "Read on Substack →"
+      },
+      {
         "id": "seo-1",
+        "index": "04",
         "title": "SEO Case Study: Self-Storage Marketplace",
         "category": "SEO Case Studies",
         "tag": "SEO Case Study / To The Top",
@@ -405,6 +438,7 @@
       },
       {
         "id": "seo-2",
+        "index": "05",
         "title": "SEO Case Study: Plumbing Company",
         "category": "SEO Case Studies",
         "tag": "SEO Case Study / To The Top",
@@ -421,6 +455,7 @@
       },
       {
         "id": "ebook-1",
+        "index": "06",
         "title": "Ultimate Guide to Trading the 2024 Bitcoin Halving Event",
         "category": "eBook",
         "tag": "eBook / ThinkMarkets",
@@ -433,6 +468,7 @@
       },
       {
         "id": "blog-1",
+        "index": "07",
         "title": "What is De-dollarisation, and Which Markets Will It Affect?",
         "category": "Blog Posts",
         "tag": "Article / ThinkMarkets",
@@ -444,6 +480,7 @@
       },
       {
         "id": "blog-2",
+        "index": "08",
         "title": "Oil Trading Strategies: How to Trade Crude Oil CFDs",
         "category": "Blog Posts",
         "tag": "Article / MultiBank Group",
@@ -455,6 +492,7 @@
       },
       {
         "id": "blog-3",
+        "index": "09",
         "title": "Common Forex Trading Mistakes and How to Avoid Them",
         "category": "Blog Posts",
         "tag": "Article / MultiBank Group",
@@ -466,6 +504,7 @@
       },
       {
         "id": "blog-4",
+        "index": "10",
         "title": "Moving Averages in Trading: Beginner's Guide",
         "category": "Blog Posts",
         "tag": "Article / MultiBank Group",
@@ -476,19 +515,8 @@
         "link": null
       },
       {
-        "id": "news-1",
-        "title": "mb.insider",
-        "category": "Newsletter",
-        "tag": "Newsletter / mb.io",
-        "description": "The mb.io Substack publication: a weekly crypto intelligence newsletter plus comprehensive long-form articles covering market updates, product news, and editorial features. Written, edited, fact-checked, and published every week.",
-        "badges": ["20+ issues", "Weekly cadence"],
-        "glyph": "📬",
-        "theme": "amber",
-        "link": "https://multibank.substack.com/",
-        "ctaLabel": "Read on Substack →"
-      },
-      {
         "id": "ad-1",
+        "index": "11",
         "title": "Google App Campaigns",
         "category": "Ad Copy",
         "tag": "Google App Ads / mb.io",
@@ -500,6 +528,7 @@
       },
       {
         "id": "ad-2",
+        "index": "12",
         "title": "Google Search Campaigns",
         "category": "Ad Copy",
         "tag": "Google Search Ads / mb.io",
@@ -511,6 +540,7 @@
       },
       {
         "id": "uiux-1",
+        "index": "13",
         "title": "mb.io Crypto Exchange App",
         "category": "UI/UX Copy",
         "tag": "UI/UX Copy / mb.io",
@@ -527,7 +557,7 @@
     "sarcasticNote": "Response time varies. I'm either deep in a content sprint, 40 meters underwater, or in a timezone that doesn't make sense. I'll get back to you.",
     "email": "r.marvinstaana@gmail.com",
     "linkedin": "linkedin.com/in/marvin-sta-ana/",
-    "telegram": "@martianthemarvin",
+    "telegram": "@PLACEHOLDER_ASK_MARVIN",
     "location": "Dubai, UAE",
     "cv": { "label": "Download PDF ↓", "href": "/cv.pdf" },
     "subjectOptions": ["Job Opportunity", "Collaboration", "Speaking Engagement", "Press", "General Inquiry", "Other"]
