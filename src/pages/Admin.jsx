@@ -60,6 +60,16 @@ function HeroTab({ data, onChange, onSave, saveStatus }) {
     <div>
       <div className="admin-section-title">Hero Text</div>
 
+      <div style={{ display: 'flex', gap: 8, marginBottom: 14 }}>
+        <div className="form-group" style={{ flex: 1 }}>
+          <label className="form-label">Eyebrow</label>
+          <input className="form-input" value={h.eyebrow || ''} onChange={e => set({ eyebrow: e.target.value })} />
+        </div>
+        <div className="form-group" style={{ flex: 1 }}>
+          <label className="form-label">Name</label>
+          <input className="form-input" value={h.name || ''} onChange={e => set({ name: e.target.value })} />
+        </div>
+      </div>
       <div className="form-group" style={{ marginBottom: 14 }}>
         <label className="form-label">Subtitle</label>
         <input className="form-input" value={h.subtitle || ''} onChange={e => set({ subtitle: e.target.value })} />
@@ -123,6 +133,18 @@ function HeroTab({ data, onChange, onSave, saveStatus }) {
       <button className="admin-btn-add" onClick={() => set({ stats: [...stats, { value: '', suffix: '', label: '', highlight: false }] })}>+ Add Stat</button>
 
       <div className="admin-section-title" style={{ marginTop: 32 }}>Featured (Selected Work)</div>
+      <div className="form-group" style={{ marginBottom: 10 }}>
+        <label className="form-label">Section Eyebrow</label>
+        <input className="form-input" value={h.featuredEyebrow || ''} onChange={e => set({ featuredEyebrow: e.target.value })} />
+      </div>
+      <div className="form-group" style={{ marginBottom: 10 }}>
+        <label className="form-label">Section Title</label>
+        <input className="form-input" value={h.featuredTitle || ''} onChange={e => set({ featuredTitle: e.target.value })} />
+      </div>
+      <div className="form-group" style={{ marginBottom: 16 }}>
+        <label className="form-label">Section Subtitle</label>
+        <input className="form-input" value={h.featuredSubtitle || ''} onChange={e => set({ featuredSubtitle: e.target.value })} />
+      </div>
       {featured.map((item, i) => (
         <div key={i} style={{ border: '1px solid var(--line)', borderRadius: 8, padding: 14, marginBottom: 12 }}>
           <div style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
@@ -179,10 +201,19 @@ function AboutTab({ data, onChange, onSave, saveStatus }) {
       <div className="admin-section-title">About Section</div>
 
       <div className="form-group" style={{ marginBottom: 16 }}>
+        <label className="form-label">Eyebrow</label>
+        <input
+          className="form-input"
+          value={about.eyebrow || ''}
+          onChange={e => onChange('about', { ...about, eyebrow: e.target.value })}
+        />
+      </div>
+
+      <div className="form-group" style={{ marginBottom: 16 }}>
         <label className="form-label">Section Subtitle (sarcastic line)</label>
         <input
           className="form-input"
-          value={about.sectionSubtitle}
+          value={about.sectionSubtitle || ''}
           onChange={e => onChange('about', { ...about, sectionSubtitle: e.target.value })}
         />
       </div>
@@ -234,11 +265,27 @@ function AboutTab({ data, onChange, onSave, saveStatus }) {
 
       <div className="admin-section-title" style={{ marginTop: 32 }}>How I Work</div>
       <div className="form-group" style={{ marginBottom: 14 }}>
+        <label className="form-label">Eyebrow</label>
+        <input
+          className="form-input"
+          value={howIWork.eyebrow || ''}
+          onChange={e => onChange('about', { ...about, howIWork: { ...howIWork, eyebrow: e.target.value } })}
+        />
+      </div>
+      <div className="form-group" style={{ marginBottom: 14 }}>
         <label className="form-label">Heading</label>
         <input
           className="form-input"
-          value={howIWork.heading}
+          value={howIWork.heading || ''}
           onChange={e => onChange('about', { ...about, howIWork: { ...howIWork, heading: e.target.value } })}
+        />
+      </div>
+      <div className="form-group" style={{ marginBottom: 14 }}>
+        <label className="form-label">Heading Accent (the part rendered in amber, must appear within the heading)</label>
+        <input
+          className="form-input"
+          value={howIWork.headingAccent || ''}
+          onChange={e => onChange('about', { ...about, howIWork: { ...howIWork, headingAccent: e.target.value } })}
         />
       </div>
       <div className="form-group" style={{ marginBottom: 14 }}>
@@ -394,8 +441,8 @@ function JobForm({ item, onSave, onClose }) {
         </label>
       </div>
       <div className="form-group" style={{ marginBottom: 12 }}>
-        <label className="form-label">Badges (one per line, format: label|variant where variant is amber or blue)</label>
-        <textarea className="admin-textarea" value={form.badgesText || ''} onChange={f('badgesText')} placeholder="200+ posts · 5 platforms|amber" />
+        <label className="form-label">Badges (one per line, format: label|variant where variant is amber or key)</label>
+        <textarea className="admin-textarea" value={form.badgesText || ''} onChange={f('badgesText')} placeholder="$200K+ OTC deal flow|key" />
       </div>
       <div className="form-group" style={{ marginBottom: 12 }}>
         <label className="form-label">Bullet Points (one per line)</label>
@@ -462,12 +509,21 @@ function EducationTab({ data, onChange, onSave, saveStatus }) {
 
   return (
     <div>
+      <div className="form-group" style={{ marginBottom: 14 }}>
+        <label className="form-label">Eyebrow</label>
+        <input className="form-input" value={data.education.eyebrow || ''} onChange={e => onChange('education', { ...data.education, eyebrow: e.target.value })} />
+      </div>
+      <div className="form-group" style={{ marginBottom: 20 }}>
+        <label className="form-label">Section Subtitle</label>
+        <input className="form-input" value={data.education.sectionSubtitle || ''} onChange={e => onChange('education', { ...data.education, sectionSubtitle: e.target.value })} />
+      </div>
+
       <div className="admin-section-title">Degrees</div>
       {degrees.map((deg, i) => (
         <div key={deg.id} className="admin-list-item">
           <div className="admin-list-item-info">
-            <div className="admin-list-item-title">{deg.degree}</div>
-            <div className="admin-list-item-sub">{deg.institution} · {deg.period}</div>
+            <div className="admin-list-item-title">{deg.degree} {deg.lead && <span style={{ color: 'var(--accent)', fontSize: '0.75rem' }}>(lead)</span>}</div>
+            <div className="admin-list-item-sub">{deg.institution} · {deg.period}{deg.tag ? ` · ${deg.tag}` : ''}</div>
           </div>
           <div className="admin-item-actions">
             <button className="admin-btn-edit" onClick={() => setModal({ type: 'deg', item: { ...deg }, idx: i })}>Edit</button>
@@ -481,7 +537,7 @@ function EducationTab({ data, onChange, onSave, saveStatus }) {
       {certs.map((cert, i) => (
         <div key={cert.id} className="admin-list-item">
           <div className="admin-list-item-info">
-            <div className="admin-list-item-title">{cert.name}</div>
+            <div className="admin-list-item-title">{cert.name} {cert.hot && <span style={{ color: 'var(--accent)', fontSize: '0.75rem' }}>(hot)</span>}</div>
             <div className="admin-list-item-sub">{cert.issuer}</div>
           </div>
           <div className="admin-item-actions">
@@ -496,12 +552,24 @@ function EducationTab({ data, onChange, onSave, saveStatus }) {
 
       {modal?.type === 'deg' && (
         <Modal title={modal.idx === -1 ? 'Add Degree' : 'Edit Degree'} onClose={() => setModal(null)}>
-          <SimpleForm fields={[['degree', 'Degree'], ['institution', 'Institution'], ['period', 'Period']]} item={modal.item} onSave={(it) => saveDeg({ ...it, id: modal.item.id || `edu-${Date.now()}` }, modal.idx)} onClose={() => setModal(null)} />
+          <SimpleForm
+            fields={[['degree', 'Degree'], ['institution', 'Institution'], ['period', 'Period'], ['tag', 'Tag (e.g. Postgraduate, Undergraduate, Minor)']]}
+            checks={[['lead', 'Lead (emphasized card)']]}
+            item={modal.item}
+            onSave={(it) => saveDeg({ ...it, id: modal.item.id || `edu-${Date.now()}` }, modal.idx)}
+            onClose={() => setModal(null)}
+          />
         </Modal>
       )}
       {modal?.type === 'cert' && (
         <Modal title={modal.idx === -1 ? 'Add Certification' : 'Edit Certification'} onClose={() => setModal(null)}>
-          <SimpleForm fields={[['name', 'Name'], ['issuer', 'Issuer']]} item={modal.item} onSave={(it) => saveCert({ ...it, id: modal.item.id || `cert-${Date.now()}` }, modal.idx)} onClose={() => setModal(null)} />
+          <SimpleForm
+            fields={[['name', 'Name'], ['issuer', 'Issuer']]}
+            checks={[['hot', 'Hot (amber highlight)']]}
+            item={modal.item}
+            onSave={(it) => saveCert({ ...it, id: modal.item.id || `cert-${Date.now()}` }, modal.idx)}
+            onClose={() => setModal(null)}
+          />
         </Modal>
       )}
     </div>
@@ -551,9 +619,9 @@ function SkillsTab({ data, onChange, onSave, saveStatus }) {
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
               {group.tags.map((tag, ti) => (
-                <div key={ti} style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'rgba(255,255,255,0.04)', border: '1px solid var(--line)', borderRadius: 6, padding: '4px 8px' }}>
+                <div key={ti} style={{ display: 'flex', alignItems: 'center', gap: 4, background: 'var(--card-hover-bg)', border: '1px solid var(--line)', borderRadius: 6, padding: '4px 8px' }}>
                   <input
-                    style={{ background: 'none', border: 'none', color: 'var(--text)', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', width: `${tag.length + 2}ch`, outline: 'none' }}
+                    style={{ background: 'none', border: 'none', color: 'var(--ink)', fontFamily: 'var(--font-mono)', fontSize: '0.8rem', width: `${tag.length + 2}ch`, outline: 'none' }}
                     value={tag}
                     onChange={e => {
                       const tags = [...group.tags]; tags[ti] = e.target.value; update({ tags })
@@ -654,6 +722,16 @@ function PortfolioForm({ item, categories, onSave, onClose }) {
       </div>
       <div style={{ display: 'flex', gap: 8 }}>
         <div className="form-group" style={{ width: 90, marginBottom: 12 }}>
+          <label className="form-label">Index</label>
+          <input className="form-input" value={form.index || ''} onChange={f('index')} placeholder="01" />
+        </div>
+        <div className="form-group" style={{ flex: 1, marginBottom: 12 }}>
+          <label className="form-label">Corner Flag (featured cards, blank for none)</label>
+          <input className="form-input" value={form.flag || ''} onChange={f('flag')} placeholder="Built In-Role" />
+        </div>
+      </div>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <div className="form-group" style={{ width: 90, marginBottom: 12 }}>
           <label className="form-label">Glyph</label>
           <input className="form-input" value={form.glyph || ''} onChange={f('glyph')} placeholder="📄" />
         </div>
@@ -743,7 +821,7 @@ function ContactTab({ data, onChange, onSave, saveStatus }) {
 }
 
 /* ─── Reusable helpers ───────────────────────────────────────────── */
-function SimpleForm({ fields, item, onSave, onClose }) {
+function SimpleForm({ fields, checks = [], item, onSave, onClose }) {
   const [form, setForm] = useState(item)
   const f = (k) => (e) => setForm(p => ({ ...p, [k]: e.target.value }))
   return (
@@ -752,6 +830,14 @@ function SimpleForm({ fields, item, onSave, onClose }) {
         <div className="form-group" key={k} style={{ marginBottom: 12 }}>
           <label className="form-label">{l}</label>
           <input className="form-input" value={form[k] || ''} onChange={f(k)} />
+        </div>
+      ))}
+      {checks.map(([k, l]) => (
+        <div className="form-group" key={k} style={{ marginBottom: 12 }}>
+          <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <input type="checkbox" checked={!!form[k]} onChange={e => setForm(p => ({ ...p, [k]: e.target.checked }))} />
+            {l}
+          </label>
         </div>
       ))}
       <div className="admin-modal-actions">

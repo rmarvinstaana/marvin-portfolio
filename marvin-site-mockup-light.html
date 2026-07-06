@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Marvin Sta. Ana | Head of Content — Light Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#FFFFF0;
+  --card:#FFFFFF;
+  --ink:#141414;
+  --muted:#6B6B66;
+  --line:#E7E5E0;
+  --line-dark:#141414;
+  --accent:#C05F0E;
+  --radius:10px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Inter',sans-serif;font-weight:400;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:rgba(192,95,14,.18)}
+
+/* ---------- NAV ---------- */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,240,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1040px;margin:0 auto;padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Space Grotesk';font-weight:700;font-size:17px;letter-spacing:.05em;color:var(--ink);text-decoration:none;cursor:pointer}
+.logo span{color:var(--accent)}
+.tabs{display:flex;gap:2px;flex-wrap:wrap}
+.tab{
+  font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;
+  padding:20px 13px 18px;transition:color .2s;
+}
+.tab:hover{color:var(--ink)}
+.tab.active{color:var(--ink);border-bottom-color:var(--ink)}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+
+/* ---------- LAYOUT ---------- */
+.page{display:none;animation:fade .4s ease both}
+.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.page{animation:none}.cursor{animation:none}}
+.container{max-width:1040px;margin:0 auto;padding:72px 24px 96px}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--ink)}
+h1,h2,h3,h4{font-family:'Space Grotesk';font-weight:600;line-height:1.15;letter-spacing:-.01em}
+h2.section-title{font-size:clamp(28px,4.2vw,40px);margin-bottom:10px}
+.section-sub{color:var(--muted);font-size:15.5px;margin-bottom:52px;max-width:600px}
+
+/* ---------- HOME ---------- */
+.hero{min-height:calc(100vh - 62px);display:flex;flex-direction:column;justify-content:center;max-width:1040px;margin:0 auto;padding:48px 24px 0}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.hero h1{font-size:clamp(42px,7vw,78px);margin-bottom:12px}
+.typer-wrap{font-family:'Space Grotesk';font-size:clamp(19px,2.8vw,28px);font-weight:500;color:var(--accent);min-height:1.4em;margin-bottom:22px}
+.cursor{display:inline-block;width:2px;height:1em;background:var(--accent);vertical-align:-2px;margin-left:4px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-sub{font-size:17.5px;color:var(--ink);max-width:540px;margin-bottom:34px;font-weight:300}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.btn{
+  font-family:'Space Grotesk';font-weight:500;font-size:14.5px;text-decoration:none;cursor:pointer;
+  padding:12px 24px;border-radius:8px;transition:all .15s;border:1px solid transparent;
+}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:#000}
+.btn-outline{background:transparent;color:var(--ink);border-color:#CFCDC6}
+.btn-outline:hover{border-color:var(--ink)}
+.btn-ghost{background:transparent;color:var(--muted);border:1px dashed #CFCDC6;font-family:'JetBrains Mono',monospace;font-size:12.5px}
+.btn-ghost:hover{color:var(--ink);border-color:var(--ink)}
+.hero-sarcasm{font-size:13.5px;color:var(--muted);font-style:italic}
+
+/* ticker */
+.ticker{margin:60px 0 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr)}
+.tick{padding:24px 18px 22px;border-right:1px solid var(--line)}
+.tick:last-child{border-right:none}
+.tick .val{font-family:'JetBrains Mono',monospace;font-size:clamp(18px,2.1vw,24px);font-weight:600;color:var(--ink)}
+.tick .lbl{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:7px}
+.tick.hi .val{font-size:clamp(22px,2.5vw,29px);color:var(--accent)}
+@media(max-width:820px){.ticker{grid-template-columns:repeat(2,1fr)}.tick:nth-child(2n){border-right:none}.tick{border-bottom:1px solid var(--line)}}
+
+/* featured */
+.featured{max-width:1040px;margin:0 auto;padding:80px 24px 100px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card)}
+@media(max-width:820px){.cards{grid-template-columns:1fr}}
+.card{padding:30px 28px;border-right:1px solid var(--line);transition:background .2s}
+.card:last-child{border-right:none}
+@media(max-width:820px){.card{border-right:none;border-bottom:1px solid var(--line)}.card:last-child{border-bottom:none}}
+.card:hover{background:#FAF9F6}
+.card .tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:16px}
+.card h3{font-size:18.5px;margin-bottom:10px}
+.card p{font-size:13.5px;color:var(--muted);margin-bottom:18px;font-weight:300}
+.card .go{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--ink);text-decoration:none;letter-spacing:.06em;border-bottom:1px solid var(--ink);padding-bottom:2px}
+.card .go:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:260px 1fr;gap:52px;align-items:start}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+.avatar{width:100%;aspect-ratio:1;border-radius:var(--radius);border:1px solid var(--line);background:#F1EFEA;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em}
+.bio p{margin-bottom:18px;font-size:15.5px;color:#3A3A36;font-weight:300}
+.bio p b{color:var(--ink);font-weight:500}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:60px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card)}
+@media(max-width:820px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{padding:20px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.fact:nth-child(4n){border-right:none}
+.fact:nth-child(n+5){border-bottom:none}
+@media(max-width:820px){.fact:nth-child(4n){border-right:1px solid var(--line)}.fact:nth-child(2n){border-right:none}.fact:nth-child(n+5){border-bottom:1px solid var(--line)}.fact:nth-child(n+7){border-bottom:none}}
+.fact .emoji{font-size:20px;display:block;margin-bottom:8px}
+.fact .txt{font-size:12px;color:var(--muted);line-height:1.45}
+.how{margin-top:72px;border-top:1px solid var(--ink);padding-top:32px}
+.how h3{font-size:21px;margin-bottom:16px}
+.how h3 span{color:var(--accent)}
+.how p{color:#3A3A36;font-size:15px;margin-bottom:14px;font-weight:300;max-width:760px}
+.how p:last-child{margin-bottom:0}
+
+/* ---------- EXPERIENCE ---------- */
+.job{border-left:1px solid var(--line);padding:0 0 48px 30px;position:relative}
+.job::before{content:'';position:absolute;left:-4.5px;top:8px;width:8px;height:8px;border-radius:50%;background:var(--ink)}
+.job-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:4px}
+.job h3{font-size:20px}
+.job .co{color:var(--accent);font-weight:500}
+.job .period{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);letter-spacing:.06em}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px}
+.badge{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.04em;color:var(--ink);background:var(--card);border:1px solid #D8D6CF;border-radius:99px;padding:4px 12px}
+.badge.key{border-color:var(--accent);color:var(--accent)}
+.job ul{list-style:none}
+.job li{position:relative;padding-left:20px;margin-bottom:10px;font-size:14.5px;color:#3A3A36;font-weight:300}
+.job li::before{content:'';position:absolute;left:2px;top:9px;width:5px;height:5px;background:var(--ink)}
+.fold{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:10px;overflow:hidden}
+.fold[open]{border-color:#C9C7C0}
+.fold summary{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 20px;cursor:pointer;list-style:none}
+.fold summary::-webkit-details-marker{display:none}
+.fold summary::after{content:'+';font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--muted);margin-left:auto}
+.fold[open] summary::after{content:'−'}
+.fold-title{font-family:'Space Grotesk';font-weight:500;font-size:15px}
+.fold .co{color:var(--accent)}
+.fold ul{list-style:none;padding:0 20px 16px}
+.fold li{position:relative;padding-left:20px;margin-bottom:9px;font-size:14px;color:#3A3A36;font-weight:300}
+.fold li::before{content:'';position:absolute;left:2px;top:9px;width:5px;height:5px;background:var(--ink)}
+.events{margin-top:32px}
+.event-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:820px){.event-grid{grid-template-columns:1fr}}
+.event{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.event.lead{grid-column:1/-1;border-color:var(--ink)}
+.event .yr{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:.16em;text-transform:uppercase}
+.event h4{font-size:17px;margin:8px 0 8px}
+.event p{font-size:13.5px;color:var(--muted);font-weight:300}
+
+/* ---------- EDUCATION ---------- */
+.deg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+@media(max-width:820px){.deg-grid{grid-template-columns:1fr}}
+.deg-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:border-color .2s}
+.deg-card:hover{border-color:#C9C7C0}
+.deg-card.lead-deg{border-color:var(--ink)}
+.deg-tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:inline-block;margin-bottom:12px}
+.lead-deg .deg-tag{color:var(--accent)}
+.deg-card h3{font-size:17px;margin-bottom:8px;line-height:1.35}
+.deg-school{font-size:13.5px;color:#3A3A36;font-weight:300}
+.deg-year{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.08em}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+@media(max-width:820px){.cert-grid{grid-template-columns:1fr}}
+.cert-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;transition:border-color .2s}
+.cert-card:hover{border-color:#C9C7C0}
+.cert-card.hot-cert{border-color:var(--ink)}
+.cert-card h4{font-weight:500;font-size:14px;line-height:1.4;margin-bottom:8px}
+.cert-org{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--muted);letter-spacing:.06em}
+
+/* ---------- SKILLS ---------- */
+.skill-groups{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:820px){.skill-groups{grid-template-columns:1fr}}
+.sgroup{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:border-color .2s}
+.sgroup:hover{border-color:#C9C7C0}
+.sgroup.hot{border-color:var(--ink)}
+.sgroup h3{font-size:16.5px;margin-bottom:6px}
+.sgroup .proof{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--accent);letter-spacing:.05em;margin-bottom:16px;display:block;text-decoration:none}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:12px;color:#3A3A36;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:5px 12px}
+
+/* ---------- PORTFOLIO ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:36px}
+.filter{
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:99px;
+  padding:7px 15px;cursor:pointer;transition:all .15s;
+}
+.filter:hover{color:var(--ink);border-color:#C9C7C0}
+.filter.on{color:#fff;background:var(--ink);border-color:var(--ink)}
+.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:980px){.pf-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.pf-grid{grid-template-columns:1fr}}
+.pf{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .2s,transform .2s;display:flex;flex-direction:column}
+.pf:hover{border-color:var(--ink);transform:translateY(-2px)}
+.pf.wide{grid-column:span 2}
+@media(max-width:680px){.pf.wide{grid-column:span 1}}
+.pf-thumb{
+  height:96px;display:flex;align-items:flex-end;justify-content:space-between;padding:16px 22px;
+  border-bottom:1px solid var(--line);background:#F7F6F2;
+}
+.pf-num{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:600;color:#C9C7C0;letter-spacing:.04em}
+.pf:hover .pf-num{color:var(--accent)}
+.pf-flag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:99px;padding:3px 10px}
+.pf-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.pf .tag{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:12px}
+.pf h3{font-size:17px;margin-bottom:10px;line-height:1.35}
+.pf p{font-size:13px;color:var(--muted);margin-bottom:16px;flex:1;font-weight:300}
+.pf-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.pf-badge{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink);background:var(--bg);border:1px solid #D8D6CF;border-radius:99px;padding:3px 10px}
+.pf .go{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink);text-decoration:none;letter-spacing:.06em;border-bottom:1px solid var(--ink);padding-bottom:2px;align-self:flex-start}
+.pf .go:hover{color:var(--accent);border-color:var(--accent)}
+
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+@media(max-width:820px){.contact-grid{grid-template-columns:1fr}}
+.c-item{display:flex;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+.c-item:first-child{border-top:1px solid var(--ink)}
+.c-item .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);width:90px;flex-shrink:0}
+.c-item .v{font-size:14.5px;color:var(--ink)}
+.c-item .v a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+.c-item .v a:hover{color:var(--accent);border-color:var(--accent)}
+.form{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.form label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px}
+.form input,.form select,.form textarea{
+  width:100%;background:var(--bg);border:1px solid var(--line);border-radius:8px;
+  color:var(--ink);font-family:'Inter';font-size:14px;padding:11px 13px;margin-bottom:18px;
+}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--ink)}
+.sarcnote{font-size:13px;color:var(--muted);font-style:italic;margin-top:26px}
+
+footer{border-top:1px solid var(--line);padding:26px 24px;text-align:center;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" onclick="go('home')">MSA<span>.</span></a>
+    <div class="tabs">
+      <button class="tab active" data-page="home" onclick="go('home')">Home</button>
+      <button class="tab" data-page="about" onclick="go('about')">About</button>
+      <button class="tab" data-page="experience" onclick="go('experience')">Experience</button>
+      <button class="tab" data-page="education" onclick="go('education')">Education</button>
+      <button class="tab" data-page="skills" onclick="go('skills')">Skills</button>
+      <button class="tab" data-page="portfolio" onclick="go('portfolio')">Portfolio</button>
+      <button class="tab" data-page="contact" onclick="go('contact')">Contact</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HOME ================= -->
+<div class="page active" id="home">
+  <section class="hero">
+    <p class="hero-eyebrow">mb.io · MultiBank Group · Dubai, UAE</p>
+    <h1>Marvin Sta. Ana</h1>
+    <div class="typer-wrap"><span id="typer"></span><span class="cursor"></span></div>
+    <p class="hero-sub">Building narratives at the intersection of finance, crypto, and whatever's on fire this week.</p>
+    <div class="ctas">
+      <a class="btn btn-primary" onclick="go('portfolio')">See My Work</a>
+      <a class="btn btn-outline" onclick="go('contact')">Get In Touch</a>
+      <a class="btn btn-ghost" href="#">↓ Download CV</a>
+    </div>
+    <p class="hero-sarcasm">Markets are volatile. My publishing schedule isn't.</p>
+
+    <div class="ticker">
+      <div class="tick hi"><div class="val">5.8B reach</div><div class="lbl">Social engine · 90 days</div></div>
+      <div class="tick hi"><div class="val">200+ posts</div><div class="lbl">In 5 months · 5 platforms</div></div>
+      <div class="tick"><div class="val">3 brands</div><div class="lbl">One content engine</div></div>
+      <div class="tick"><div class="val">20+ issues</div><div class="lbl">Newsletter + deep dives · Substack</div></div>
+      <div class="tick"><div class="val">8+ yrs</div><div class="lbl">Fintech &amp; Web3 content</div></div>
+    </div>
+  </section>
+
+  <section class="featured">
+    <p class="eyebrow">Selected Work</p>
+    <h2 class="section-title">Proof, not promises</h2>
+    <p class="section-sub">Three things that show how I run content: on the ground, in the calendar, and in the tooling.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Content Ops</span>
+        <h3>mb.io Content Management Dashboard</h3>
+        <p>An AI-powered content ops platform I designed and built in-role. Three brands, one workspace, zero spreadsheets.</p>
+        <a class="go" href="#">See it live →</a>
+      </div>
+      <div class="card">
+        <span class="tag">Events</span>
+        <h3>Istanbul Blockchain Week 2026</h3>
+        <p>Lead organizer of mb.io's Platinum Sponsor presence: vendors, KOLs, and an invite-only VIP dinner for HNWI partners.</p>
+        <a class="go" href="#">See the details →</a>
+      </div>
+      <div class="card">
+        <span class="tag">Editorial</span>
+        <h3>mb.insider</h3>
+        <p>I run the full mb.io Substack publication: the weekly mb.insider newsletter plus comprehensive long-form articles. 20+ issues and counting.</p>
+        <a class="go" href="#">Read the publication →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="page" id="about">
+  <div class="container">
+    <p class="eyebrow">Who is this guy</p>
+    <h2 class="section-title">About Me</h2>
+    <p class="section-sub">The human behind the threads.</p>
+
+    <div class="about-grid">
+      <div class="avatar">[ headshot.jpg ]</div>
+      <div class="bio">
+        <p>Marvin is a <b>Head of Content</b> with 8+ years across finance, FX/CFD, crypto, and Web3. At <b>mb.io, the crypto exchange arm of MultiBank Group</b>, he owns the full content lifecycle across three brand accounts: the exchange, the $MBG Token, and the CEO's personal brand. Social calendars, long-form editorial, earn campaigns, paid ad copy, client comms, and the market intelligence that feeds all of it.</p>
+        <p>He's also the guy on the ground: lead organizer of mb.io's Platinum Sponsor booth at <b>Istanbul Blockchain Week 2026</b>, and the face of the brand at Binance Blockchain Week, RWA Week Dubai, Bitcoin Pizza Day at TheBlock, and Philippine Blockchain Week.</p>
+        <p>He holds an MBA in Digital Marketing from King's Business School and a BFA in Creative Writing from Ateneo de Manila University, which is a polite way of saying he's been professionally overthinking words since 2014.</p>
+        <p>He has ADHD. This is not a disclaimer. This is the source code. The hyperfocus is a feature, not a bug.</p>
+        <p>When he's not writing copy that moves markets, he's underwater (licensed scuba and cave diver), underground (spelunker), or somewhere in his 30th+ country with no particular agenda. He lives in Dubai. His plants are alive. That's the win.</p>
+      </div>
+    </div>
+
+    <div class="facts">
+      <div class="fact"><span class="emoji">🎛️</span><span class="txt">3 brands, 1 calendar</span></div>
+      <div class="fact"><span class="emoji">📬</span><span class="txt">Runs the mb.io Substack: 20+ issues</span></div>
+      <div class="fact"><span class="emoji">🏗️</span><span class="txt">Built an AI content dashboard in-role</span></div>
+      <div class="fact"><span class="emoji">🎪</span><span class="txt">Platinum Sponsor booth organizer</span></div>
+      <div class="fact"><span class="emoji">🌍</span><span class="txt">30+ countries visited</span></div>
+      <div class="fact"><span class="emoji">🤿</span><span class="txt">Licensed cave diver</span></div>
+      <div class="fact"><span class="emoji">🧠</span><span class="txt">ADHD: Hyperfocus Edition</span></div>
+      <div class="fact"><span class="emoji">🏐</span><span class="txt">Volleyball enthusiast</span></div>
+    </div>
+
+    <div class="how">
+      <p class="eyebrow">How I Work</p>
+      <h3>AI-native, <span>by default</span></h3>
+      <p>I don't just use AI tools, I build them. To run three brand accounts and eleven content pillars without a full content team, I designed and shipped the mb.io Content Dashboard: a scheduling and approval system, an AI writing agent trained on each brand's voice, a blog manager running a 100+ topic roadmap, and a pillar detection engine that flags coverage gaps before they happen.</p>
+      <p>The same logic runs through everything: AI video production (Higgsfield, Kling), agentic content workflows in Claude Code, and market monitoring pipelines that turn crypto, macro, and RWA feeds into a weekly Monday Outlook. The result is a one-person content operation with the output of a team.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= EXPERIENCE ================= -->
+<div class="page" id="experience">
+  <div class="container">
+    <p class="eyebrow">Track Record</p>
+    <h2 class="section-title">Experience</h2>
+    <p class="section-sub">Eight years of turning market noise into content that converts, and lately, into deals.</p>
+
+    <div class="job">
+      <div class="job-head">
+        <h3>Head of Content · <span class="co">mb.io (MultiBank Group)</span></h3>
+        <span class="period">DEC 2025 – PRESENT</span>
+      </div>
+      <div class="badges">
+        <span class="badge">3 brand accounts</span>
+        <span class="badge">200+ posts · 5 platforms</span>
+        <span class="badge">20+ Substack issues</span>
+        <span class="badge key">$200K+ OTC deal flow</span>
+      </div>
+      <ul>
+        <li>Own the full content lifecycle across three brand accounts (mb.io, $MBG Token, and the CEO's personal brand): social calendars, long-form editorial, earn campaigns, paid ad copy, client communications, and the market intelligence layer feeding a weekly Monday Outlook.</li>
+        <li>Lead organizer of mb.io's Platinum Sponsor presence at Istanbul Blockchain Week 2026: managed vendors and event organizers end to end, ran KOL relations on the ground, and hosted the invite-only VIP dinner for HNWI partners, the highest-ROI element of the entire event.</li>
+        <li>Build and manage KOL relationships as an OTC deal channel, converting influencer meetings into desk-level conversations opening at $200K and above.</li>
+        <li>Represented mb.io at Binance Blockchain Week 2025, RWA Week 2026 in Dubai, Bitcoin Pizza Day 2026 at TheBlock, and Philippine Blockchain Week 2026.</li>
+        <li>Designed and built an AI-powered content management dashboard in-role: three-brand scheduling with approval layers, an AI writing agent per brand voice, a 100+ topic blog pipeline, and automated content gap detection.</li>
+        <li>Led end-to-end content for the $MBG Token lifecycle from Pre-Sale through TGE and beyond, including a MiCA-compliant whitepaper, DAO governance communications, and community activation across X, Telegram, and LinkedIn.</li>
+        <li>Own and run the mb.io Substack publication: the weekly mb.insider newsletter plus comprehensive long-form articles, 20+ issues covering markets, products, and the occasional editorial hill to die on.</li>
+        <li>Develop positioning for mb.io's RWA marketplace, framing the platform as institutional-grade infrastructure backed by a multi-billion-dollar ultra-luxury real estate portfolio.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <h3>Content Manager · <span class="co">MultiBank Group</span></h3>
+        <span class="period">AUG 2024 – DEC 2025</span>
+      </div>
+      <div class="badges">
+        <span class="badge">+94% email conversion</span>
+        <span class="badge">CTR 0.75% → 9%</span>
+      </div>
+      <ul>
+        <li>Directed content strategy across web, email, push, PR, ads, and social, supporting acquisition and retention for a global FX/CFD brand.</li>
+        <li>Achieved +94% conversion on onboarding email journeys through segmentation, behavioral triggers, and relentless testing.</li>
+        <li>Managed and mentored a global content team across multiple regions, keeping compliant creative shipping on schedule.</li>
+        <li>Turned FX, metals, indices, and crypto market insight into campaigns that lifted CTRs from 0.75% to 9% and grew deposits and trading activity.</li>
+        <li>Wrote UI/UX microcopy for the IB Portal, Client Portal, and Mobile App.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-head">
+        <h3>Content Marketing Strategist · <span class="co">ThinkMarkets</span></h3>
+        <span class="period">AUG 2022 – AUG 2024</span>
+      </div>
+      <ul>
+        <li>Developed cross-channel content aligned to brand narrative: web, social, email, PR, HTML5 banners, and search ads.</li>
+        <li>Published eBooks and trading guides on market-moving events like the BTC Halving and US elections.</li>
+        <li>Led content for ThinkCapital, the firm's prop trading brand, writing the full onboarding journey from sign-up to funded account.</li>
+        <li>Awarded Employee of the Month for exceptional work and initiative.</li>
+      </ul>
+    </div>
+
+    <p class="eyebrow" style="margin-top:8px">Earlier Roles · 2020 and before</p>
+    <details class="fold">
+      <summary>
+        <span class="fold-title">Content Director · <span class="co">SOAR (USA)</span></span>
+        <span class="period">OCT 2020 – AUG 2022</span>
+      </summary>
+      <ul>
+        <li>Led a cross-functional team of content writers, community managers, and SEO specialists, overseeing content production across Finance, NFTs, Blockchain, CBD, and wellness verticals.</li>
+        <li>Delivered digital marketing strategies that accumulated over 80 million views across client platforms, driving measurable brand visibility and audience growth.</li>
+        <li>Developed and managed content for blockchain and NFT clients during a high-growth cycle in the Web3 space, building early expertise in decentralized community content and crypto-native narratives.</li>
+      </ul>
+    </details>
+    <details class="fold">
+      <summary>
+        <span class="fold-title">Content Manager · <span class="co">To The Top (UK)</span></span>
+        <span class="period">NOV 2018 – AUG 2022</span>
+      </summary>
+      <ul>
+        <li>Hired, trained, and managed a team of in-house and outsourced content writers, building a scalable content operation for a growing digital agency.</li>
+        <li>Authored and implemented content SOPs aligned with SEO best practices, improving team efficiency and output quality across client accounts.</li>
+        <li>Produced SEO case studies that demonstrated measurable campaign results, supporting client retention and new business development.</li>
+      </ul>
+    </details>
+    <details class="fold">
+      <summary>
+        <span class="fold-title">Content Writer · <span class="co">Direct Clicks Marketing (UAE)</span></span>
+        <span class="period">MAY 2018 – NOV 2018</span>
+      </summary>
+      <ul>
+        <li>Produced SEO-optimized copy and digital marketing content across client accounts in the UAE market.</li>
+      </ul>
+    </details>
+    <details class="fold">
+      <summary>
+        <span class="fold-title">Intern · <span class="co">Samurai Gamers (Japan)</span></span>
+        <span class="period">MAY 2017 – AUG 2017</span>
+      </summary>
+      <ul>
+        <li>Content and community intern. Contributed to gaming editorial content and social media operations.</li>
+      </ul>
+    </details>
+    <details class="fold">
+      <summary>
+        <span class="fold-title">Editor-in-Chief · <span class="co">Fine Print, Ateneo de Manila University</span></span>
+        <span class="period">AUG 2015 – JAN 2017</span>
+      </summary>
+      <ul>
+        <li>Led the university's official literary publication. Managed editorial direction, contributor recruitment, and the full production cycle from submission to publication.</li>
+      </ul>
+    </details>
+    <details class="fold">
+      <summary>
+        <span class="fold-title">Special Projects Head · <span class="co">Rizal Library, Ateneo de Manila University</span></span>
+        <span class="period">JAN 2015 – JUN 2017</span>
+      </summary>
+      <ul>
+        <li>Coordinated special projects and institutional initiatives for one of the Philippines' leading university library systems.</li>
+      </ul>
+    </details>
+
+    <div class="events">
+      <p class="eyebrow" style="margin-top:40px">Industry Presence</p>
+      <h2 class="section-title" style="font-size:28px">On the ground, not just online</h2>
+      <p class="section-sub">Web3 runs on rooms, not just feeds. These are the rooms.</p>
+      <div class="event-grid">
+        <div class="event lead">
+          <span class="yr">June 2026 · Lead Organizer</span>
+          <h4>Istanbul Blockchain Week: Platinum Sponsor</h4>
+          <p>Organized mb.io's full booth presence end to end: vendor and organizer management, on-ground KOL relations, and an invite-only VIP dinner for HNWI partners and prospects that outperformed the booth itself. Key insight carried forward: in crypto, intimate side events beat big-format builds.</p>
+        </div>
+        <div class="event">
+          <span class="yr">2026 · Dubai</span>
+          <h4>RWA Week</h4>
+          <p>Represented mb.io in the room where its core thesis lives: real-world asset tokenization.</p>
+        </div>
+        <div class="event">
+          <span class="yr">2026 · TheBlock, Dubai</span>
+          <h4>Bitcoin Pizza Day</h4>
+          <p>Brand representation at a community event feeding the OTC desk pipeline.</p>
+        </div>
+        <div class="event">
+          <span class="yr">2025</span>
+          <h4>Binance Blockchain Week</h4>
+          <p>Represented mb.io among the industry's largest exchange audience.</p>
+        </div>
+        <div class="event">
+          <span class="yr">2026 · Manila</span>
+          <h4>Philippine Blockchain Week</h4>
+          <p>On-ground representation yielding high-value contacts and an OTC network.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= EDUCATION ================= -->
+<div class="page" id="education">
+  <div class="container">
+    <p class="eyebrow">Foundations</p>
+    <h2 class="section-title">Education</h2>
+    <p class="section-sub">One MBA, three undergraduate programs, and a certification habit that never really stopped.</p>
+
+    <p class="eyebrow" style="margin-top:8px">Degrees</p>
+    <div class="deg-grid">
+      <div class="deg-card lead-deg">
+        <span class="deg-tag">Postgraduate</span>
+        <h3>Master of Business Administration, Digital Marketing</h3>
+        <div class="deg-school">King's Business School, UAE</div>
+        <div class="deg-year">2022 – 2023</div>
+      </div>
+      <div class="deg-card lead-deg">
+        <span class="deg-tag">Postgraduate</span>
+        <h3>OTHM Level 7, Strategic Management</h3>
+        <div class="deg-school">King's Business School, UAE</div>
+        <div class="deg-year">2022 – 2023</div>
+      </div>
+      <div class="deg-card">
+        <span class="deg-tag">Undergraduate</span>
+        <h3>Bachelor of Fine Arts, Creative Writing</h3>
+        <div class="deg-school">Ateneo de Manila University, Philippines</div>
+        <div class="deg-year">2014 – 2018</div>
+      </div>
+      <div class="deg-card">
+        <span class="deg-tag">Minor</span>
+        <h3>Bachelor of Science, Economics</h3>
+        <div class="deg-school">Ateneo de Manila University, Philippines</div>
+        <div class="deg-year">2014 – 2018</div>
+      </div>
+      <div class="deg-card">
+        <span class="deg-tag">Minor</span>
+        <h3>Bachelor of Arts, Literature (English)</h3>
+        <div class="deg-school">Ateneo de Manila University, Philippines</div>
+        <div class="deg-year">2014 – 2018</div>
+      </div>
+    </div>
+
+    <p class="eyebrow" style="margin-top:64px">Licenses &amp; Certifications</p>
+    <div class="cert-grid">
+      <div class="cert-card hot-cert">
+        <h4>AI Applications in Marketing and Finance</h4>
+        <div class="cert-org">University of Pennsylvania</div>
+      </div>
+      <div class="cert-card">
+        <h4>Social Media and Social Content Strategy</h4>
+        <div class="cert-org">Digital Marketing Institute</div>
+      </div>
+      <div class="cert-card">
+        <h4>Content Marketing Masterclass: Create Content That Sells</h4>
+        <div class="cert-org">Udemy</div>
+      </div>
+      <div class="cert-card">
+        <h4>The Strategy of Content Marketing</h4>
+        <div class="cert-org">Coursera</div>
+      </div>
+      <div class="cert-card">
+        <h4>Introduction to Marketing</h4>
+        <div class="cert-org">Coursera</div>
+      </div>
+      <div class="cert-card">
+        <h4>Market Research and Consumer Behaviour</h4>
+        <div class="cert-org">Coursera</div>
+      </div>
+      <div class="cert-card">
+        <h4>LinkedIn Advertising Fundamentals</h4>
+        <div class="cert-org">LinkedIn</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= SKILLS ================= -->
+<div class="page" id="skills">
+  <div class="container">
+    <p class="eyebrow">Toolkit</p>
+    <h2 class="section-title">Skills</h2>
+    <p class="section-sub">Every group links to receipts. Skills without proof are just adjectives.</p>
+
+    <div class="skill-groups">
+      <div class="sgroup hot">
+        <h3>AI-Native Production</h3>
+        <a class="proof" href="#">PROOF: mb.io Content Dashboard, built in-role →</a>
+        <div class="chips">
+          <span class="chip">Custom AI content tooling</span>
+          <span class="chip">Brand-voice writing agents</span>
+          <span class="chip">Claude Code workflows</span>
+          <span class="chip">Automated content gap detection</span>
+          <span class="chip">AI video (Higgsfield, Kling)</span>
+          <span class="chip">Agentic content pipelines</span>
+        </div>
+      </div>
+      <div class="sgroup hot">
+        <h3>Event Marketing &amp; BD</h3>
+        <a class="proof" href="#">PROOF: Istanbul Blockchain Week →</a>
+        <div class="chips">
+          <span class="chip">Sponsorship management</span>
+          <span class="chip">Vendor negotiation</span>
+          <span class="chip">KOL relations</span>
+          <span class="chip">VIP / HNWI hospitality</span>
+          <span class="chip">OTC deal sourcing ($200K+)</span>
+          <span class="chip">On-ground brand coverage</span>
+        </div>
+      </div>
+      <div class="sgroup">
+        <h3>Crypto &amp; Web3</h3>
+        <a class="proof" href="#">PROOF: $MBG Token launch, Pre-Sale to TGE →</a>
+        <div class="chips">
+          <span class="chip">Token launch campaigns</span>
+          <span class="chip">MiCA-compliant whitepapers</span>
+          <span class="chip">DAO governance comms</span>
+          <span class="chip">RWA tokenization positioning</span>
+          <span class="chip">Community activation</span>
+          <span class="chip">Telegram-native content</span>
+        </div>
+      </div>
+      <div class="sgroup">
+        <h3>Finance &amp; Trading Content</h3>
+        <a class="proof" href="#">PROOF: CTR 0.75% → 9% on market campaigns →</a>
+        <div class="chips">
+          <span class="chip">FX/CFD content</span>
+          <span class="chip">Market intelligence briefs</span>
+          <span class="chip">Trading education</span>
+          <span class="chip">eBooks &amp; trading guides</span>
+          <span class="chip">Compliance-aware copy</span>
+          <span class="chip">IB / affiliate content</span>
+        </div>
+      </div>
+      <div class="sgroup">
+        <h3>Content Strategy &amp; Ops</h3>
+        <a class="proof" href="#">PROOF: 3 brands · 11 pillars · 200+ posts →</a>
+        <div class="chips">
+          <span class="chip">Multi-brand voice systems</span>
+          <span class="chip">Editorial planning</span>
+          <span class="chip">Content pillar frameworks</span>
+          <span class="chip">Newsletter strategy</span>
+          <span class="chip">Approval workflows</span>
+          <span class="chip">Team leadership</span>
+        </div>
+      </div>
+      <div class="sgroup">
+        <h3>Performance &amp; Growth</h3>
+        <a class="proof" href="#">PROOF: +94% onboarding email conversion →</a>
+        <div class="chips">
+          <span class="chip">Google Search &amp; PMax copy</span>
+          <span class="chip">Meta ads</span>
+          <span class="chip">ASO (Play Store &amp; App Store)</span>
+          <span class="chip">Email &amp; CRM journeys</span>
+          <span class="chip">SEO / GEO / AEO</span>
+          <span class="chip">UI/UX microcopy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PORTFOLIO ================= -->
+<div class="page" id="portfolio">
+  <div class="container">
+    <p class="eyebrow">The Receipts</p>
+    <h2 class="section-title">Portfolio</h2>
+    <p class="section-sub">Campaigns, case studies, tooling, and the occasional 400% traffic jump. Filter by what you're hiring for.</p>
+
+    <div class="filters">
+      <button class="filter on" data-cat="all" onclick="filterPf(this)">All</button>
+      <button class="filter" data-cat="cm" onclick="filterPf(this)">Content Management</button>
+      <button class="filter" data-cat="social" onclick="filterPf(this)">Social Media</button>
+      <button class="filter" data-cat="seo" onclick="filterPf(this)">SEO Case Studies</button>
+      <button class="filter" data-cat="ebook" onclick="filterPf(this)">eBook</button>
+      <button class="filter" data-cat="blog" onclick="filterPf(this)">Blog Posts</button>
+      <button class="filter" data-cat="news" onclick="filterPf(this)">Newsletter</button>
+      <button class="filter" data-cat="ads" onclick="filterPf(this)">Ad Copy</button>
+      <button class="filter" data-cat="ux" onclick="filterPf(this)">UI/UX Copy</button>
+    </div>
+
+    <div class="pf-grid">
+
+      <div class="pf wide" data-cats="cm">
+        <div class="pf-thumb"><span class="pf-num">01</span><span class="pf-flag">Built In-Role</span></div>
+        <div class="pf-body">
+          <span class="tag">Content Management / mb.io</span>
+          <h3>mb.io Content Management Dashboard</h3>
+          <p>A full content management system built from scratch using Google AI Studio and Firebase. Features a content calendar, AI writing agent, campaign planner, blog manager, and strategy analytics tab. Used daily by the mb.io writing team. Built entirely by me: not a template, not a no-code tool.</p>
+          <div class="pf-badges"><span class="pf-badge">Used daily in production</span><span class="pf-badge">Demo upon request</span></div>
+          <a class="go" href="#">View Dashboard →</a>
+        </div>
+      </div>
+
+      <div class="pf" data-cats="social">
+        <div class="pf-thumb"><span class="pf-num">02</span></div>
+        <div class="pf-body">
+          <span class="tag">Social Media / mb.io</span>
+          <h3>mb.io Social Media</h3>
+          <p>Multi-platform content strategy and execution across X, LinkedIn, and Instagram for mb.io. Built on a structured content pillar framework with AI-native production tools including Higgsfield and Kling.</p>
+          <div class="pf-badges"><span class="pf-badge">X</span><span class="pf-badge">LinkedIn</span><span class="pf-badge">Instagram</span></div>
+          <a class="go" href="#">View the accounts →</a>
+        </div>
+      </div>
+
+      <div class="pf" data-cats="news">
+        <div class="pf-thumb"><span class="pf-num">03</span></div>
+        <div class="pf-body">
+          <span class="tag">Newsletter / mb.io</span>
+          <h3>mb.insider</h3>
+          <p>The mb.io Substack publication: a weekly crypto intelligence newsletter plus comprehensive long-form articles covering market updates, product news, and editorial features. Written, edited, fact-checked, and published every week.</p>
+          <div class="pf-badges"><span class="pf-badge">20+ issues</span><span class="pf-badge">Weekly cadence</span></div>
+          <a class="go" href="#">Read on Substack →</a>
+        </div>
+      </div>
+
+      <div class="pf" data-cats="seo">
+        <div class="pf-thumb"><span class="pf-num">04</span></div>
+        <div class="pf-body">
+          <span class="tag">SEO Case Study / To The Top</span>
+          <h3>SEO Case Study: Self-Storage Marketplace</h3>
+          <p>How a brand-new website with zero domain authority reached #1 rankings in 300+ UK towns and cities and generated $334K in monthly organic traffic value within 18 months.</p>
+          <div class="pf-badges"><span class="pf-badge">0 → 30K organic traffic</span><span class="pf-badge">#1 in 300+ cities</span><span class="pf-badge">$334K+/mo traffic value</span></div>
+          <a class="go" href="#">Read the case study →</a>
+        </div>
+      </div>
+
+      <div class="pf" data-cats="seo">
+        <div class="pf-thumb"><span class="pf-num">05</span></div>
+        <div class="pf-body">
+          <span class="tag">SEO Case Study / To The Top</span>
+          <h3>SEO Case Study: Plumbing Company</h3>
+          <p>How we grew monthly organic traffic by 400%, increased monthly leads by 115%, and grew top 10 keyword rankings by 324% for one of the UK's fastest-growing plumbing companies.</p>
+          <div class="pf-badges"><span class="pf-badge">+400% traffic</span><span class="pf-badge">+115% leads</span><span class="pf-badge">+324% top 10 keywords</span></div>
+          <a class="go" href="#">Read the case study →</a>
+        </div>
+      </div>
+
+      <div class="pf" data-cats="ebook">
+        <div class="pf-thumb"><span class="pf-num">06</span></div>
+        <div class="pf-body">
+          <span class="tag">eBook / ThinkMarkets</span>
+          <h3>Ultimate Guide to Trading the 2024 Bitcoin Halving Event</h3>
+          <p>A comprehensive trading guide covering Bitcoin halving history, altcoin impact analysis, risk management strategies, and spot vs CFD trading. Written for both beginner and experienced crypto traders.</p>
+          <div class="pf-badges"><span class="pf-badge">Client acquisition &amp; retention asset</span></div>
+          <a class="go" href="#">Preview the eBook →</a>
+        </div>
+      </div>
+
+      <div class="pf" data-cats="blog">
+        <div class="pf-thumb"><span class="pf-num">07</span></div>
+        <div class="pf-body">
+          <span class="tag">Article / ThinkMarkets</span>
+          <h3>What is De-dollarisation, and Which Markets Will It Affect?</h3>
+          <p>A 7-minute market explainer on the global movement to reduce reliance on the US dollar and its impact on forex, crypto, stocks, and gold.</p>
+          <a class="go" href="#">Read the article →</a>
+        </div>
+      </div>
+
+      <div class="pf" data-cats="blog">
+        <div class="pf-thumb"><span class="pf-num">08</span></div>
+        <div class="pf-body">
+          <span class="tag">Article / MultiBank Group</span>
+          <h3>Oil Trading Strategies: How to Trade Crude Oil CFDs</h3>
+          <p>A trading guide covering crude oil price drivers, beginner-friendly strategies, risk management, and why CFDs are the most practical way for retail traders to access oil markets.</p>
+          <a class="go" href="#">Read the article →</a>
+        </div>
+      </div>
+
+      <div class="pf" data-cats="blog">
+        <div class="pf-thumb"><span class="pf-num">09</span></div>
+        <div class="pf-body">
+          <span class="tag">Article / MultiBank Group</span>
+          <h3>Common Forex Trading Mistakes and How to Avoid Them</h3>
+          <p>A practical guide covering the 7 most common mistakes retail forex traders make, from trading without a plan to choosing the wrong broker, with clear steps to avoid each one.</p>
+          <a class="go" href="#">Read the article →</a>
+        </div>
+      </div>
+
+      <div class="pf" data-cats="blog">
+        <div class="pf-thumb"><span class="pf-num">10</span></div>
+        <div class="pf-body">
+          <span class="tag">Article / MultiBank Group</span>
+          <h3>Moving Averages in Trading: Beginner's Guide</h3>
+          <p>A beginner-friendly deep dive into Simple and Exponential Moving Averages, how to apply them across forex, stocks, and commodities, and three practical strategies to get started.</p>
+          <a class="go" href="#">Read the article →</a>
+        </div>
+      </div>
+
+      <div class="pf" data-cats="ads">
+        <div class="pf-thumb"><span class="pf-num">11</span></div>
+        <div class="pf-body">
+          <span class="tag">Google App Ads / mb.io</span>
+          <h3>Google App Campaigns</h3>
+          <p>App install ad copy written for Google's Universal App Campaign format across two ad groups: Platform General and Simple/Clear.</p>
+          <a class="go" href="#">View the ads →</a>
+        </div>
+      </div>
+
+      <div class="pf" data-cats="ads">
+        <div class="pf-thumb"><span class="pf-num">12</span></div>
+        <div class="pf-body">
+          <span class="tag">Google Search Ads / mb.io</span>
+          <h3>Google Search Campaigns</h3>
+          <p>Search ad copy written for high-intent crypto keywords across two ad groups: Platform General and Bitcoin.</p>
+          <a class="go" href="#">View the ads →</a>
+        </div>
+      </div>
+
+      <div class="pf" data-cats="ux">
+        <div class="pf-thumb"><span class="pf-num">13</span></div>
+        <div class="pf-body">
+          <span class="tag">UI/UX Copy / mb.io</span>
+          <h3>mb.io Crypto Exchange App</h3>
+          <p>The mb.io app is a live example of UI/UX microcopy and ASO copy in production. Every word inside the app and on the store listing was written and optimized for conversion, clarity, and discoverability.</p>
+          <div class="pf-badges"><span class="pf-badge">Live in production</span></div>
+          <a class="go" href="#">View on Google Play →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="page" id="contact">
+  <div class="container">
+    <p class="eyebrow">Say Hello</p>
+    <h2 class="section-title">Contact</h2>
+    <p class="section-sub">Yes, I actually check my email. And in this industry, my Telegram.</p>
+
+    <div class="contact-grid">
+      <div>
+        <div class="c-item"><span class="k">Email</span><span class="v"><a href="mailto:r.marvinstaana@gmail.com">r.marvinstaana@gmail.com</a></span></div>
+        <div class="c-item"><span class="k">LinkedIn</span><span class="v"><a href="#">linkedin.com/in/marvin-sta-ana</a></span></div>
+        <div class="c-item"><span class="k">Telegram</span><span class="v"><a href="#">@yourhandle</a></span></div>
+        <div class="c-item"><span class="k">Location</span><span class="v">Dubai, UAE</span></div>
+        <div class="c-item"><span class="k">CV</span><span class="v"><a href="#">Download PDF ↓</a></span></div>
+        <p class="sarcnote">Response time varies. I'm either deep in a content sprint, 40 meters underwater, or in a timezone that doesn't make sense. I'll get back to you.</p>
+      </div>
+
+      <div class="form">
+        <label>Name</label>
+        <input type="text" placeholder="Your name" />
+        <label>Email</label>
+        <input type="email" placeholder="you@company.com" />
+        <label>Subject</label>
+        <select>
+          <option>Job Opportunity</option>
+          <option>Collaboration</option>
+          <option>Speaking Engagement</option>
+          <option>Press</option>
+          <option>General Inquiry</option>
+          <option>Other</option>
+        </select>
+        <label>Message</label>
+        <textarea rows="4" placeholder="What's on your mind?"></textarea>
+        <button class="btn btn-primary" style="width:100%">Send Message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>MSA · DUBAI, UAE · BUILT WITH HYPERFOCUS</footer>
+
+<script>
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.page===id));
+  window.scrollTo({top:0});
+}
+function filterPf(btn){
+  document.querySelectorAll('.filter').forEach(f=>f.classList.remove('on'));
+  btn.classList.add('on');
+  const cat=btn.dataset.cat;
+  document.querySelectorAll('.pf').forEach(card=>{
+    const cats=(card.dataset.cats||'').split(' ');
+    card.style.display=(cat==='all'||cats.includes(cat))?'flex':'none';
+  });
+}
+const roles=["Head of Content","Marketing Manager","Content Strategist","Crypto Storyteller","Web3 Event Operator","Licensed Cave Diver","Powered by Hyperfocus"];
+const el=document.getElementById('typer');
+let ri=0,ci=0,del=false;
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function tick(){
+  const word=roles[ri];
+  if(!del){ci++;if(ci===word.length){del=true;setTimeout(tick,2000);el.textContent=word;return}}
+  else{ci--;if(ci===0){del=false;ri=(ri+1)%roles.length}}
+  el.textContent=word.slice(0,ci);
+  setTimeout(tick,del?35:65);
+}
+if(reduce){el.textContent=roles[0]}else{tick()}
+</script>
+</body>
+</html>
