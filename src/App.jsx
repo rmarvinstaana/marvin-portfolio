@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
-// StarField and ParticleOrbs are intentionally not rendered: the Phase 1 redesign
-// replaced them with a fixed grid + amber/blue radial glow background in index.css.
-// The component files are kept in the repo in case the space theme is ever revived.
+// StarField and ParticleOrbs are intentionally not rendered: the light minimalist
+// redesign drops all background particle and glow effects. The component files are
+// kept in the repo in case the space theme is ever revived.
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import EasterEgg from './components/EasterEgg'
