@@ -44,7 +44,7 @@ export default function Home() {
     <PageTransition>
       <Helmet>
         <title>Marvin Sta. Ana | Head of Content</title>
-        <meta name="description" content="Head of Content at mb.io (MultiBank Group). 8+ years in FX/CFD, crypto, and Web3 content. 3 brands, 200+ posts, 20+ newsletter issues." />
+        <meta name="description" content="Head of Content at mb.io (MultiBank Group). 8+ years in FX/CFD, crypto, and Web3 content. 3 brands, 300+ posts, 150+ live blog articles." />
       </Helmet>
 
       <section className="hero">

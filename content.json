@@ -33,21 +33,21 @@
         "highlight": true
       },
       {
-        "value": "200+",
+        "value": "300+",
         "suffix": "posts",
-        "label": "In 5 months · 5 platforms",
+        "label": "In 7 months · 5 platforms",
         "highlight": true
       },
       {
-        "value": "3",
-        "suffix": "brands",
-        "label": "One content engine",
+        "value": "100+",
+        "suffix": "entries",
+        "label": "Cryptopedia · SEO, AEO, GEO",
         "highlight": false
       },
       {
-        "value": "20+",
-        "suffix": "issues",
-        "label": "Weekly newsletter · Market updates",
+        "value": "150+",
+        "suffix": "articles",
+        "label": "Live on the mb.io blog",
         "highlight": false
       },
       {
@@ -154,7 +154,7 @@
             "variant": "amber"
           },
           {
-            "label": "200+ posts · 5 platforms",
+            "label": "300+ posts · 5 platforms",
             "variant": "amber"
           },
           {
@@ -472,7 +472,7 @@
         "id": "sg-5",
         "hot": false,
         "groupName": "Content Strategy & Ops",
-        "proof": "PROOF: 3 brands · 11 pillars · 200+ posts →",
+        "proof": "PROOF: 3 brands · 11 pillars · 300+ posts →",
         "proofHref": "#",
         "tags": [
           "Multi-brand voice systems",
