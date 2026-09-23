@@ -13,52 +13,129 @@
     ],
     "subtitle": "Building narratives at the intersection of finance, crypto, and whatever's on fire this week.",
     "sarcasticSubline": "Markets are volatile. My publishing schedule isn't.",
-    "ctaPrimary": { "label": "See My Work", "href": "/portfolio" },
-    "ctaSecondary": { "label": "Get In Touch", "href": "/contact" },
-    "ctaCv": { "label": "Download CV", "href": "/cv.pdf" },
+    "ctaPrimary": {
+      "label": "See My Work",
+      "href": "/portfolio"
+    },
+    "ctaSecondary": {
+      "label": "Get In Touch",
+      "href": "/contact"
+    },
+    "ctaCv": {
+      "label": "Download CV",
+      "href": "/cv.pdf"
+    },
     "stats": [
-      { "value": "5.8B", "suffix": "reach", "label": "Social engine · 90 days", "highlight": true },
-      { "value": "200+", "suffix": "posts", "label": "In 5 months · 5 platforms", "highlight": true },
-      { "value": "3", "suffix": "brands", "label": "One content engine", "highlight": false },
-      { "value": "20+", "suffix": "issues", "label": "Newsletter + deep dives · Substack", "highlight": false },
-      { "value": "8+", "suffix": "yrs", "label": "Fintech & Web3 content", "highlight": false }
+      {
+        "value": "5.8B",
+        "suffix": "reach",
+        "label": "Social engine · 90 days",
+        "highlight": true
+      },
+      {
+        "value": "200+",
+        "suffix": "posts",
+        "label": "In 5 months · 5 platforms",
+        "highlight": true
+      },
+      {
+        "value": "3",
+        "suffix": "brands",
+        "label": "One content engine",
+        "highlight": false
+      },
+      {
+        "value": "20+",
+        "suffix": "issues",
+        "label": "Weekly newsletter · Market updates",
+        "highlight": false
+      },
+      {
+        "value": "8+",
+        "suffix": "yrs",
+        "label": "Fintech & Web3 content",
+        "highlight": false
+      }
     ],
     "featuredEyebrow": "Selected Work",
     "featuredTitle": "Proof, not promises",
     "featuredSubtitle": "Three things that show how I run content: on the ground, in the calendar, and in the tooling.",
     "featured": [
-      { "tag": "Content Ops", "title": "mb.io Content Management Dashboard", "description": "An AI-powered content ops platform I designed and built in-role. Three brands, one workspace, zero spreadsheets.", "ctaLabel": "See it live →", "href": "/portfolio" },
-      { "tag": "Events", "title": "Istanbul Blockchain Week 2026", "description": "Lead organizer of mb.io's Platinum Sponsor presence: vendors, KOLs, and an invite-only VIP dinner for HNWI partners.", "ctaLabel": "See the details →", "href": "/experience" },
-      { "tag": "Editorial", "title": "mb.insider", "description": "I run the full mb.io Substack publication: the weekly mb.insider newsletter plus comprehensive long-form articles. 20+ issues and counting.", "ctaLabel": "Read the publication →", "href": "https://multibank.substack.com/" }
+      {
+        "tag": "Content Ops",
+        "title": "mb.io Content Management Dashboard",
+        "description": "An AI-powered content ops platform I designed and built in-role. Three brands, one workspace, zero spreadsheets.",
+        "ctaLabel": "See it live →",
+        "href": "/portfolio"
+      },
+      {
+        "tag": "Events",
+        "title": "Istanbul Blockchain Week 2026",
+        "description": "Lead organizer of mb.io's Platinum Sponsor presence: vendors, KOLs, and an invite-only VIP dinner for HNWI partners.",
+        "ctaLabel": "See the details →",
+        "href": "/experience"
+      },
+      {
+        "tag": "Content Systems",
+        "title": "Cryptopedia",
+        "description": "The mb.io crypto knowledge base: 100+ articles live against a 300+ topic roadmap, each one built to rank in search and get quoted back by AI answers.",
+        "ctaLabel": "Browse Cryptopedia →",
+        "href": "https://mb.io/en-AE/cryptopedia"
+      }
     ]
   },
   "about": {
     "eyebrow": "Who is this guy",
     "sectionSubtitle": "The human behind the threads.",
     "bio": [
-      "Marvin is a <b>Head of Content</b> with 8+ years across finance, FX/CFD, crypto, and Web3. At <b>mb.io, the crypto exchange arm of MultiBank Group</b>, he owns the full content lifecycle across three brand accounts: the exchange, the $MBG Token, and the CEO's personal brand. Social calendars, long-form editorial, earn campaigns, paid ad copy, client comms, and the market intelligence that feeds all of it.",
-      "He's also the guy on the ground: lead organizer of mb.io's Platinum Sponsor booth at <b>Istanbul Blockchain Week 2026</b>, and the face of the brand at Binance Blockchain Week, RWA Week Dubai, Bitcoin Pizza Day at TheBlock, and Philippine Blockchain Week.",
-      "He holds an MBA in Digital Marketing from King's Business School and a BFA in Creative Writing from Ateneo de Manila University, which is a polite way of saying he's been professionally overthinking words since 2014.",
-      "He has ADHD. This is not a disclaimer. This is the source code. The hyperfocus is a feature, not a bug.",
-      "When he's not writing copy that moves markets, he's underwater (licensed scuba and cave diver), underground (spelunker), or somewhere in his 30th+ country with no particular agenda. He lives in Dubai. His plants are alive. That's the win."
+      "Marvin is a <b>Head of Content</b> with 8+ years in finance, FX/CFD, crypto, and Web3. At <b>mb.io, the crypto exchange arm of MultiBank Group</b>, he runs three brand accounts off one calendar: the exchange, the $MBG Token, and the CEO's personal brand. Under that calendar sit the social posts, the long-form editorial, the earn campaigns, the paid ad copy, the client comms, and the market research that feeds all of it.",
+      "Because Web3 still runs on rooms as much as feeds, part of the job happens on the floor. He was lead organizer of the mb.io Platinum Sponsor booth at <b>Istanbul Blockchain Week 2026</b>: he worked the vendors and event organizers end to end, ran KOL relations, and shot content on site. Same brief at Binance Blockchain Week, RWA Week Dubai, Bitcoin Pizza Day at TheBlock, and Philippine Blockchain Week.",
+      "Behind all of that sits the tooling. He built the mb.io content dashboard in-role, and <b>Cryptopedia</b>, the exchange's crypto knowledge base, now runs past 100 entries against a 300+ topic roadmap, all of it written to rank in search and get quoted back by chatbots.",
+      "On paper: an MBA in Digital Marketing from King's Business School and a BFA in Creative Writing from Ateneo de Manila University, which is a polite way of saying he has been professionally overthinking words since 2014.",
+      "He has ADHD. Most of what is above came out of hyperfocus, and he stopped apologizing for that years ago.",
+      "Off the clock he is usually underwater (licensed scuba and cave diver), underground (spelunker), or somewhere in his 30th-odd country with no particular agenda. He lives in Dubai. The plants are still alive, which he counts as a win."
     ],
     "funFacts": [
-      { "emoji": "🎛️", "label": "3 brands, 1 calendar" },
-      { "emoji": "📬", "label": "Runs the mb.io Substack: 20+ issues" },
-      { "emoji": "🏗️", "label": "Built an AI content dashboard in-role" },
-      { "emoji": "🎪", "label": "Platinum Sponsor booth organizer" },
-      { "emoji": "🌍", "label": "30+ countries visited" },
-      { "emoji": "🤿", "label": "Licensed cave diver" },
-      { "emoji": "🧠", "label": "ADHD: Hyperfocus Edition" },
-      { "emoji": "🏐", "label": "Volleyball enthusiast" }
+      {
+        "emoji": "🎛️",
+        "label": "3 brands, 1 calendar"
+      },
+      {
+        "emoji": "📚",
+        "label": "Cryptopedia: 100+ articles live"
+      },
+      {
+        "emoji": "🏗️",
+        "label": "Built an AI content dashboard in-role"
+      },
+      {
+        "emoji": "🎪",
+        "label": "Platinum Sponsor booth organizer"
+      },
+      {
+        "emoji": "🌍",
+        "label": "30+ countries visited"
+      },
+      {
+        "emoji": "🤿",
+        "label": "Licensed cave diver"
+      },
+      {
+        "emoji": "🧠",
+        "label": "ADHD: Hyperfocus Edition"
+      },
+      {
+        "emoji": "🏐",
+        "label": "Volleyball enthusiast"
+      }
     ],
     "howIWork": {
       "eyebrow": "How I Work",
       "heading": "AI-native, by default",
       "headingAccent": "by default",
       "paragraphs": [
-        "I don't just use AI tools, I build them. To run three brand accounts and eleven content pillars without a full content team, I designed and shipped the mb.io Content Dashboard: a scheduling and approval system, an AI writing agent trained on each brand's voice, a blog manager running a 100+ topic roadmap, and a pillar detection engine that flags coverage gaps before they happen.",
-        "The same logic runs through everything: AI video production (Higgsfield, Kling), agentic content workflows in Claude Code, and market monitoring pipelines that turn crypto, macro, and RWA feeds into a weekly Monday Outlook. The result is a one-person content operation with the output of a team."
+        "I build the tools I run content with. Three brand accounts and eleven content pillars with no full content team meant the calendar had to live somewhere better than a spreadsheet, so I shipped the mb.io Content Dashboard on Google AI Studio, Firebase, and Claude Code: scheduling with approval layers, a writing agent trained per brand voice, a blog manager running a 100+ topic roadmap, and gap detection that flags a pillar before it goes quiet.",
+        "The same habit shows up everywhere else. AI video production runs through Higgsfield and Kling, agentic workflows through Claude Code, and monitoring pipelines turn crypto, macro, and real-world asset feeds into a weekly Monday Outlook. Cryptopedia came out of the same instinct: 100+ articles answering the questions people actually type, built to be quoted by search engines and chatbots alike."
       ]
     }
   },
@@ -72,20 +149,34 @@
         "period": "DEC 2025 – PRESENT",
         "location": "Dubai, UAE",
         "badges": [
-          { "label": "3 brand accounts", "variant": "amber" },
-          { "label": "200+ posts · 5 platforms", "variant": "amber" },
-          { "label": "20+ Substack issues", "variant": "amber" },
-          { "label": "$200K+ OTC deal flow", "variant": "key" }
+          {
+            "label": "3 brand accounts",
+            "variant": "amber"
+          },
+          {
+            "label": "200+ posts · 5 platforms",
+            "variant": "amber"
+          },
+          {
+            "label": "Cryptopedia · 100+ articles",
+            "variant": "amber"
+          },
+          {
+            "label": "$200K+ OTC deal flow",
+            "variant": "key"
+          }
         ],
         "bullets": [
-          "Own the full content lifecycle across three brand accounts (mb.io, $MBG Token, and the CEO's personal brand): social calendars, long-form editorial, earn campaigns, paid ad copy, client communications, and the market intelligence layer feeding a weekly Monday Outlook.",
-          "Lead organizer of mb.io's Platinum Sponsor presence at Istanbul Blockchain Week 2026: managed vendors and event organizers end to end, ran KOL relations on the ground, and hosted the invite-only VIP dinner for HNWI partners, the highest-ROI element of the entire event.",
-          "Build and manage KOL relationships as an OTC deal channel, converting influencer meetings into desk-level conversations opening at $200K and above.",
-          "Represented mb.io at Binance Blockchain Week 2025, RWA Week 2026 in Dubai, Bitcoin Pizza Day 2026 at TheBlock, and Philippine Blockchain Week 2026.",
-          "Designed and built an AI-powered content management dashboard in-role: three-brand scheduling with approval layers, an AI writing agent per brand voice, a 100+ topic blog pipeline, and automated content gap detection.",
-          "Led end-to-end content for the $MBG Token lifecycle from Pre-Sale through TGE and beyond, including a MiCA-compliant whitepaper, DAO governance communications, and community activation across X, Telegram, and LinkedIn.",
-          "Own and run the mb.io Substack publication: the weekly mb.insider newsletter plus comprehensive long-form articles, 20+ issues covering markets, products, and the occasional editorial hill to die on.",
-          "Develop positioning for mb.io's RWA marketplace, framing the platform as institutional-grade infrastructure backed by a multi-billion-dollar ultra-luxury real estate portfolio."
+          "Own the full content lifecycle for three brand accounts (mb.io, the $MBG Token, and the CEO's executive brand): editorial calendars, long-form content, earn campaigns, paid advertising copy, client communications, and the market intelligence layer behind a weekly Monday Outlook.",
+          "Built and scaled Cryptopedia, the mb.io crypto education database, to 100+ published articles against a 300+ topic roadmap, with every entry structured for search engine optimization (SEO), answer engine optimization (AEO), and generative engine optimization (GEO) so it ranks on Google, wins featured snippets, and gets cited by ChatGPT, Perplexity, and Gemini.",
+          "Designed and built an AI-powered content management dashboard in-role using Google AI Studio, Firebase, and Claude Code: multi-brand scheduling with approval workflows, a brand-voice writing agent, a 100+ topic blog pipeline, and automated content gap detection.",
+          "Lead organizer of the mb.io Platinum Sponsor activation at Istanbul Blockchain Week 2026: managed vendors and event organizers end to end, ran key opinion leader (KOL) relations on the ground, and hosted the invite-only VIP dinner for high-net-worth individual (HNWI) partners, the highest-return element of the event.",
+          "Source and manage KOL partnerships as an over-the-counter (OTC) deal channel, converting influencer relationships into desk-level conversations opening at $200,000 and above.",
+          "Write and publish the weekly company newsletter, covering crypto market updates and company news for the mb.io subscriber base.",
+          "Cover industry-moving events as market update articles on the mb.io blog: regulation, exchange-traded fund (ETF) flows, protocol upgrades, and institutional adoption.",
+          "Led end-to-end content for the $MBG Token lifecycle from pre-sale through token generation event (TGE), including a Markets in Crypto-Assets (MiCA) compliant whitepaper, decentralized autonomous organization (DAO) governance communications, and community activation across X, Telegram, and LinkedIn.",
+          "Represent mb.io at industry events including Binance Blockchain Week 2025, RWA Week 2026 Dubai, Bitcoin Pizza Day 2026 at TheBlock, and Philippine Blockchain Week 2026.",
+          "Develop positioning for the mb.io real-world asset (RWA) marketplace, framing the platform as institutional-grade infrastructure backed by a multi-billion-dollar ultra-luxury real estate portfolio."
         ]
       },
       {
@@ -95,15 +186,21 @@
         "period": "AUG 2024 – DEC 2025",
         "location": "Dubai, UAE",
         "badges": [
-          { "label": "+94% email conversion", "variant": "amber" },
-          { "label": "CTR 0.75% → 9%", "variant": "amber" }
+          {
+            "label": "+94% email conversion",
+            "variant": "amber"
+          },
+          {
+            "label": "CTR 0.75% → 9%",
+            "variant": "amber"
+          }
         ],
         "bullets": [
-          "Directed content strategy across web, email, push, PR, ads, and social, supporting acquisition and retention for a global FX/CFD brand.",
-          "Achieved +94% conversion on onboarding email journeys through segmentation, behavioral triggers, and relentless testing.",
-          "Managed and mentored a global content team across multiple regions, keeping compliant creative shipping on schedule.",
-          "Turned FX, metals, indices, and crypto market insight into campaigns that lifted CTRs from 0.75% to 9% and grew deposits and trading activity.",
-          "Wrote UI/UX microcopy for the IB Portal, Client Portal, and Mobile App."
+          "Directed content strategy across web, email, push, public relations (PR), paid media, and social, supporting client acquisition and retention for a global foreign exchange (FX) and contract for difference (CFD) brand.",
+          "Increased onboarding email conversion by 94% through audience segmentation, behavioral trigger journeys, and continuous A/B testing.",
+          "Managed and mentored a distributed content team across multiple regions, shipping compliance-approved creative on schedule.",
+          "Turned FX, metals, indices, and crypto market analysis into campaigns that lifted click-through rate (CTR) from 0.75% to 9% and grew deposits and trading volume.",
+          "Wrote user interface and user experience (UI/UX) microcopy for the Introducing Broker (IB) Portal, Client Portal, and mobile app."
         ]
       },
       {
@@ -113,10 +210,10 @@
         "period": "AUG 2022 – AUG 2024",
         "location": "Dubai, UAE",
         "bullets": [
-          "Developed cross-channel content aligned to brand narrative: web, social, email, PR, HTML5 banners, and search ads.",
-          "Published eBooks and trading guides on market-moving events like the BTC Halving and US elections.",
-          "Led content for ThinkCapital, the firm's prop trading brand, writing the full onboarding journey from sign-up to funded account.",
-          "Awarded Employee of the Month for exceptional work and initiative."
+          "Developed cross-channel content aligned to brand narrative across web, social, email, public relations (PR), HTML5 banners, and paid search.",
+          "Published eBooks and trading guides on market-moving events including the 2024 Bitcoin halving and the US elections.",
+          "Led content for ThinkCapital, the proprietary trading brand of ThinkMarkets, writing the full onboarding journey from sign-up to funded account.",
+          "Awarded Employee of the Month for performance and initiative."
         ]
       },
       {
@@ -127,9 +224,9 @@
         "location": "Remote, USA",
         "collapsed": true,
         "bullets": [
-          "Led a cross-functional team of content writers, community managers, and SEO specialists, overseeing content production across Finance, NFTs, Blockchain, CBD, and wellness verticals",
-          "Delivered digital marketing strategies that accumulated over 80 million views across client platforms, driving measurable brand visibility and audience growth",
-          "Developed and managed content for blockchain and NFT clients during a high-growth cycle in the Web3 space, building early expertise in decentralized community content and crypto-native narratives"
+          "Led a cross-functional team of content writers, community managers, and search engine optimization (SEO) specialists across finance, non-fungible token (NFT), blockchain, CBD, and wellness verticals.",
+          "Delivered digital marketing strategies that accumulated over 80 million views across client platforms, driving measurable brand visibility and audience growth.",
+          "Developed and managed content for blockchain and NFT clients through a high-growth Web3 cycle, building early expertise in decentralized community content and crypto-native narratives."
         ]
       },
       {
@@ -140,9 +237,9 @@
         "location": "Remote, UK",
         "collapsed": true,
         "bullets": [
-          "Hired, trained, and managed a team of in-house and outsourced content writers, building a scalable content operation for a growing digital agency",
-          "Authored and implemented content SOPs aligned with SEO best practices, improving team efficiency and output quality across client accounts",
-          "Produced SEO case studies that demonstrated measurable campaign results, supporting client retention and new business development"
+          "Hired, trained, and managed a team of in-house and outsourced content writers, building a scalable content operation for a growing digital agency.",
+          "Authored and implemented content standard operating procedures (SOPs) aligned with search engine optimization (SEO) best practice, improving team efficiency and output quality across client accounts.",
+          "Produced SEO case studies that demonstrated measurable campaign results, supporting client retention and new business development."
         ]
       },
       {
@@ -153,7 +250,7 @@
         "location": "Dubai, UAE",
         "collapsed": true,
         "bullets": [
-          "Produced SEO-optimized copy and digital marketing content across client accounts in the UAE market"
+          "Produced search engine optimization (SEO) copy and digital marketing content across client accounts in the UAE market."
         ]
       },
       {
@@ -194,11 +291,36 @@
     "industryPresenceHeading": "On the ground, not just online",
     "industryPresenceSubtitle": "Web3 runs on rooms, not just feeds. These are the rooms.",
     "industryPresence": [
-      { "period": "June 2026 · Lead Organizer", "title": "Istanbul Blockchain Week: Platinum Sponsor", "lead": true, "description": "Organized mb.io's full booth presence end to end: vendor and organizer management, on-ground KOL relations, and an invite-only VIP dinner for HNWI partners and prospects that outperformed the booth itself. Key insight carried forward: in crypto, intimate side events beat big-format builds." },
-      { "period": "2026 · Dubai", "title": "RWA Week", "lead": false, "description": "Represented mb.io in the room where its core thesis lives: real-world asset tokenization." },
-      { "period": "2026 · TheBlock, Dubai", "title": "Bitcoin Pizza Day", "lead": false, "description": "Brand representation at a community event feeding the OTC desk pipeline." },
-      { "period": "2025", "title": "Binance Blockchain Week", "lead": false, "description": "Represented mb.io among the industry's largest exchange audience." },
-      { "period": "2026 · Manila", "title": "Philippine Blockchain Week", "lead": false, "description": "On-ground representation yielding high-value contacts and an OTC network." }
+      {
+        "period": "June 2026 · Lead Organizer",
+        "title": "Istanbul Blockchain Week: Platinum Sponsor",
+        "lead": true,
+        "description": "Organized mb.io's full booth presence end to end: vendor and organizer management, on-ground KOL relations, and an invite-only VIP dinner for HNWI partners and prospects that outperformed the booth itself. Key insight carried forward: in crypto, intimate side events beat big-format builds."
+      },
+      {
+        "period": "2026 · Dubai",
+        "title": "RWA Week",
+        "lead": false,
+        "description": "Represented mb.io in the room where its core thesis lives: real-world asset tokenization."
+      },
+      {
+        "period": "2026 · TheBlock, Dubai",
+        "title": "Bitcoin Pizza Day",
+        "lead": false,
+        "description": "Brand representation at a community event feeding the OTC desk pipeline."
+      },
+      {
+        "period": "2025",
+        "title": "Binance Blockchain Week",
+        "lead": false,
+        "description": "Represented mb.io among the industry's largest exchange audience."
+      },
+      {
+        "period": "2026 · Manila",
+        "title": "Philippine Blockchain Week",
+        "lead": false,
+        "description": "On-ground representation yielding high-value contacts and an OTC network."
+      }
     ]
   },
   "education": {
@@ -244,13 +366,42 @@
       }
     ],
     "certifications": [
-      { "id": "cert-1", "name": "AI Applications in Marketing and Finance", "issuer": "University of Pennsylvania", "hot": true },
-      { "id": "cert-2", "name": "Social Media and Social Content Strategy", "issuer": "Digital Marketing Institute" },
-      { "id": "cert-3", "name": "Content Marketing Masterclass: Create Content That Sells", "issuer": "Udemy" },
-      { "id": "cert-4", "name": "The Strategy of Content Marketing", "issuer": "Coursera" },
-      { "id": "cert-5", "name": "Introduction to Marketing", "issuer": "Coursera" },
-      { "id": "cert-6", "name": "Market Research and Consumer Behaviour", "issuer": "Coursera" },
-      { "id": "cert-7", "name": "LinkedIn Advertising Fundamentals Certification", "issuer": "LinkedIn" }
+      {
+        "id": "cert-1",
+        "name": "AI Applications in Marketing and Finance",
+        "issuer": "University of Pennsylvania",
+        "hot": true
+      },
+      {
+        "id": "cert-2",
+        "name": "Social Media and Social Content Strategy",
+        "issuer": "Digital Marketing Institute"
+      },
+      {
+        "id": "cert-3",
+        "name": "Content Marketing Masterclass: Create Content That Sells",
+        "issuer": "Udemy"
+      },
+      {
+        "id": "cert-4",
+        "name": "The Strategy of Content Marketing",
+        "issuer": "Coursera"
+      },
+      {
+        "id": "cert-5",
+        "name": "Introduction to Marketing",
+        "issuer": "Coursera"
+      },
+      {
+        "id": "cert-6",
+        "name": "Market Research and Consumer Behaviour",
+        "issuer": "Coursera"
+      },
+      {
+        "id": "cert-7",
+        "name": "LinkedIn Advertising Fundamentals Certification",
+        "issuer": "LinkedIn"
+      }
     ]
   },
   "skills": {
@@ -352,29 +503,66 @@
       {
         "id": "tg-1",
         "groupName": "AI & Automation",
-        "tags": ["Claude (Anthropic)", "Higgsfield", "Kling 3.0", "NotebookLM", "Google AI Studio", "ChatGPT"]
+        "tags": [
+          "Claude (Anthropic)",
+          "Higgsfield",
+          "Kling 3.0",
+          "NotebookLM",
+          "Google AI Studio",
+          "ChatGPT"
+        ]
       },
       {
         "id": "tg-2",
         "groupName": "Content & Publishing",
-        "tags": ["Substack", "Notion", "Google Workspace", "Canva", "Figma (working knowledge)"]
+        "tags": [
+          "Notion",
+          "Google Workspace",
+          "Canva",
+          "Figma (working knowledge)"
+        ]
       },
       {
         "id": "tg-3",
         "groupName": "Dev & Data",
-        "tags": ["Firebase", "Google Analytics", "Looker Studio", "React (working knowledge)", "HTML/CSS (working knowledge)"]
+        "tags": [
+          "Firebase",
+          "Google Analytics",
+          "Looker Studio",
+          "React (working knowledge)",
+          "HTML/CSS (working knowledge)"
+        ]
       },
       {
         "id": "tg-4",
         "groupName": "Platforms & Distribution",
-        "tags": ["X (Twitter)", "LinkedIn", "META", "Telegram", "Google Ads", "Meta Ads Manager", "App Store Connect", "Google Play Console"]
+        "tags": [
+          "X (Twitter)",
+          "LinkedIn",
+          "META",
+          "Telegram",
+          "Google Ads",
+          "Meta Ads Manager",
+          "App Store Connect",
+          "Google Play Console"
+        ]
       }
     ]
   },
   "portfolio": {
     "eyebrow": "The Receipts",
     "sectionSubtitle": "Campaigns, case studies, tooling, and the occasional 400% traffic jump. Filter by what you're hiring for.",
-    "categories": ["All", "Content Management", "Social Media", "SEO Case Studies", "eBook", "Blog Posts", "Newsletter", "Ad Copy", "UI/UX Copy"],
+    "categories": [
+      "All",
+      "Content Management",
+      "Social Media",
+      "SEO Case Studies",
+      "eBook",
+      "Blog Posts",
+      "Newsletter",
+      "Ad Copy",
+      "UI/UX Copy"
+    ],
     "items": [
       {
         "id": "cm-1",
@@ -383,8 +571,11 @@
         "title": "mb.io Content Management Dashboard",
         "category": "Content Management",
         "tag": "Content Management / mb.io",
-        "description": "A full content management system built from scratch using Google AI Studio and Firebase. Features a content calendar, AI writing agent, campaign planner, blog manager, and strategy analytics tab. Used daily by the mb.io writing team. Built entirely by me: not a template, not a no-code tool.",
-        "badges": ["Used daily in production", "Demo upon request"],
+        "description": "A full content management system built from scratch using Google AI Studio, Firebase, and Claude Code. Features a content calendar, AI writing agent, campaign planner, blog manager, and strategy analytics tab. Used daily by the mb.io writing team. Built entirely by me: not a template, not a no-code tool.",
+        "badges": [
+          "Used daily in production",
+          "Demo upon request"
+        ],
         "featured": true,
         "glyph": "🎛️",
         "theme": "amber",
@@ -392,8 +583,25 @@
         "ctaLabel": "View Dashboard →"
       },
       {
+        "id": "cm-2",
+        "title": "Cryptopedia: mb.io Crypto Knowledge Base",
+        "category": "Content Management",
+        "tag": "Content Management / mb.io",
+        "description": "The mb.io crypto knowledge base: 100+ published entries against a 300+ topic roadmap, from private keys to US market structure regulation. Every article is written to rank on Google, win featured snippets, and get cited by ChatGPT, Perplexity, and Gemini (SEO, AEO, and GEO).",
+        "badges": [
+          "100+ articles live",
+          "300+ topic roadmap",
+          "SEO · AEO · GEO"
+        ],
+        "glyph": "📚",
+        "theme": "amber",
+        "link": "https://mb.io/en-AE/cryptopedia",
+        "ctaLabel": "Browse Cryptopedia →",
+        "index": "02"
+      },
+      {
         "id": "social-1",
-        "index": "02",
+        "index": "03",
         "title": "mb.io Social Media",
         "category": "Social Media",
         "tag": "Social Media / mb.io",
@@ -401,27 +609,55 @@
         "glyph": "📈",
         "theme": "blue",
         "links": [
-          { "label": "X", "href": "https://x.com/multibank_io" },
-          { "label": "LinkedIn", "href": "https://www.linkedin.com/company/mb-io" },
-          { "label": "Instagram", "href": "https://www.instagram.com/multibank_io/" }
+          {
+            "label": "X",
+            "href": "https://x.com/multibank_io"
+          },
+          {
+            "label": "LinkedIn",
+            "href": "https://www.linkedin.com/company/mb-io"
+          },
+          {
+            "label": "Instagram",
+            "href": "https://www.instagram.com/multibank_io/"
+          }
         ]
       },
       {
         "id": "news-1",
-        "index": "03",
-        "title": "mb.insider",
+        "index": "04",
+        "title": "mb.insider Weekly Newsletter",
         "category": "Newsletter",
         "tag": "Newsletter / mb.io",
-        "description": "The mb.io Substack publication: a weekly crypto intelligence newsletter plus comprehensive long-form articles covering market updates, product news, and editorial features. Written, edited, fact-checked, and published every week.",
-        "badges": ["20+ issues", "Weekly cadence"],
+        "description": "The weekly mb.io newsletter: crypto market updates and company news in a single digest. Written, edited, fact-checked, and shipped every week.",
+        "badges": [
+          "20+ issues",
+          "Weekly cadence"
+        ],
         "glyph": "📬",
         "theme": "amber",
-        "link": "https://multibank.substack.com/",
-        "ctaLabel": "Read on Substack →"
+        "link": "https://mb.io/en/blog",
+        "ctaLabel": "Read the latest issue →"
+      },
+      {
+        "id": "mu-1",
+        "title": "mb.io Market Updates",
+        "category": "Blog Posts",
+        "tag": "Market Updates / mb.io",
+        "description": "Market analysis on the events that actually move crypto: regulation, exchange-traded fund (ETF) flows, protocol upgrades, and institutional adoption. Written on deadline and published to the mb.io blog.",
+        "badges": [
+          "Published on the mb.io blog",
+          "Written on deadline"
+        ],
+        "glyph": "📈",
+        "theme": "amber",
+        "link": "https://mb.io/en/blog",
+        "ctaLabel": "Read the market updates →",
+        "index": "05"
       },
       {
         "id": "seo-1",
-        "index": "04",
+        "index": "06",
         "title": "SEO Case Study: Self-Storage Marketplace",
         "category": "SEO Case Studies",
         "tag": "SEO Case Study / To The Top",
@@ -429,16 +665,25 @@
         "glyph": "🏆",
         "theme": "blue",
         "resultBadges": [
-          { "label": "Organic Traffic", "value": "0 to 30K" },
-          { "label": "#1 City Rankings", "value": "300+" },
-          { "label": "Monthly Traffic Value", "value": "$334,000+" }
+          {
+            "label": "Organic Traffic",
+            "value": "0 to 30K"
+          },
+          {
+            "label": "#1 City Rankings",
+            "value": "300+"
+          },
+          {
+            "label": "Monthly Traffic Value",
+            "value": "$334,000+"
+          }
         ],
         "modalId": "storage-case-study",
         "link": null
       },
       {
         "id": "seo-2",
-        "index": "05",
+        "index": "07",
         "title": "SEO Case Study: Plumbing Company",
         "category": "SEO Case Studies",
         "tag": "SEO Case Study / To The Top",
@@ -446,16 +691,25 @@
         "glyph": "🔧",
         "theme": "blue",
         "resultBadges": [
-          { "label": "Monthly Organic Traffic", "value": "+400%" },
-          { "label": "Monthly Leads Increase", "value": "+115%" },
-          { "label": "Top 10 Keywords", "value": "+324%" }
+          {
+            "label": "Monthly Organic Traffic",
+            "value": "+400%"
+          },
+          {
+            "label": "Monthly Leads Increase",
+            "value": "+115%"
+          },
+          {
+            "label": "Top 10 Keywords",
+            "value": "+324%"
+          }
         ],
         "modalId": "plumbing-case-study",
         "link": null
       },
       {
         "id": "ebook-1",
-        "index": "06",
+        "index": "08",
         "title": "Ultimate Guide to Trading the 2024 Bitcoin Halving Event",
         "category": "eBook",
         "tag": "eBook / ThinkMarkets",
@@ -468,7 +722,7 @@
       },
       {
         "id": "blog-1",
-        "index": "07",
+        "index": "09",
         "title": "What is De-dollarisation, and Which Markets Will It Affect?",
         "category": "Blog Posts",
         "tag": "Article / ThinkMarkets",
@@ -480,7 +734,7 @@
       },
       {
         "id": "blog-2",
-        "index": "08",
+        "index": "10",
         "title": "Oil Trading Strategies: How to Trade Crude Oil CFDs",
         "category": "Blog Posts",
         "tag": "Article / MultiBank Group",
@@ -492,7 +746,7 @@
       },
       {
         "id": "blog-3",
-        "index": "09",
+        "index": "11",
         "title": "Common Forex Trading Mistakes and How to Avoid Them",
         "category": "Blog Posts",
         "tag": "Article / MultiBank Group",
@@ -504,7 +758,7 @@
       },
       {
         "id": "blog-4",
-        "index": "10",
+        "index": "12",
         "title": "Moving Averages in Trading: Beginner's Guide",
         "category": "Blog Posts",
         "tag": "Article / MultiBank Group",
@@ -516,7 +770,7 @@
       },
       {
         "id": "ad-1",
-        "index": "11",
+        "index": "13",
         "title": "Google App Campaigns",
         "category": "Ad Copy",
         "tag": "Google App Ads / mb.io",
@@ -528,7 +782,7 @@
       },
       {
         "id": "ad-2",
-        "index": "12",
+        "index": "14",
         "title": "Google Search Campaigns",
         "category": "Ad Copy",
         "tag": "Google Search Ads / mb.io",
@@ -540,7 +794,7 @@
       },
       {
         "id": "uiux-1",
-        "index": "13",
+        "index": "15",
         "title": "mb.io Crypto Exchange App",
         "category": "UI/UX Copy",
         "tag": "UI/UX Copy / mb.io",
@@ -559,7 +813,17 @@
     "linkedin": "linkedin.com/in/marvin-sta-ana/",
     "telegram": "@martianthemarvin",
     "location": "Dubai, UAE",
-    "cv": { "label": "Download PDF ↓", "href": "/cv.pdf" },
-    "subjectOptions": ["Job Opportunity", "Collaboration", "Speaking Engagement", "Press", "General Inquiry", "Other"]
+    "cv": {
+      "label": "Download PDF ↓",
+      "href": "/cv.pdf"
+    },
+    "subjectOptions": [
+      "Job Opportunity",
+      "Collaboration",
+      "Speaking Engagement",
+      "Press",
+      "General Inquiry",
+      "Other"
+    ]
   }
 }
